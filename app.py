@@ -16,9 +16,21 @@ db = SQLAlchemy(app)
 
 @app.route('/accueil')
 def index():
-    tasks = test()
-    print(tasks)
-    return render_template('index.html', tasks=tasks)
+    
+    perf_nat = performances_nationales(2020)
+
+    list_depart_reg_1 = "('var', 'bouches-du-rhone')"
+    perf_reg1 = performances_region(2020, list_depart_reg_1)
+
+    list_depart_reg_2 = "('cher', 'yonne')"
+    perf_reg2 = performances_region(2020, list_depart_reg_2)
+    
+    return render_template(
+        'index.html', 
+        perf_nat=perf_nat,
+        perf_reg1=perf_reg1,
+        perf_reg2=perf_reg2
+    )
 
 
 
@@ -27,4 +39,3 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 
-    

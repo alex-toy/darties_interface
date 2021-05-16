@@ -1,26 +1,94 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Task Master</title>
+<title>Accueil</title>
 {% endblock %}
 
 {% block body %}
 <div class="content">
-    <h1 style="text-align: center">Task Master</h1>
-
-
+    
+    
+    <h1 style="text-align: center">Performances nationales</h1>
     <table>
         <tr>
-            <th>Task</th> <th>Added</th>
+            <th>National</th> <th>Budget</th> <th>Reel</th> <th>Ratio</th>
         </tr>
             <tr>
-                <td>{{tasks}}</td>
-                <td>{{tasks}}</td>
+                <td>CA</td>
+                <td>{{perf_nat["ca_obj"]|round|int}}</td>
+                <td>{{perf_nat["ca_reel"]|round|int}}</td>
+                <td>{{ perf_nat["ca_reel"] / perf_nat["ca_obj"] }}</td>
+            </tr>
+            
+            <tr>
+                <td>Ventes</td>
+                <td>{{perf_nat["ventes_objectif"]|round|int}}</td>
+                <td>{{perf_nat["vente_reel"]|round|int}}</td>
+                <td>{{ perf_nat["vente_reel"] / perf_nat["ventes_objectif"] }}</td>
             </tr>
 
             <tr>
-                <td>{{tasks}}</td>
-                <td>{{tasks}}</td>
+                <td>Marges</td>
+                <td>{{perf_nat["marge_objectif"]|round|int}}</td>
+                <td>{{perf_nat["marge_reel"]|round|int}}</td>
+                <td>{{ perf_nat["marge_reel"] / perf_nat["marge_objectif"] |float }}</td>
+            </tr>
+
+    </table>
+
+
+    <h1 style="text-align: center">Performances région 1</h1>
+    <table>
+        <tr>
+            <th>Région 1</th> <th>Budget</th> <th>Reel</th> <th>Ratio</th>
+        </tr>
+            <tr>
+                <td>CA</td>
+                <td>{{perf_reg1["ca_obj"]|round|int}}</td>
+                <td>{{perf_reg1["ca_reel"]|round|int}}</td>
+                <td>{{ perf_reg1["ca_reel"] / perf_reg1["ca_obj"] }}</td>
+            </tr>
+            
+            <tr>
+                <td>Ventes</td>
+                <td>{{perf_reg1["ventes_objectif"]|round|int}}</td>
+                <td>{{perf_reg1["vente_reel"]|round|int}}</td>
+                <td>{{ perf_reg1["vente_reel"] / perf_reg1["ventes_objectif"] }}</td>
+            </tr>
+
+            <tr>
+                <td>Marges</td>
+                <td>{{perf_reg1["marge_objectif"]|round|int}}</td>
+                <td>{{perf_reg1["marge_reel"]|round|int}}</td>
+                <td>{{ perf_reg1["marge_reel"] / perf_reg1["marge_objectif"] |float }}</td>
+            </tr>
+    </table>
+
+
+    <h1 style="text-align: center">Performances région 2</h1>
+    <table>
+        <tr>
+            <th>Région 1</th> <th>Budget</th> <th>Reel</th> <th>Ratio</th>
+        </tr>
+            <tr>
+                <td>CA</td>
+                <td>{{perf_reg2["ca_obj"]|round|int}}</td>
+                <td>{{perf_reg2["ca_reel"]|round|int}}</td>
+                <td>{{ perf_reg2["ca_reel"] / perf_reg2["ca_obj"] }}</td>
+            </tr>
+            
+            <tr>
+                <td>Ventes</td>
+                <td>{{perf_reg2["ventes_objectif"]|round|int}}</td>
+                <td>{{perf_reg2["vente_reel"]|round|int}}</td>
+                <td>{{ perf_reg2["vente_reel"] / perf_reg2["ventes_objectif"] }}</td>
+            </tr>
+
+            <tr>
+                <td>Marges</td>
+                <td>{{perf_reg2["marge_objectif"]|round|int}}</td>
+                <td>{{perf_reg2["marge_reel"]|round|int}}</td>
+                <td>{{ perf_reg2["marge_reel"] / perf_reg2["marge_objectif"] |float }}</td>
             </tr>
 
     </table>
@@ -34,3 +102,5 @@
     </div>
 </div>
 {% endblock %}
+
+

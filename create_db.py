@@ -271,7 +271,7 @@ if __name__ == "__main__":
 
     #create_magasin()
 
-    create_famille_produit()
+    #create_famille_produit()
 
-    show_tables('famille_produit')
+    show_tables('villes')
 
