@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Accueil</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+
+    <ul>
+        <li><a href="/accueil">Accueil</a></li>
+        <li><a href="/historique">Historique</a></li>
+        <li><a href="/details">Détails</a></li>
+        <li><a href="/palmares">Palmares</a></li>
+      </ul>
+
+    <h1 style="text-align: center">Performances nationales</h1>
+    <table>
+        <tr>
+            <th></th> <th>Novembre</th> <th>Novembre</th> <th>Cumul de janvier à novembre</th> <th>Cumul de janvier à novembre</th>
+        </tr>
+        <tr>
+            <th>CA</th> <th>Budget</th> <th>Reel</th> <th>Budget</th> <th>Reel</th>
+        </tr>
+        <tr>
+            <td>Hi-fi</td>
+            <td>{{ hifi_prev|round|int }}</td>
+            <td>{{ hifi_reel|round|int }}</td>
+            <td>{{ hifi_prev_cumul|round|int }}</td>
+            <td>{{ hifi_reel_cumul|round|int }}</td>
+        </tr>
+        <tr>
+            <td>Magnéto</td>
+            <td>{{ magneto_prev|round|int }}</td>
+            <td>{{ magneto_reel|round|int }}</td>
+            <td>{{ magneto_prev_cumul|round|int }}</td>
+            <td>{{ magneto_reel_cumul|round|int }}</td>
+        </tr>
+        <tr>
+            <td>Fours</td>
+            <td>{{ fours_prev|round|int }}</td>
+            <td>{{ fours_reel|round|int }}</td>
+            <td>{{ fours_prev_cumul|round|int }}</td>
+            <td>{{ fours_reel_cumul|round|int }}</td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td>{{ (hifi_prev+magneto_prev+fours_prev)|round|int }}</td>
+            <td>{{ (hifi_reel+magneto_reel+fours_reel)|round|int }}</td>
+            <td>{{ (hifi_prev_cumul+magneto_prev_cumul+fours_prev_cumul)|round|int }}</td>
+            <td>{{ (hifi_reel_cumul+magneto_reel_cumul+fours_reel_cumul)|round|int }}</td>
+        </tr>
+    </table>
+
+
+    <div class="form">
+        <form action="/" method="POST">
+            <input type="text" name="content" id="content">
+            <input type="submit" value="Add Task">
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+

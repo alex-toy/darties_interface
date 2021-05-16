@@ -33,3 +33,13 @@ td {
 #content {
     width: 70%;
 }
+
+section{
+    width: 610px;
+  }
+  
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

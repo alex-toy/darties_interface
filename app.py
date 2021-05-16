@@ -15,7 +15,7 @@ db = SQLAlchemy(app)
 
 
 @app.route('/accueil')
-def index():
+def accueil():
     
     perf_nat = performances_nationales(2020)
 
@@ -26,12 +26,37 @@ def index():
     perf_reg2 = performances_region(2020, list_depart_reg_2)
     
     return render_template(
-        'index.html', 
+        'accueil.html', 
         perf_nat=perf_nat,
         perf_reg1=perf_reg1,
         perf_reg2=perf_reg2
     )
 
+
+
+
+@app.route('/historique')
+def historique():
+    
+    hist_indicators = hist(2020, 'novembre')
+    hist_indicators_cumul = hist_cumul(2020, 11)
+    
+    return render_template(
+        'historique.html', 
+        hifi_prev=hist_indicators['hifi_prev'],
+        hifi_reel=hist_indicators['hifi_reel'],
+        magneto_prev=hist_indicators['magneto_prev'],
+        magneto_reel=hist_indicators['magneto_reel'],
+        fours_prev=hist_indicators['fours_prev'],
+        fours_reel=hist_indicators['fours_reel'],
+
+        hifi_prev_cumul=hist_indicators_cumul['hifi_prev_cumul'],
+        hifi_reel_cumul=hist_indicators_cumul['hifi_reel_cumul'],
+        magneto_prev_cumul=hist_indicators_cumul['magneto_prev_cumul'],
+        magneto_reel_cumul=hist_indicators_cumul['magneto_reel_cumul'],
+        fours_prev_cumul=hist_indicators_cumul['fours_prev_cumul'],
+        fours_reel_cumul=hist_indicators_cumul['fours_reel_cumul']
+    )
 
 
 
