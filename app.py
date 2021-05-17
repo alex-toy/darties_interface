@@ -6,6 +6,7 @@ import sqlite3
 import pandas as pd
 
 from queries import *
+from config import *
 
 app = Flask(__name__)
 app.secret_key = "super secret key"
@@ -18,12 +19,8 @@ db = SQLAlchemy(app)
 def accueil():
     
     perf_nat = performances_nationales(2020)
-
-    list_depart_reg_1 = "('var', 'bouches-du-rhone')"
-    perf_reg1 = performances_region(2020, list_depart_reg_1)
-
-    list_depart_reg_2 = "('cher', 'yonne')"
-    perf_reg2 = performances_region(2020, list_depart_reg_2)
+    perf_reg1 = performances_region(2020, list_departement_reg_1)
+    perf_reg2 = performances_region(2020, list_departement_reg_2)
     
     return render_template(
         'accueil.html', 
@@ -165,12 +162,8 @@ def accueil_region(region_name):
     print(region_name)
     
     perf_nat = performances_nationales(2020)
-
-    list_depart_reg_1 = f"('{region_name}')"
-    perf_reg1 = performances_region(2020, list_depart_reg_1)
-
-    list_depart_reg_2 = "('cher', 'yonne')"
-    perf_reg2 = performances_region(2020, list_depart_reg_2)
+    perf_reg1 = performances_region(2020, list_departement_reg_1)
+    perf_reg2 = performances_region(2020, list_departement_reg_2)
     
     return render_template(
         'accueil_region.html',
