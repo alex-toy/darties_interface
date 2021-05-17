@@ -58,7 +58,6 @@ def historique():
 
         current_year=current_year,
 
-
         hifi_obj_prev=hist_indicators_prev['hifi_obj'],
         hifi_reel_prev=hist_indicators_prev['hifi_reel'],
         magneto_obj_prev=hist_indicators_prev['magneto_obj'],
