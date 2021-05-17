@@ -133,21 +133,16 @@
 
 
 
-
     <form action="http://127.0.0.1:5000/details" method="POST">
         <label>Nom</label> : <input type="text" name="nom" /></br>
         
         <label>Prénom</label> : <input type="text" name="prenom" /></br>
         
-        <label for="pet-select">Mois</label>
-        <select name="pets" id="pet-select">
-            <option value="">--Choix du mois--</option>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option>
+        <label for="mois-select">Mois</label>
+        <select name="mois" id="mois-select">
+            <option value="1">--Choix du mois--</option>
+            <option value="1">janvier</option>
+            <option value="2">février</option>
         </select>
 
         <input type="submit" value="Envoyer" />

@@ -94,9 +94,17 @@ def details():
     di = details_indicators(current_year, mois)
 
     result = request.form.to_dict()
-    print(result)
-    n = result['nom'] if result['nom'] else ''
-    p = result['prenom'] if result['prenom'] else ''
+    print('result', result)
+    
+    n = ''
+    p = ''
+    mois = 1
+    if result :
+        print(result)
+        n = result['nom']
+        p = result['prenom']
+        mois = int(result['mois'])
+
     
     return render_template(
         'details.html',
