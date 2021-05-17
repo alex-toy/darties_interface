@@ -33,17 +33,17 @@
             <tr>
                 <td>Hi-fi</td>
 
-                <td> {{ '{0:0.2f}'.format(hifi_ca_obj) }}</td>
-                <td> {{ '{0:0.2f}'.format(hifi_ca_reel) }}</td>
-                <td> {{ '{0:0.2f}'.format(hifi_ca_reel-hifi_ca_obj) }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_kpi["ca_objectif"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_kpi["ca_reel"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_kpi["ca_reel"]-hifi_kpi["ca_objectif"]) }}</td>
 
-                <td> {{ '{0:0.2f}'.format(hifi_ventes_obj) }}</td>
-                <td> {{ '{0:0.2f}'.format(hifi_ventes_reel) }}</td>
-                <td> {{ '{0:0.2f}'.format(hifi_ventes_reel-hifi_ventes_obj) }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_kpi["ventes_objectif"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_kpi["vente_reel"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_kpi["vente_reel"]-hifi_kpi["ventes_objectif"]) }}</td>
 
-                <td> {{ '{0:0.2f}'.format(hifi_marge_obj) }}</td>
-                <td> {{ '{0:0.2f}'.format(hifi_marge_reel) }}</td>
-                <td> {{ '{0:0.2f}'.format(hifi_marge_obj-hifi_marge_reel) }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_kpi["marge_objectif"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_kpi["marge_reel"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_kpi["marge_reel"]-hifi_kpi["marge_objectif"]) }}</td>
 
             </tr>
 
@@ -55,7 +55,7 @@
                 <td> {{ '{0:0.2f}'.format(fours_kpi["ca_reel"]-fours_kpi["ca_objectif"]) }}</td>
 
                 <td> {{ '{0:0.2f}'.format(fours_kpi["ventes_objectif"]) }}</td>
-                <td> {{ '{0:0.2f}'.format(magneto_kpi["vente_reel"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_kpi["vente_reel"]) }}</td>
                 <td> {{ '{0:0.2f}'.format(fours_kpi["vente_reel"]-fours_kpi["ventes_objectif"]) }}</td>
 
                 <td> {{ '{0:0.2f}'.format(fours_kpi["marge_objectif"]) }}</td>
