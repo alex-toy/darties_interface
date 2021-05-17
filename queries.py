@@ -174,8 +174,10 @@ def details_indicators(annee, mois):
     """
     hifi_ca_obj = pd.read_sql(query.format('ca_objectif', annee, mois, 'hifi'), conn).values[0][0]
     hifi_ca_reel = pd.read_sql(query.format('ca_reel', annee, mois, 'hifi'), conn).values[0][0]
-    hifi_ca_obj = pd.read_sql(query.format('ca_objectif', annee, mois, 'hifi'), conn).values[0][0]
-    hifi_ca_reel = pd.read_sql(query.format('ca_reel', annee, mois, 'hifi'), conn).values[0][0]
+    hifi_ventes_obj = pd.read_sql(query.format('ventes_objectif', annee, mois, 'hifi'), conn).values[0][0]
+    hifi_ventes_reel = pd.read_sql(query.format('vente_reel', annee, mois, 'hifi'), conn).values[0][0]
+    hifi_marge_obj = pd.read_sql(query.format('marge_objectif', annee, mois, 'hifi'), conn).values[0][0]
+    hifi_marge_reel = pd.read_sql(query.format('marge_reel', annee, mois, 'hifi'), conn).values[0][0]
     
     fours_ca_obj = pd.read_sql(query.format('ca_objectif', annee, mois, 'fours'), conn).values[0][0]
 
@@ -184,6 +186,11 @@ def details_indicators(annee, mois):
     return {
         "hifi_ca_obj" : hifi_ca_obj,
         "hifi_ca_reel" : hifi_ca_reel,
+        "hifi_ventes_obj" : hifi_ventes_obj,
+        "hifi_ventes_reel" : hifi_ventes_reel,
+        "hifi_marge_obj" : hifi_ventes_obj,
+        "hifi_marge_reel" : hifi_ventes_reel,
+
         "fours_ca_obj" : fours_ca_obj
     }
 

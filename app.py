@@ -100,6 +100,10 @@ def details():
 
         hifi_ca_obj=di["hifi_ca_obj"],
         hifi_ca_reel=di["hifi_ca_reel"],
+        hifi_ventes_obj=di["hifi_ventes_obj"],
+        hifi_ventes_reel=di["hifi_ventes_reel"],
+        hifi_marge_obj=di["hifi_ventes_obj"],
+        hifi_marge_reel=di["hifi_ventes_reel"],
 
         fours_ca_obj=di["fours_ca_obj"]
     )
