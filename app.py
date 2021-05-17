@@ -37,25 +37,49 @@ def accueil():
 
 @app.route('/historique')
 def historique():
+
+    current_year = 2021
+
+    hist_indicators_prev = hist(current_year-1, 11)
+    hist_indicators_cumul_prev = hist_cumul(current_year-1, 11)
     
-    hist_indicators = hist(2020, 'novembre')
-    hist_indicators_cumul = hist_cumul(2020, 11)
+    hist_indicators_cur = hist(current_year, 11)
+    hist_indicators_cumul_cur = hist_cumul(current_year, 11)
     
     return render_template(
-        'historique.html', 
-        hifi_prev=hist_indicators['hifi_prev'],
-        hifi_reel=hist_indicators['hifi_reel'],
-        magneto_prev=hist_indicators['magneto_prev'],
-        magneto_reel=hist_indicators['magneto_reel'],
-        fours_prev=hist_indicators['fours_prev'],
-        fours_reel=hist_indicators['fours_reel'],
+        'historique.html',
 
-        hifi_prev_cumul=hist_indicators_cumul['hifi_prev_cumul'],
-        hifi_reel_cumul=hist_indicators_cumul['hifi_reel_cumul'],
-        magneto_prev_cumul=hist_indicators_cumul['magneto_prev_cumul'],
-        magneto_reel_cumul=hist_indicators_cumul['magneto_reel_cumul'],
-        fours_prev_cumul=hist_indicators_cumul['fours_prev_cumul'],
-        fours_reel_cumul=hist_indicators_cumul['fours_reel_cumul']
+        current_year=current_year,
+
+
+        hifi_obj_prev=hist_indicators_prev['hifi_obj'],
+        hifi_reel_prev=hist_indicators_prev['hifi_reel'],
+        magneto_obj_prev=hist_indicators_prev['magneto_obj'],
+        magneto_reel_prev=hist_indicators_prev['magneto_reel'],
+        fours_obj_prev=hist_indicators_prev['fours_obj'],
+        fours_reel_prev=hist_indicators_prev['fours_reel'],
+
+        hifi_obj_cumul_prev=hist_indicators_cumul_prev['hifi_obj_cumul'],
+        hifi_reel_cumul_prev=hist_indicators_cumul_prev['hifi_reel_cumul'],
+        magneto_obj_cumul_prev=hist_indicators_cumul_prev['magneto_obj_cumul'],
+        magneto_reel_cumul_prev=hist_indicators_cumul_prev['magneto_reel_cumul'],
+        fours_obj_cumul_prev=hist_indicators_cumul_prev['fours_obj_cumul'],
+        fours_reel_cumul_prev=hist_indicators_cumul_prev['fours_reel_cumul'],
+
+
+        hifi_obj_cur=hist_indicators_cur['hifi_obj'],
+        hifi_reel_cur=hist_indicators_cur['hifi_reel'],
+        magneto_obj_cur=hist_indicators_cur['magneto_obj'],
+        magneto_reel_cur=hist_indicators_cur['magneto_reel'],
+        fours_obj_cur=hist_indicators_cur['fours_obj'],
+        fours_reel_cur=hist_indicators_cur['fours_reel'],
+
+        hifi_obj_cumul_cur=hist_indicators_cumul_cur['hifi_obj_cumul'],
+        hifi_reel_cumul_cur=hist_indicators_cumul_cur['hifi_reel_cumul'],
+        magneto_obj_cumul_cur=hist_indicators_cumul_cur['magneto_obj_cumul'],
+        magneto_reel_cumul_cur=hist_indicators_cumul_cur['magneto_reel_cumul'],
+        fours_obj_cumul_cur=hist_indicators_cumul_cur['fours_obj_cumul'],
+        fours_reel_cumul_cur=hist_indicators_cumul_cur['fours_reel_cumul']
     )
 
 

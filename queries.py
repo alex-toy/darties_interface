@@ -69,7 +69,7 @@ def performances_region(annee, list_departement):
 
 
 
-def hist_indicator(indicator, annee, lib_mois, lib_famille_produit):
+def hist_indicator(indicator, annee, mois, lib_famille_produit):
     conn = sqlite3.connect('data.db')
 
     query = """
@@ -81,10 +81,10 @@ def hist_indicator(indicator, annee, lib_mois, lib_famille_produit):
         
         WHERE 
             temps.annee = {} AND
-            temps.lib_mois = '{}' AND
+            temps.mois = '{}' AND
             famille_produit.lib_famille_produit = '{}';
     """
-    indic = pd.read_sql(query.format(indicator, annee, lib_mois, lib_famille_produit), conn).values[0][0]
+    indic = pd.read_sql(query.format(indicator, annee, mois, lib_famille_produit), conn).values[0][0]
     conn.close()
 
     return indic
@@ -113,22 +113,22 @@ def hist_indicator_cumul(indicator, annee, mois, lib_famille_produit):
 
 
 
-def hist(annee, lib_mois):
-    hifi_prev = hist_indicator('ca_objectif', annee, lib_mois, 'hifi')
-    hifi_reel = hist_indicator('ca_reel', annee, lib_mois, 'hifi')
+def hist(annee, mois):
+    hifi_obj = hist_indicator('ca_objectif', annee, mois, 'hifi')
+    hifi_reel = hist_indicator('ca_reel', annee, mois, 'hifi')
 
-    magneto_prev = hist_indicator('ca_objectif', annee, lib_mois, 'magneto')
-    magneto_reel = hist_indicator('ca_reel', annee, lib_mois, 'magneto')
+    magneto_obj = hist_indicator('ca_objectif', annee, mois, 'magneto')
+    magneto_reel = hist_indicator('ca_reel', annee, mois, 'magneto')
 
-    fours_prev = hist_indicator('ca_objectif', annee, lib_mois, 'fours')
-    fours_reel = hist_indicator('ca_reel', annee, lib_mois, 'fours')
+    fours_obj = hist_indicator('ca_objectif', annee, mois, 'fours')
+    fours_reel = hist_indicator('ca_reel', annee, mois, 'fours')
 
     return {
-        "hifi_prev" : hifi_prev,
+        "hifi_obj" : hifi_obj,
         "hifi_reel" : hifi_reel,
-        "magneto_prev" : magneto_prev,
+        "magneto_obj" : magneto_obj,
         "magneto_reel" : magneto_reel,
-        "fours_prev" : fours_prev,
+        "fours_obj" : fours_obj,
         "fours_reel" : fours_reel
     }
 
@@ -136,20 +136,20 @@ def hist(annee, lib_mois):
 
 
 def hist_cumul(annee, mois):
-    hifi_prev = hist_indicator_cumul('ca_objectif', annee, mois, 'hifi')
+    hifi_obj = hist_indicator_cumul('ca_objectif', annee, mois, 'hifi')
     hifi_reel = hist_indicator_cumul('ca_reel', annee, mois, 'hifi')
 
-    magneto_prev = hist_indicator_cumul('ca_objectif', annee, mois, 'magneto')
+    magneto_obj = hist_indicator_cumul('ca_objectif', annee, mois, 'magneto')
     magneto_reel = hist_indicator_cumul('ca_reel', annee, mois, 'magneto')
 
-    fours_prev = hist_indicator_cumul('ca_objectif', annee, mois, 'fours')
+    fours_obj = hist_indicator_cumul('ca_objectif', annee, mois, 'fours')
     fours_reel = hist_indicator_cumul('ca_reel', annee, mois, 'fours')
 
     return {
-        "hifi_prev_cumul" : hifi_prev,
+        "hifi_obj_cumul" : hifi_obj,
         "hifi_reel_cumul" : hifi_reel,
-        "magneto_prev_cumul" : magneto_prev,
+        "magneto_obj_cumul" : magneto_obj,
         "magneto_reel_cumul" : magneto_reel,
-        "fours_prev_cumul" : fours_prev,
+        "fours_obj_cumul" : fours_obj,
         "fours_reel_cumul" : fours_reel
     }
