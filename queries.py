@@ -153,3 +153,37 @@ def hist_cumul(annee, mois):
         "fours_obj_cumul" : fours_obj,
         "fours_reel_cumul" : fours_reel
     }
+
+
+
+
+def details_indicators(annee, mois):
+    conn = sqlite3.connect('data.db')
+
+    query = """
+        SELECT sum({}) 
+        
+        FROM sales
+        JOIN temps ON sales.id_temps = temps.id_temps
+        JOIN famille_produit ON sales.id_famille_produit = famille_produit.id_famille_produit
+        
+        WHERE 
+            temps.annee = {} AND
+            temps.mois = {} AND
+            famille_produit.lib_famille_produit = '{}';
+    """
+    hifi_ca_obj = pd.read_sql(query.format('ca_objectif', annee, mois, 'hifi'), conn).values[0][0]
+    hifi_ca_reel = pd.read_sql(query.format('ca_reel', annee, mois, 'hifi'), conn).values[0][0]
+    hifi_ca_obj = pd.read_sql(query.format('ca_objectif', annee, mois, 'hifi'), conn).values[0][0]
+    hifi_ca_reel = pd.read_sql(query.format('ca_reel', annee, mois, 'hifi'), conn).values[0][0]
+    
+    fours_ca_obj = pd.read_sql(query.format('ca_objectif', annee, mois, 'fours'), conn).values[0][0]
+
+    conn.close()
+
+    return {
+        "hifi_ca_obj" : hifi_ca_obj,
+        "hifi_ca_reel" : hifi_ca_reel,
+        "fours_ca_obj" : fours_ca_obj
+    }
+

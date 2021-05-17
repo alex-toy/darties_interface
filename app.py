@@ -84,6 +84,36 @@ def historique():
 
 
 
+
+@app.route('/details')
+def details():
+
+    current_year = 2020
+    mois = 11
+    
+    di = details_indicators(current_year, mois)
+    
+    return render_template(
+        'details.html',
+        current_year=current_year,
+        mois=mois,
+
+        hifi_ca_obj=di["hifi_ca_obj"],
+        hifi_ca_reel=di["hifi_ca_reel"],
+
+        fours_ca_obj=di["fours_ca_obj"]
+    )
+
+
+
+
+
+
+
+
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)
 

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Accueil</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+
+    <ul>
+        <li><a href="/accueil">Accueil</a></li>
+        <li><a href="/historique">Historique</a></li>
+        <li><a href="/details">Détails</a></li>
+        <li><a href="/palmares">Palmares</a></li>
+      </ul>
+
+    <h3 style="text-align: center">Détails en France en Euros, de tous les indicateurs pour le mois de {{mois}} {{current_year}} </h3>
+    <table>
+        <tr>
+            <th></th>
+            <th colspan="3"> CA </th>
+            <th colspan="3"> Ventes </th>
+            <th colspan="3"> Marge </th>
+        </tr>
+
+        <tr>
+            <th></th>
+            <th>Budget</th><th>Reel</th><th>Ecart</th>
+            <th>Budget</th><th>Reel</th><th>Ecart</th>
+            <th>Budget</th><th>Reel</th><th>Ecart</th>
+        </tr>
+            <tr>
+                <td>Hi-fi</td>
+                <td>{{ hifi_ca_obj|round|int }}</td>
+                <td>{{ hifi_ca_reel|round|int }}</td>
+                <td>{{ (hifi_ca_reel-hifi_ca_obj)|round|int }}</td>
+            </tr>
+
+            <tr>
+                <td>Fours</td>
+                <td>{{ fours_ca_obj|round|int }}</td>
+                <td>{{ fours_ca_obj|round|int }}</td>
+            </tr>
+            
+
+
+    </table>
+
+
+
+
+    <div class="form">
+        <form action="/" method="POST">
+            <input type="text" name="content" id="content">
+            <input type="submit" value="Add Task">
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+
