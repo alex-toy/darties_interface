@@ -1,4 +1,5 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, flash
+from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import sqlite3
@@ -7,10 +8,9 @@ import pandas as pd
 from queries import *
 
 app = Flask(__name__)
+app.secret_key = "super secret key"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
-
-
 
 
 
@@ -85,13 +85,18 @@ def historique():
 
 
 
-@app.route('/details')
+@app.route('/details', methods=['GET', 'POST'])
 def details():
 
     current_year = 2020
     mois = 11
     
     di = details_indicators(current_year, mois)
+
+    result = request.form.to_dict()
+    print(result)
+    n = result['nom'] if result['nom'] else ''
+    p = result['prenom'] if result['prenom'] else ''
     
     return render_template(
         'details.html',
@@ -101,12 +106,21 @@ def details():
         hifi_kpi=di["hifi_kpi"],
         fours_kpi=di["fours_kpi"],
         magneto_kpi=di["magneto_kpi"],
+
+        nom=n, 
+        prenom=p
     )
 
 
 
 
+
 if __name__ == "__main__":
+    
+
+    # app.debug = True
+    # app.run()
+
     app.run(debug=True)
 
 
