@@ -50,17 +50,17 @@
             <tr>
                 <td>Fours</td>
 
-                <td> {{ '{0:0.2f}'.format(fours_ca_obj) }}</td>
-                <td> {{ '{0:0.2f}'.format(fours_ca_reel) }}</td>
-                <td> {{ '{0:0.2f}'.format(fours_ca_reel-fours_ca_obj) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_kpi["ca_objectif"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_kpi["ca_reel"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_kpi["ca_reel"]-fours_kpi["ca_objectif"]) }}</td>
 
-                <td> {{ '{0:0.2f}'.format(fours_ventes_obj) }}</td>
-                <td> {{ '{0:0.2f}'.format(fours_ventes_reel) }}</td>
-                <td> {{ '{0:0.2f}'.format(fours_ventes_reel-fours_ventes_obj) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_kpi["ventes_objectif"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(magneto_kpi["vente_reel"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_kpi["vente_reel"]-fours_kpi["ventes_objectif"]) }}</td>
 
-                <td> {{ '{0:0.2f}'.format(fours_marge_obj) }}</td>
-                <td> {{ '{0:0.2f}'.format(fours_marge_reel) }}</td>
-                <td> {{ '{0:0.2f}'.format(fours_marge_reel-fours_marge_obj) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_kpi["marge_objectif"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_kpi["marge_reel"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_kpi["marge_reel"]-fours_kpi["marge_objectif"]) }}</td>
 
             </tr>
 
@@ -71,13 +71,13 @@
                 <td> {{ '{0:0.2f}'.format(magneto_kpi["ca_reel"]) }}</td>
                 <td> {{ '{0:0.2f}'.format(magneto_kpi["ca_reel"]-magneto_kpi["ca_objectif"]) }}</td>
 
-                <td> {{ '{0:0.2f}'.format(fours_ventes_obj) }}</td>
-                <td> {{ '{0:0.2f}'.format(fours_ventes_reel) }}</td>
-                <td> {{ '{0:0.2f}'.format(fours_ventes_reel-fours_ventes_obj) }}</td>
+                <td> {{ '{0:0.2f}'.format(magneto_kpi["ventes_objectif"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(magneto_kpi["vente_reel"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(magneto_kpi["vente_reel"]-magneto_kpi["ventes_objectif"]) }}</td>
 
-                <td> {{ '{0:0.2f}'.format(fours_marge_obj) }}</td>
-                <td> {{ '{0:0.2f}'.format(fours_marge_reel) }}</td>
-                <td> {{ '{0:0.2f}'.format(fours_marge_reel-fours_marge_obj) }}</td>
+                <td> {{ '{0:0.2f}'.format(magneto_kpi["marge_objectif"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(magneto_kpi["marge_reel"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(magneto_kpi["marge_reel"]-magneto_kpi["marge_objectif"]) }}</td>
 
             </tr>
             
