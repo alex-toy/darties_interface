@@ -12,7 +12,31 @@
         <li><a href="/historique">Historique</a></li>
         <li><a href="/details">Détails</a></li>
         <li><a href="/palmares">Palmares</a></li>
-      </ul>
+    </ul>
+
+    </br>
+    <form action="/accueil" method="POST">
+        
+        <label for="mois-select">Année</label>
+        <select name="annee" id="mois-select">
+            <option value="2020">--Choix de l'année--</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+        </select></br>
+        
+        <label for="mois-select">Mois</label>
+        <select name="mois" id="mois-select">
+            <option value="1|janvier">--Choix du mois--</option>
+            <option value="1|janvier">janvier</option>
+            <option value="2|février">février</option>
+            <option value="3|mars">mars</option>
+            <option value="4|avril">avril</option>
+            <option value="5|mai">mai</option>
+            <option value="6|juin">juin</option>
+        </select></br>
+
+        <input type="submit" value="Envoyer" />
+    </form>
 
     <h1 style="text-align: center">Performances nationales</h1>
     <table>

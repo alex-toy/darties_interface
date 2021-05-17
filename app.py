@@ -15,12 +15,22 @@ db = SQLAlchemy(app)
 
 
 
-@app.route('/accueil')
+@app.route('/accueil', methods=['GET', 'POST'])
 def accueil():
+
+    result = request.form.to_dict()
     
-    perf_nat = performances_nationales(2020)
-    perf_reg1 = performances_region(2020, list_departement_reg_1)
-    perf_reg2 = performances_region(2020, list_departement_reg_2)
+    mois_int = 1
+    mois_string = 'janvier'
+    annee = 2020
+    if result :
+        mois_int = int(result['mois'].split('|')[0])
+        mois_string = result['mois'].split('|')[1]
+        annee = int(result['annee'])
+    
+    perf_nat = performances_nationales(annee, mois_int)
+    perf_reg1 = performances_region(annee, mois_int, list_departement_reg_1)
+    perf_reg2 = performances_region(annee, mois_int, list_departement_reg_2)
     
     return render_template(
         'accueil.html', 
@@ -32,7 +42,7 @@ def accueil():
 
 
 
-@app.route('/historique')
+@app.route('/historique', methods=['GET', 'POST'])
 def historique():
 
     current_year = 2021
@@ -156,21 +166,18 @@ def palmares():
 
 
 
-@app.route('/accueil/<string:region_name>')
-def accueil_region(region_name):
+@app.route('/accueil/<int:region_id>')
+def accueil_region(region_id):
 
-    print(region_name)
+    print(region_id)
     
     perf_nat = performances_nationales(2020)
-    perf_reg1 = performances_region(2020, list_departement_reg_1)
-    perf_reg2 = performances_region(2020, list_departement_reg_2)
+    perf_reg = performances_region(2020, reg_id_to_name[region_id])
     
     return render_template(
         'accueil_region.html',
-        region_name=region_name,
-        perf_nat=perf_nat,
-        perf_reg1=perf_reg1,
-        perf_reg2=perf_reg2
+        region_id=region_id,
+        perf_reg=perf_reg
     )
 
 
