@@ -29,28 +29,56 @@
             <th>Budget</th><th>Reel</th><th>Ecart</th>
             <th>Budget</th><th>Reel</th><th>Ecart</th>
         </tr>
+            
             <tr>
                 <td>Hi-fi</td>
-                
-                <td>{{ hifi_ca_obj|round|int }}</td>
-                <td>{{ hifi_ca_reel|round|int }}</td>
-                <td>{{ (hifi_ca_reel-hifi_ca_obj)|round|int }}</td>
 
-                <td>{{ hifi_ventes_obj|round|int }}</td>
-                <td>{{ hifi_ventes_reel|round|int }}</td>
-                <td>{{ (hifi_ventes_reel-hifi_ventes_obj)|round|int }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_ca_obj) }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_ca_reel) }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_ca_reel-hifi_ca_obj) }}</td>
 
+                <td> {{ '{0:0.2f}'.format(hifi_ventes_obj) }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_ventes_reel) }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_ventes_reel-hifi_ventes_obj) }}</td>
 
+                <td> {{ '{0:0.2f}'.format(hifi_marge_obj) }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_marge_reel) }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_marge_obj-hifi_marge_reel) }}</td>
 
-
-
-                
             </tr>
 
             <tr>
                 <td>Fours</td>
-                <td>{{ fours_ca_obj|round|int }}</td>
-                <td>{{ fours_ca_obj|round|int }}</td>
+
+                <td> {{ '{0:0.2f}'.format(fours_ca_obj) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_ca_reel) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_ca_reel-fours_ca_obj) }}</td>
+
+                <td> {{ '{0:0.2f}'.format(fours_ventes_obj) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_ventes_reel) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_ventes_reel-fours_ventes_obj) }}</td>
+
+                <td> {{ '{0:0.2f}'.format(fours_marge_obj) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_marge_reel) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_marge_reel-fours_marge_obj) }}</td>
+
+            </tr>
+
+            <tr>
+                <td>Magnétoscopes</td>
+
+                <td> {{ '{0:0.2f}'.format(magneto_kpi["ca_objectif"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(magneto_kpi["ca_reel"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(magneto_kpi["ca_reel"]-magneto_kpi["ca_objectif"]) }}</td>
+
+                <td> {{ '{0:0.2f}'.format(fours_ventes_obj) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_ventes_reel) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_ventes_reel-fours_ventes_obj) }}</td>
+
+                <td> {{ '{0:0.2f}'.format(fours_marge_obj) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_marge_reel) }}</td>
+                <td> {{ '{0:0.2f}'.format(fours_marge_reel-fours_marge_obj) }}</td>
+
             </tr>
             
 
