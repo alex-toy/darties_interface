@@ -44,7 +44,6 @@
                 <td> {{ '{0:0.2f}'.format(hifi_kpi["marge_objectif"]) }}</td>
                 <td> {{ '{0:0.2f}'.format(hifi_kpi["marge_reel"]) }}</td>
                 <td> {{ '{0:0.2f}'.format(hifi_kpi["marge_reel"]-hifi_kpi["marge_objectif"]) }}</td>
-
             </tr>
 
             <tr>
@@ -78,10 +77,26 @@
                 <td> {{ '{0:0.2f}'.format(magneto_kpi["marge_objectif"]) }}</td>
                 <td> {{ '{0:0.2f}'.format(magneto_kpi["marge_reel"]) }}</td>
                 <td> {{ '{0:0.2f}'.format(magneto_kpi["marge_reel"]-magneto_kpi["marge_objectif"]) }}</td>
-
             </tr>
-            
 
+            <tr>
+                <td>Total</td>
+
+                {% set hifi_ca_objectif = hifi_kpi["ca_objectif"]+fours_kpi["ca_objectif"]+magneto_kpi["ca_objectif"] %}
+                {% set hifi_ca_reel = hifi_kpi["ca_reel"]+fours_kpi["ca_reel"]+magneto_kpi["ca_reel"] %}
+
+                <td> {{ '{0:0.2f}'.format(hifi_ca_objectif) }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_ca_reel) }}</td>
+                <td> {{ '{0:0.2f}'.format(hifi_ca_reel-hifi_ca_objectif) }}</td>
+
+                <td> {{ '{0:0.2f}'.format(magneto_kpi["ventes_objectif"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(magneto_kpi["vente_reel"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(magneto_kpi["vente_reel"]-magneto_kpi["ventes_objectif"]) }}</td>
+
+                <td> {{ '{0:0.2f}'.format(magneto_kpi["marge_objectif"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(magneto_kpi["marge_reel"]) }}</td>
+                <td> {{ '{0:0.2f}'.format(magneto_kpi["marge_reel"]-magneto_kpi["marge_objectif"]) }}</td>
+            </tr>
 
     </table>
 
