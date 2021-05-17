@@ -137,12 +137,19 @@
         <label>Nom</label> : <input type="text" name="nom" /></br>
         
         <label>Prénom</label> : <input type="text" name="prenom" /></br>
+
+        <label for="mois-select">Année</label>
+        <select name="annee" id="mois-select">
+            <option value="2020">--Choix de l'année--</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+        </select>
         
         <label for="mois-select">Mois</label>
         <select name="mois" id="mois-select">
-            <option value="1">--Choix du mois--</option>
-            <option value="1">janvier</option>
-            <option value="2">février</option>
+            <option value="1|janvier">--Choix du mois--</option>
+            <option value="1|janvier">janvier</option>
+            <option value="2|février">février</option>
         </select>
 
         <input type="submit" value="Envoyer" />

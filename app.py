@@ -87,36 +87,30 @@ def historique():
 
 @app.route('/details', methods=['GET', 'POST'])
 def details():
-
-    current_year = 2020
-    mois = 11
     
-    di = details_indicators(current_year, mois)
-
     result = request.form.to_dict()
     print('result', result)
     
     n = ''
     p = ''
-    mois = 1
+    mois_int = 1
+    mois_string = 'janvier'
+    annee = 2020
     if result :
-        print(result)
-        n = result['nom']
-        p = result['prenom']
-        mois = int(result['mois'])
+        mois_int = int(result['mois'].split('|')[0])
+        mois_string = result['mois'].split('|')[1]
+        annee = int(result['annee'])
 
-    
+    di = details_indicators(annee, mois_int)
+
     return render_template(
         'details.html',
-        current_year=current_year,
-        mois=mois,
+        current_year=annee,
+        mois=mois_string,
 
         hifi_kpi=di["hifi_kpi"],
         fours_kpi=di["fours_kpi"],
         magneto_kpi=di["magneto_kpi"],
-
-        nom=n, 
-        prenom=p
     )
 
 
@@ -125,10 +119,6 @@ def details():
 
 if __name__ == "__main__":
     
-
-    # app.debug = True
-    # app.run()
-
     app.run(debug=True)
 
 
