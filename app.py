@@ -159,6 +159,29 @@ def palmares():
 
 
 
+@app.route('/accueil/<string:region_name>')
+def accueil_region(region_name):
+
+    print(region_name)
+    
+    perf_nat = performances_nationales(2020)
+
+    list_depart_reg_1 = f"('{region_name}')"
+    perf_reg1 = performances_region(2020, list_depart_reg_1)
+
+    list_depart_reg_2 = "('cher', 'yonne')"
+    perf_reg2 = performances_region(2020, list_depart_reg_2)
+    
+    return render_template(
+        'accueil_region.html',
+        region_name=region_name,
+        perf_nat=perf_nat,
+        perf_reg1=perf_reg1,
+        perf_reg2=perf_reg2
+    )
+
+
+
 
 if __name__ == "__main__":
     
