@@ -228,8 +228,6 @@ def details_indicators(annee, mois):
 def palmares_indicators(annee, mois):
     conn = sqlite3.connect('data.db')
 
-    kpis = ["ca_objectif", "ca_reel", "ventes_objectif", "vente_reel", "marge_objectif", "marge_reel"]
-
     query = """
         SELECT magasin.lib_magasin, sum(ca_objectif), sum(ca_reel) , sum(ventes_objectif), sum(vente_reel), sum(marge_objectif) , sum(marge_reel)
         
@@ -237,15 +235,14 @@ def palmares_indicators(annee, mois):
         JOIN temps ON sales.id_temps = temps.id_temps
         JOIN magasin ON sales.id_magasin = magasin.id_magasin
 
-        GROUPBY lib_magasin
-        
         WHERE 
             temps.annee = {} AND
-            temps.mois = {} ;
+            temps.mois = {} 
+            
+        GROUP BY magasin.lib_magasin;
     """
 
-    indicators = pd.read_sql(query.format(annee, mois), conn).values[0]
-    print(indicators)
+    indicators = pd.read_sql(query.format(annee, mois), conn).values
 
     conn.close()
 

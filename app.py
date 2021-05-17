@@ -127,16 +127,14 @@ def palmares():
         mois_string = result['mois'].split('|')[1]
         annee = int(result['annee'])
 
-    di = details_indicators(annee, mois_int)
+    pi = palmares_indicators(annee, mois_int)["indicators"]
 
     return render_template(
         'palmares.html',
         current_year=annee,
         mois=mois_string,
 
-        hifi_kpi=di["hifi_kpi"],
-        fours_kpi=di["fours_kpi"],
-        magneto_kpi=di["magneto_kpi"],
+        pi=pi
     )
 
 
