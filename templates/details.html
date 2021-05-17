@@ -128,29 +128,33 @@
     </table>
 
 
-
-    <p>Bonjour {{prenom}} {{nom}}, j'espère que vous allez bien.</p>
-
-
-
-    <form action="http://127.0.0.1:5000/details" method="POST">
-        <label>Nom</label> : <input type="text" name="nom" /></br>
+    </br>
+    <form action="/details" method="POST">
         
-        <label>Prénom</label> : <input type="text" name="prenom" /></br>
-
         <label for="mois-select">Année</label>
         <select name="annee" id="mois-select">
             <option value="2020">--Choix de l'année--</option>
             <option value="2020">2020</option>
             <option value="2021">2021</option>
-        </select>
+        </select></br>
         
         <label for="mois-select">Mois</label>
         <select name="mois" id="mois-select">
             <option value="1|janvier">--Choix du mois--</option>
             <option value="1|janvier">janvier</option>
             <option value="2|février">février</option>
-        </select>
+        </select></br>
+
+        <input type="submit" value="Envoyer" />
+    </form>
+
+
+
+
+</br></br><form action="http://127.0.0.1:5000/details" method="POST">
+        <label>Nom</label> : <input type="text" name="nom" /></br>
+        
+        <label>Prénom</label> : <input type="text" name="prenom" /></br>
 
         <input type="submit" value="Envoyer" />
     </form>
