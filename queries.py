@@ -163,32 +163,6 @@ def details_indicators(annee, mois):
     kpis = ["ca_objectif", "ca_reel", "ventes_objectif", "vente_reel", "marge_objectif", "marge_reel"]
 
     query = """
-        SELECT sum({}) 
-        
-        FROM sales
-        JOIN temps ON sales.id_temps = temps.id_temps
-        JOIN famille_produit ON sales.id_famille_produit = famille_produit.id_famille_produit
-        
-        WHERE 
-            temps.annee = {} AND
-            temps.mois = {} AND
-            famille_produit.lib_famille_produit = '{}';
-    """
-    hifi_ca_obj = pd.read_sql(query.format('ca_objectif', annee, mois, 'hifi'), conn).values[0][0]
-    hifi_ca_reel = pd.read_sql(query.format('ca_reel', annee, mois, 'hifi'), conn).values[0][0]
-    hifi_ventes_obj = pd.read_sql(query.format('ventes_objectif', annee, mois, 'hifi'), conn).values[0][0]
-    hifi_ventes_reel = pd.read_sql(query.format('vente_reel', annee, mois, 'hifi'), conn).values[0][0]
-    hifi_marge_obj = pd.read_sql(query.format('marge_objectif', annee, mois, 'hifi'), conn).values[0][0]
-    hifi_marge_reel = pd.read_sql(query.format('marge_reel', annee, mois, 'hifi'), conn).values[0][0]
-    
-    fours_ca_obj = pd.read_sql(query.format('ca_objectif', annee, mois, 'fours'), conn).values[0][0]
-    fours_ca_reel = pd.read_sql(query.format('ca_reel', annee, mois, 'fours'), conn).values[0][0]
-    fours_ventes_obj = pd.read_sql(query.format('ventes_objectif', annee, mois, 'fours'), conn).values[0][0]
-    fours_ventes_reel = pd.read_sql(query.format('vente_reel', annee, mois, 'fours'), conn).values[0][0]
-    fours_marge_obj = pd.read_sql(query.format('marge_objectif', annee, mois, 'fours'), conn).values[0][0]
-    fours_marge_reel = pd.read_sql(query.format('marge_reel', annee, mois, 'fours'), conn).values[0][0]
-
-    query = """
         SELECT sum({}), sum({}) , sum({}), sum({}), sum({}) , sum({})
         
         FROM sales
@@ -243,20 +217,6 @@ def details_indicators(annee, mois):
     conn.close()
 
     return {
-        "hifi_ca_obj" : hifi_ca_obj,
-        "hifi_ca_reel" : hifi_ca_reel,
-        "hifi_ventes_obj" : hifi_ventes_obj,
-        "hifi_ventes_reel" : hifi_ventes_reel,
-        "hifi_marge_obj" : hifi_marge_obj,
-        "hifi_marge_reel" : hifi_marge_reel,
-
-        "fours_ca_obj" : fours_ca_obj,
-        "fours_ca_reel" : fours_ca_reel,
-        "fours_ventes_obj" : fours_ventes_obj,
-        "fours_ventes_reel" : fours_ventes_reel,
-        "fours_marge_obj" : fours_marge_obj,
-        "fours_marge_reel" : fours_marge_reel,
-
         "hifi_kpi" : hifi_kpi,
         "fours_kpi" : fours_kpi,
         "magneto_kpi" : magneto_kpi
