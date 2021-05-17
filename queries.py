@@ -222,3 +222,34 @@ def details_indicators(annee, mois):
         "magneto_kpi" : magneto_kpi
     }
 
+
+
+
+def palmares_indicators(annee, mois):
+    conn = sqlite3.connect('data.db')
+
+    kpis = ["ca_objectif", "ca_reel", "ventes_objectif", "vente_reel", "marge_objectif", "marge_reel"]
+
+    query = """
+        SELECT magasin.lib_magasin, sum(ca_objectif), sum(ca_reel) , sum(ventes_objectif), sum(vente_reel), sum(marge_objectif) , sum(marge_reel)
+        
+        FROM sales
+        JOIN temps ON sales.id_temps = temps.id_temps
+        JOIN magasin ON sales.id_magasin = magasin.id_magasin
+
+        GROUPBY lib_magasin
+        
+        WHERE 
+            temps.annee = {} AND
+            temps.mois = {} ;
+    """
+
+    indicators = pd.read_sql(query.format(annee, mois), conn).values[0]
+    print(indicators)
+
+    conn.close()
+
+    return {
+        "indicators" : indicators
+    }
+

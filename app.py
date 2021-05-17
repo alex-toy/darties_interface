@@ -89,10 +89,7 @@ def historique():
 def details():
     
     result = request.form.to_dict()
-    print('result', result)
     
-    n = ''
-    p = ''
     mois_int = 1
     mois_string = 'janvier'
     annee = 2020
@@ -105,6 +102,35 @@ def details():
 
     return render_template(
         'details.html',
+        current_year=annee,
+        mois=mois_string,
+
+        hifi_kpi=di["hifi_kpi"],
+        fours_kpi=di["fours_kpi"],
+        magneto_kpi=di["magneto_kpi"],
+    )
+
+
+
+
+
+@app.route('/palmares', methods=['GET', 'POST'])
+def palmares():
+    
+    result = request.form.to_dict()
+    
+    mois_int = 1
+    mois_string = 'janvier'
+    annee = 2020
+    if result :
+        mois_int = int(result['mois'].split('|')[0])
+        mois_string = result['mois'].split('|')[1]
+        annee = int(result['annee'])
+
+    di = details_indicators(annee, mois_int)
+
+    return render_template(
+        'palmares.html',
         current_year=annee,
         mois=mois_string,
 
