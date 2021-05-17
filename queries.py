@@ -225,24 +225,71 @@ def details_indicators(annee, mois):
 
 
 
-def palmares_indicators(annee, mois):
+def palmares_indicators(annee, mois, classement):
     conn = sqlite3.connect('data.db')
 
     query = """
-        SELECT magasin.lib_magasin, sum(ca_objectif), sum(ca_reel) , sum(ventes_objectif), sum(vente_reel), sum(marge_objectif) , sum(marge_reel)
+        SELECT 
+            magasin.lib_magasin, 
+            sum(ca_objectif) AS ca_objectif, 
+            sum(ca_reel) AS ca_reel, 
+            sum(ventes_objectif) AS ventes_objectif, 
+            sum(vente_reel) AS vente_reel, 
+            sum(marge_objectif) AS marge_objectif, 
+            sum(marge_reel) AS marge_reel
         
         FROM sales
         JOIN temps ON sales.id_temps = temps.id_temps
         JOIN magasin ON sales.id_magasin = magasin.id_magasin
 
         WHERE 
-            temps.annee = {} AND
-            temps.mois = {} 
+            temps.annee = {0} AND
+            temps.mois = {1} 
             
-        GROUP BY magasin.lib_magasin;
+        GROUP BY magasin.lib_magasin
+        
+        ORDER BY {2} DESC;
     """
 
-    indicators = pd.read_sql(query.format(annee, mois), conn).values
+    indicators = pd.read_sql(query.format(annee, mois, classement), conn).values
+
+    conn.close()
+
+    return {
+        "indicators" : indicators
+    }
+
+
+
+
+def palmares_indicators_regional(annee, mois, classement, region):
+    conn = sqlite3.connect('data.db')
+
+    query = """
+        SELECT 
+            magasin.lib_magasin, 
+            sum(ca_objectif) AS ca_objectif, 
+            sum(ca_reel) AS ca_reel, 
+            sum(ventes_objectif) AS ventes_objectif, 
+            sum(vente_reel) AS vente_reel, 
+            sum(marge_objectif) AS marge_objectif, 
+            sum(marge_reel) AS marge_reel
+        
+        FROM sales
+        JOIN temps ON sales.id_temps = temps.id_temps
+        JOIN magasin ON sales.id_magasin = magasin.id_magasin
+        JOIN villes ON sales.id_ville = villes.id_ville
+
+        WHERE 
+            temps.annee = {0} AND
+            temps.mois = {1} 
+            
+        GROUP BY magasin.lib_magasin
+        
+        ORDER BY {2} DESC;
+    """
+
+    indicators = pd.read_sql(query.format(annee, mois, classement), conn).values
 
     conn.close()
 

@@ -122,19 +122,38 @@ def palmares():
     mois_int = 1
     mois_string = 'janvier'
     annee = 2020
+    classement = 'ca_reel'
     if result :
         mois_int = int(result['mois'].split('|')[0])
         mois_string = result['mois'].split('|')[1]
         annee = int(result['annee'])
+        classement = result['classement']
 
-    pi = palmares_indicators(annee, mois_int)["indicators"]
+
+    classement_dict = { 
+        'ca_objectif' : 'CA objectif', 
+        'ca_reel' : 'CA réel',
+        'ventes_objectif' : 'Ventes objectif',
+        'vente_reel' : 'Ventes réelles',
+        'marge_objectif' : 'Marge objectif',
+        'marge_reel' : 'Marge réelle',
+    }
+
+
+    pi = palmares_indicators(annee, mois_int, classement)["indicators"]
+    pi_prev = palmares_indicators(annee-1, mois_int, classement)["indicators"]
+
+    ranks = { city_record[0] : index+1 for index, city_record in  enumerate(pi_prev)}
 
     return render_template(
         'palmares.html',
         current_year=annee,
         mois=mois_string,
+        classement_indicator=classement_dict[classement],
 
-        pi=pi
+        pi=pi,
+        pi_prev=pi_prev,
+        ranks=ranks
     )
 
 
