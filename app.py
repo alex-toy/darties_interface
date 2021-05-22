@@ -191,16 +191,28 @@ def palmares():
 
 
 
-@app.route('/accueil/<int:region_id>')
+@app.route('/accueil/<int:region_id>', methods=['GET', 'POST'])
 def accueil_region(region_id):
 
-    print(region_id)
+    result = request.form.to_dict()
     
-    perf_nat = performances_nationales(2020)
-    perf_reg = performances_region(2020, reg_id_to_name[region_id])
+    mois_int = 1
+    mois_string = 'janvier'
+    annee = 2020
+    classement = 'ca_reel'
+    if result :
+        mois_int = int(result['mois'].split('|')[0])
+        mois_string = result['mois'].split('|')[1]
+        annee = int(result['annee'])
+
+    perf_reg = performances_region(annee, mois_int, reg_id_to_name[region_id])
     
     return render_template(
         'accueil_region.html',
+
+        current_year=annee,
+        mois=mois_string,
+
         region_id=region_id,
         perf_reg=perf_reg
     )

@@ -211,9 +211,71 @@ div{
     position: absolute;
     left: 600px;
     top: 200px;
-    width: 800px;
-    height: 400px;
     background-color: #F0F8FF;
     padding: 10px;
 }
+
+
+.accueil_region{
+    position: absolute;
+    left: 500px;
+    top: 750px;
+    background-color: #F0F8FF;
+    padding: 10px;
+}
+
+.total_magasin{
+    position: absolute;
+    left: -400px;
+    top: 50px;
+    background-color: #F0F8FF;
+    padding: 10px;
+}
+
+.region_hifi{
+    position: absolute;
+    left: -400px;
+    top: 220px;
+    background-color: #F0F8FF;
+    padding: 10px;
+}
+
+.region_magneto{
+    position: absolute;
+    left: -400px;
+    top: 380px;
+    background-color: #F0F8FF;
+    padding: 10px;
+}
+
+.region_four{
+    position: absolute;
+    left: -400px;
+    top: 540px;
+    padding: 10px;
+}
+
+.backimage_region_1{
+    position: absolute;
+    left: 900px;
+    top: 100px;
+    width: 700px;
+    height: 700px;
+    background-image: url("../images/france.png");
+    background-size: 3000px 3000px;
+    background-repeat: no-repeat;
+    background-position: bottom -1900px right -1250px;
+}
   
+.backimage_region_2{
+    position: absolute;
+    left: 900px;
+    top: 100px;
+    width: 700px;
+    height: 700px;
+    background-image: url("../images/france.png");
+    background-size: 3000px 3000px;
+    background-repeat: no-repeat;
+    background-position: bottom -1700px right -2200px;
+}
+
