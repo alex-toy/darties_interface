@@ -41,7 +41,7 @@ body, html {
 .description{
     position: absolute;
     left: 10px;
-    top: 250px;
+    top: 330px;
     width: 400px;
     height: 150px;
     background-color: #87CEFA;
@@ -54,7 +54,7 @@ body, html {
     left: 10px;
     top: 100px;
     width: 400px;
-    height: 90px;
+    height: 220px;
     padding: 5px;
     background-color: #87CEFA;
     margin: 5px;
@@ -63,7 +63,7 @@ body, html {
 .filtre{
     position: absolute;
     left: 10px;
-    top: 450px;
+    top: 490px;
     width: 400px;
     height: 400px;
     padding: 5px;
@@ -210,7 +210,7 @@ div{
 .palmares{
     position: absolute;
     left: 600px;
-    top: 200px;
+    top: 130px;
     background-color: #F0F8FF;
     padding: 10px;
 }
@@ -279,3 +279,24 @@ div{
     background-position: bottom -1700px right -2200px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+  }

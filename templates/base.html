@@ -18,13 +18,11 @@
         <h4 style="color:blue;text-align:center;">TABLEAU DE BORD DARTIES NATIONAL</h4>
     </div>
 
-    <div class="links">
-        <ul>
-            <li><a href="/accueil">Accueil</a></li>
-            <li><a href="/historique">Historique</a></li>
-            <li><a href="/details">Détails</a></li>
-            <li><a href="/palmares">Palmares</a></li>
-        </ul>
+    <div class="links btn-group">
+        <button class="button" onclick="location.href='/accueil';">Accueil</button>
+        <button class="button" onclick="location.href='/historique';">Historique</button>
+        <button class="button" onclick="location.href='/details';">Détails</button>
+        <button class="button" onclick="location.href='/palmares';">Palmares</button>
     </div>
     
     {% block body %}{% endblock %}
