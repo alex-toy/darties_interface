@@ -261,17 +261,17 @@ def show_tables(table_name):
 
 if __name__ == "__main__":
 
-    #delete_all()
+    delete_all()
 
-    #create_ville()
+    create_ville()
 
-    #create_sales()
+    create_sales()
 
-    #create_temps()
+    create_temps()
 
-    #create_magasin()
+    create_magasin()
 
-    #create_famille_produit()
+    create_famille_produit()
 
-    show_tables('villes')
+    #show_tables('villes')
 

@@ -1,11 +1,40 @@
 body, html {
     margin: 0;
     font-family: sans-serif;
+
+}
+
+.description{
+    position: absolute;
+    left: 600px;
+    top: 0px;
+    width: 1000px;
+    height: 100;
+}
+
+.backimage{
+    position: absolute;
+    left: 600px;
+    top: 100px;
+    width: 1000px;
+    height: 900px;
+    background-image: url("../images/france.png");
+    background-size: 1000px 1000px;
+    background-repeat: no-repeat;
+    background-position: bottom 0px right 0px;
+}
+
+.filtre{
+    position: absolute;
+    left: 10px;
+    top: 300px;
+    width: 300px;
+    height: 600px;
 }
 
 .content {
     margin: 0 auto;
-    width: 400px;
+    width: 800px;
 }
 
 table, td, th {
@@ -43,3 +72,67 @@ ul {
     margin: 0;
     padding: 0;
 }
+
+
+
+p{
+    background-color: #0CC;
+}
+
+div{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+  
+
+.perf_nat{
+    position: absolute;
+    left: 600px;
+    top: 750px;
+    background-color: #0AF;
+    background-size: 100% 100%;
+}
+
+
+.perf_reg1{
+    position: absolute;
+    left: 400px;
+    top: 0px;
+    background-color: #0FA;
+    background-size: 100% 100%;
+}
+
+
+.perf_reg2{
+    position: absolute;
+    left: -100px;
+    top: 100px;
+    background-color: #00A;
+}
+
+
+.perf_reg3{
+    position: absolute;
+    left: 800px;
+    top: 100px;
+    background-color: violet;
+}
+
+.perf_reg4{
+    position: absolute;
+    left: 800px;
+    top: 500px;
+    background-color: red;
+}
+
+.perf_reg5{
+    position: absolute;
+    left: 00px;
+    top: 500px;
+    background-color: #00A;
+}
+  

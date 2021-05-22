@@ -31,12 +31,23 @@ def accueil():
     perf_nat = performances_nationales(annee, mois_int)
     perf_reg1 = performances_region(annee, mois_int, list_departement_reg_1)
     perf_reg2 = performances_region(annee, mois_int, list_departement_reg_2)
+    perf_reg3 = performances_region(annee, mois_int, list_departement_reg_3)
+    perf_reg4 = performances_region(annee, mois_int, list_departement_reg_4)
+    perf_reg5 = performances_region(annee, mois_int, list_departement_reg_5)
     
     return render_template(
         'accueil.html', 
+
+        mois_string=mois_string,
+        annee=annee,
+
+
         perf_nat=perf_nat,
         perf_reg1=perf_reg1,
-        perf_reg2=perf_reg2
+        perf_reg2=perf_reg2,
+        perf_reg3=perf_reg3,
+        perf_reg4=perf_reg4,
+        perf_reg5=perf_reg5
     )
 
 
@@ -178,6 +189,37 @@ def accueil_region(region_id):
         region_id=region_id,
         perf_reg=perf_reg
     )
+
+
+
+
+@app.route('/test')
+def test():
+
+    result = request.form.to_dict()
+    
+    mois_int = 1
+    mois_string = 'janvier'
+    annee = 2020
+    if result :
+        mois_int = int(result['mois'].split('|')[0])
+        mois_string = result['mois'].split('|')[1]
+        annee = int(result['annee'])
+    
+    perf_nat = performances_nationales(annee, mois_int)
+    perf_reg1 = performances_region(annee, mois_int, list_departement_reg_1)
+    perf_reg2 = performances_region(annee, mois_int, list_departement_reg_2)
+    
+    return render_template(
+        'test.html', 
+        perf_nat=perf_nat,
+        perf_reg1=perf_reg1,
+        perf_reg2=perf_reg2
+    )
+
+
+
+
 
 
 

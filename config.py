@@ -1,8 +1,8 @@
 list_departement_reg_1 = "('var', 'bouches-du-rhone')"
 list_departement_reg_2 = "('cher', 'yonne')"
-list_departement_reg_3 = "('cher', 'yonne')"
-list_departement_reg_4 = "('cher', 'yonne')"
-list_departement_reg_5 = "('cher', 'yonne')"
+list_departement_reg_3 = "('cher', 'yonne', 'aude')"
+list_departement_reg_4 = "('cher', 'yonne', 'oise')"
+list_departement_reg_5 = "('cher', 'yonne', 'moselle')"
 
 
 reg_id_to_name = {
