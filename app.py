@@ -4,6 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import sqlite3
 import pandas as pd
+import time
+from datetime import date
 
 from queries import *
 from config import *
@@ -23,10 +25,13 @@ def accueil():
     mois_int = 1
     mois_string = 'janvier'
     annee = 2020
+    kpi = ""
     if result :
         mois_int = int(result['mois'].split('|')[0])
         mois_string = result['mois'].split('|')[1]
         annee = int(result['annee'])
+        kpi = result['kpi']
+
     
     perf_nat = performances_nationales(annee, mois_int)
     perf_reg1 = performances_region(annee, mois_int, list_departement_reg_1)
@@ -41,6 +46,7 @@ def accueil():
         mois_string=mois_string,
         annee=annee,
 
+        kpi=kpi,
 
         perf_nat=perf_nat,
         perf_reg1=perf_reg1,
@@ -56,18 +62,27 @@ def accueil():
 @app.route('/historique', methods=['GET', 'POST'])
 def historique():
 
-    current_year = 2021
+    current_year = date.today().year
 
-    hist_indicators_prev = hist(current_year-1, 11)
-    hist_indicators_cumul_prev = hist_cumul(current_year-1, 11)
+    result = request.form.to_dict()
     
-    hist_indicators_cur = hist(current_year, 11)
-    hist_indicators_cumul_cur = hist_cumul(current_year, 11)
+    mois_int = 1
+    mois_string = 'janvier'
+    if result :
+        mois_int = int(result['mois'].split('|')[0])
+        mois_string = result['mois'].split('|')[1]
+
+    hist_indicators_prev = hist(current_year-1, mois_int)
+    hist_indicators_cumul_prev = hist_cumul(current_year-1, mois_int)
+    
+    hist_indicators_cur = hist(current_year, mois_int)
+    hist_indicators_cumul_cur = hist_cumul(current_year, mois_int)
     
     return render_template(
         'historique.html',
 
-        current_year=current_year,
+        annee=current_year,
+        mois_string=mois_string,
 
         hifi_obj_prev=hist_indicators_prev['hifi_obj'],
         hifi_reel_prev=hist_indicators_prev['hifi_reel'],

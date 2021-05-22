@@ -7,18 +7,14 @@
 {% block body %}
 <div class="content">
 
-    <div class="links">
-        <ul>
-            <li><a href="/accueil">Accueil</a></li>
-            <li><a href="/historique">Historique</a></li>
-            <li><a href="/details">Détails</a></li>
-            <li><a href="/palmares">Palmares</a></li>
-        </ul>
-    </div>
-    
 
+    <div class="description">
+        <h4>Résultats en france en Euros, pour les zones commerciales, pour toutes les familles de produits, pour toutes les enseignes, pour le mois de {{mois_string}} {{annee}}</h4>
+    </div>
+
+    
     <div class="filtre">
-        <h4>filtres</h4>
+        <h4>Filtres</h4>
         <form action="/accueil" method="POST">
         
             <label for="mois-select">Année</label>
@@ -38,37 +34,42 @@
                 <option value="5|mai">mai</option>
                 <option value="6|juin">juin</option>
             </select></br>
+
+            <label for="mois-select">KPI</label>
+            <select name="kpi" id="kpi-select">
+                <option value="ca_reel">--Choix du KPI--</option>
+                <option value="ca_reel">CA</option>
+                <option value="vente_reel">Ventes réalisées</option>
+            </select></br>
     
             <input type="submit" value="Envoyer" />
         </form>
     </div>
+
     
-
-    <h4 class="description">Résultats en france en Euros, pour les zones commerciales, pour le CA, pour toutes les familles de produits, pour toutes les enseignes, pour le mois de {{mois_string}} {{annee}}</h4>
-
     <div class="backimage">
 
         <div class="perf_nat">
             <table>
-                <tr>
+                <tr bgcolor="#0AF">
                     <th>National</th> <th>Budget</th> <th>Reel</th> <th>Ratio</th>
                 </tr>
                     <tr>
-                        <td>CA</td>
+                        <td bgcolor="#0AF">CA</td>
                         <td>{{perf_nat["ca_obj"]|round|int}}</td>
                         <td>{{perf_nat["ca_reel"]|round|int}}</td>
                         <td> {{ '{0:0.2f}'.format(perf_nat["ca_reel"] / perf_nat["ca_obj"]) }}</td>
                     </tr>
                     
                     <tr>
-                        <td>Ventes</td>
+                        <td bgcolor="#0AF">Ventes</td>
                         <td>{{perf_nat["ventes_objectif"]|round|int}}</td>
                         <td>{{perf_nat["vente_reel"]|round|int}}</td>
                         <td> {{ '{0:0.2f}'.format(perf_nat["vente_reel"] / perf_nat["ventes_objectif"]) }}</td>
                     </tr>
     
                     <tr>
-                        <td>Marges</td>
+                        <td bgcolor="#0AF">Marges</td>
                         <td>{{perf_nat["marge_objectif"]|round|int}}</td>
                         <td>{{perf_nat["marge_reel"]|round|int}}</td>
                         <td> {{ '{0:0.2f}'.format(perf_nat["marge_reel"] / perf_nat["marge_objectif"]) }}</td>
@@ -78,25 +79,25 @@
 
         <div class="perf_reg1">
             <table>
-                <tr>
+                <tr bgcolor="#0FA">
                     <th>Région 1</th> <th>Budget</th> <th>Reel</th> <th>Ratio</th>
                 </tr>
                     <tr>
-                        <td>CA</td>
+                        <td bgcolor="#0FA">CA</td>
                         <td>{{perf_reg1["ca_obj"]|round|int}}</td>
                         <td>{{perf_reg1["ca_reel"]|round|int}}</td>
                         <td> {{ '{0:0.2f}'.format(perf_reg1["ca_reel"] / perf_reg1["ca_obj"]) }}</td>
                     </tr>
                     
                     <tr>
-                        <td>Ventes</td>
+                        <td bgcolor="#0FA">Ventes</td>
                         <td>{{perf_reg1["ventes_objectif"]|round|int}}</td>
                         <td>{{perf_reg1["vente_reel"]|round|int}}</td>
                         <td> {{ '{0:0.2f}'.format(perf_reg1["vente_reel"] / perf_reg1["ventes_objectif"]) }}</td>
                     </tr>
     
                     <tr>
-                        <td>Marges</td>
+                        <td bgcolor="#0FA">Marges</td>
                         <td>{{perf_reg1["marge_objectif"]|round|int}}</td>
                         <td>{{perf_reg1["marge_reel"]|round|int}}</td>
                         <td> {{ '{0:0.2f}'.format(perf_reg1["marge_reel"] / perf_reg1["marge_objectif"]) }}</td>

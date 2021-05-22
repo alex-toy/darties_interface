@@ -7,110 +7,127 @@
 {% block body %}
 <div class="content">
 
-    <ul>
-        <li><a href="/accueil">Accueil</a></li>
-        <li><a href="/historique">Historique</a></li>
-        <li><a href="/details">Détails</a></li>
-        <li><a href="/palmares">Palmares</a></li>
-      </ul>
+
+    <div class="description">
+        <h4>Résultats en france en Euros, pour les zones commerciales, pour toutes les familles de produits, pour toutes les enseignes, pour le mois de {{mois_string}} {{annee}}</h4>
+    </div>
 
 
-    <h1 style="text-align: center">Performances nationales</h1>
-    <table>
-        <tr>
-            <th></th>
-            <th colspan="4"> {{current_year}} </th>
-            <th colspan="4"> {{current_year-1}} </th>
-            <th colspan="2" rowspan="2"> Ecart entre Novembre {{current_year-1}} et Novembre {{current_year}} </th>
-            <th colspan="2" rowspan="2"> Ecart du cumul entre Novembre {{current_year-1}} et Novembre {{current_year}} </th>
-        </tr>
+    <div class="filtre">
+        <h4>Filtres</h4>
+        <form action="/historique" method="POST">
             
-        <tr>
-            <th></th> 
-            <th colspan="2"> Novembre </th> <th colspan="2"> Cumul de janvier à novembre </th> 
-            <th colspan="2"> Novembre </th> <th colspan="2"> Cumul de janvier à novembre </th> 
-        </tr>
-        <tr>
-            <th>CA</th> 
-            <th>Budget</th> <th>Reel</th> 
-            <th>Budget</th> <th>Reel</th> 
-            <th>Budget</th> <th>Reel</th> 
-            <th>Budget</th> <th>Reel</th>
-            <th>Budget</th> <th>Reel</th> 
-            <th>Budget</th> <th>Reel</th>
-        </tr>
-        <tr>
-            <td>Hi-fi</td>
-            <td>{{ hifi_obj_cur|round|int }}</td>
-            <td>{{ hifi_reel_cur|round|int }}</td>
-            <td>{{ hifi_obj_cumul_cur|round|int }}</td>
-            <td>{{ hifi_reel_cumul_cur|round|int }}</td>
-
-            <td>{{ hifi_obj_prev|round|int }}</td>
-            <td>{{ hifi_reel_prev|round|int }}</td>
-            <td>{{ hifi_obj_cumul_prev|round|int }}</td>
-            <td>{{ hifi_reel_cumul_prev|round|int }}</td>
-
-            <td> {{ '{0:0.2f}'.format((hifi_obj_cur - hifi_obj_prev) / hifi_obj_cur * 100) }} %</td>
-            <td> {{ '{0:0.2f}'.format((hifi_reel_cur - hifi_reel_prev) / hifi_obj_cur * 100) }} %</td>
-            <td> {{ '{0:0.2f}'.format((hifi_obj_cumul_cur - hifi_obj_cumul_prev) / hifi_obj_cumul_cur * 100) }} %</td>
-            <td> {{ '{0:0.2f}'.format((hifi_reel_cumul_cur - hifi_reel_cumul_prev) / hifi_obj_cumul_cur * 100) }} %</td>
-        </tr>
-        <tr>
-            <td>Magnéto</td>
-            <td>{{ magneto_obj_cur|round|int }}</td>
-            <td>{{ magneto_reel_cur|round|int }}</td>
-            <td>{{ magneto_obj_cumul_cur|round|int }}</td>
-            <td>{{ magneto_reel_cumul_cur|round|int }}</td>
-
-            <td>{{ magneto_obj_prev|round|int }}</td>
-            <td>{{ magneto_reel_prev|round|int }}</td>
-            <td>{{ magneto_obj_cumul_prev|round|int }}</td>
-            <td>{{ magneto_reel_cumul_prev|round|int }}</td>
-
-            <td> {{ '{0:0.2f}'.format((magneto_obj_cur - magneto_obj_prev) / magneto_obj_cur * 100) }} %</td>
-            <td> {{ '{0:0.2f}'.format((magneto_reel_cur - magneto_reel_prev) / magneto_obj_cur * 100) }} %</td>
-            <td> {{ '{0:0.2f}'.format((magneto_obj_cumul_cur - magneto_obj_cumul_prev) / magneto_obj_cumul_cur * 100) }} %</td>
-            <td> {{ '{0:0.2f}'.format((magneto_reel_cumul_cur - magneto_reel_cumul_prev) / magneto_obj_cumul_cur * 100) }} %</td>
-        </tr>
-        <tr>
-            <td>Fours</td>
-            <td>{{ fours_obj_cur|round|int }}</td>
-            <td>{{ fours_reel_cur|round|int }}</td>
-            <td>{{ fours_obj_cumul_cur|round|int }}</td>
-            <td>{{ fours_reel_cumul_cur|round|int }}</td>
-
-            <td>{{ fours_obj_prev|round|int }}</td>
-            <td>{{ fours_reel_prev|round|int }}</td>
-            <td>{{ fours_obj_cumul_prev|round|int }}</td>
-            <td>{{ fours_reel_cumul_prev|round|int }}</td>
-
-            <td> {{ '{0:0.2f}'.format((fours_obj_cur - fours_obj_prev) / fours_obj_cur * 100) }} %</td>
-            <td> {{ '{0:0.2f}'.format((fours_reel_cur - fours_reel_prev) / fours_obj_cur * 100) }} %</td>
-            <td> {{ '{0:0.2f}'.format((fours_obj_cumul_cur - fours_obj_cumul_prev) / fours_obj_cumul_cur * 100) }} %</td>
-            <td> {{ '{0:0.2f}'.format((fours_reel_cumul_cur - fours_reel_cumul_prev) / fours_obj_cumul_cur * 100) }} %</td>
-        </tr>
-        <tr>
-            <td>Total</td>
-            <td>{{ (hifi_obj_cur+magneto_obj_cur+fours_obj_cur)|round|int }}</td>
-            <td>{{ (hifi_reel_cur+magneto_reel_cur+fours_reel_cur)|round|int }}</td>
-            <td>{{ (hifi_obj_cumul_cur+magneto_obj_cumul_cur+fours_obj_cumul_cur)|round|int }}</td>
-            <td>{{ (hifi_reel_cumul_cur+magneto_reel_cumul_cur+fours_reel_cumul_cur)|round|int }}</td>
-
-            <td>{{ (hifi_obj_prev+magneto_obj_prev+fours_obj_prev)|round|int }}</td>
-            <td>{{ (hifi_reel_prev+magneto_reel_prev+fours_reel_prev)|round|int }}</td>
-            <td>{{ (hifi_obj_cumul_prev+magneto_obj_cumul_prev+fours_obj_cumul_prev)|round|int }}</td>
-            <td>{{ (hifi_reel_cumul_prev+magneto_reel_cumul_prev+fours_reel_cumul_prev)|round|int }}</td>
-        </tr>
-    </table>
-
-
-    <div class="form">
-        <form action="/" method="POST">
-            <input type="text" name="content" id="content">
-            <input type="submit" value="Add Task">
+            <label for="mois-select">Mois</label>
+            <select name="mois" id="mois-select">
+                <option value="1|janvier">--Choix du mois--</option>
+                <option value="1|janvier">janvier</option>
+                <option value="2|fevrier">février</option>
+                <option value="3|mars">mars</option>
+                <option value="4|avril">avril</option>
+                <option value="5|mai">mai</option>
+                <option value="6|juin">juin</option>
+            </select></br>
+    
+            <input type="submit" value="Envoyer" />
         </form>
     </div>
+
+
+    <div class="historique">
+
+        <h1 style="text-align: center">Performances nationales</h1>
+
+        <table>
+            <tr>
+                <th></th>
+                <th colspan="4"> {{annee}} </th>
+                <th colspan="4"> {{annee-1}} </th>
+                <th colspan="2" rowspan="2"> Ecart entre {{mois_string}} {{annee-1}} et {{mois_string}} {{annee}} </th>
+                <th colspan="2" rowspan="2"> Ecart du cumul entre {{mois_string}} {{annee-1}} et {{mois_string}} {{annee}} </th>
+            </tr>
+                
+            <tr>
+                <th></th> 
+                <th colspan="2"> {{mois_string}} </th> <th colspan="2"> Cumul de janvier à {{mois_string}} </th> 
+                <th colspan="2"> {{mois_string}} </th> <th colspan="2"> Cumul de janvier à {{mois_string}} </th> 
+            </tr>
+            <tr>
+                <th>CA</th> 
+                <th>Budget</th> <th>Reel</th> 
+                <th>Budget</th> <th>Reel</th> 
+                <th>Budget</th> <th>Reel</th> 
+                <th>Budget</th> <th>Reel</th>
+                <th>Budget</th> <th>Reel</th> 
+                <th>Budget</th> <th>Reel</th>
+            </tr>
+            <tr>
+                <td>Hi-fi</td>
+                <td>{{ hifi_obj_cur|round|int }}</td>
+                <td>{{ hifi_reel_cur|round|int }}</td>
+                <td>{{ hifi_obj_cumul_cur|round|int }}</td>
+                <td>{{ hifi_reel_cumul_cur|round|int }}</td>
+
+                <td>{{ hifi_obj_prev|round|int }}</td>
+                <td>{{ hifi_reel_prev|round|int }}</td>
+                <td>{{ hifi_obj_cumul_prev|round|int }}</td>
+                <td>{{ hifi_reel_cumul_prev|round|int }}</td>
+
+                <td> {{ '{0:0.2f}'.format((hifi_obj_cur - hifi_obj_prev) / hifi_obj_cur * 100) }} %</td>
+                <td> {{ '{0:0.2f}'.format((hifi_reel_cur - hifi_reel_prev) / hifi_obj_cur * 100) }} %</td>
+                <td> {{ '{0:0.2f}'.format((hifi_obj_cumul_cur - hifi_obj_cumul_prev) / hifi_obj_cumul_cur * 100) }} %</td>
+                <td> {{ '{0:0.2f}'.format((hifi_reel_cumul_cur - hifi_reel_cumul_prev) / hifi_obj_cumul_cur * 100) }} %</td>
+            </tr>
+            <tr>
+                <td>Magnéto</td>
+                <td>{{ magneto_obj_cur|round|int }}</td>
+                <td>{{ magneto_reel_cur|round|int }}</td>
+                <td>{{ magneto_obj_cumul_cur|round|int }}</td>
+                <td>{{ magneto_reel_cumul_cur|round|int }}</td>
+
+                <td>{{ magneto_obj_prev|round|int }}</td>
+                <td>{{ magneto_reel_prev|round|int }}</td>
+                <td>{{ magneto_obj_cumul_prev|round|int }}</td>
+                <td>{{ magneto_reel_cumul_prev|round|int }}</td>
+
+                <td> {{ '{0:0.2f}'.format((magneto_obj_cur - magneto_obj_prev) / magneto_obj_cur * 100) }} %</td>
+                <td> {{ '{0:0.2f}'.format((magneto_reel_cur - magneto_reel_prev) / magneto_obj_cur * 100) }} %</td>
+                <td> {{ '{0:0.2f}'.format((magneto_obj_cumul_cur - magneto_obj_cumul_prev) / magneto_obj_cumul_cur * 100) }} %</td>
+                <td> {{ '{0:0.2f}'.format((magneto_reel_cumul_cur - magneto_reel_cumul_prev) / magneto_obj_cumul_cur * 100) }} %</td>
+            </tr>
+            <tr>
+                <td>Fours</td>
+                <td>{{ fours_obj_cur|round|int }}</td>
+                <td>{{ fours_reel_cur|round|int }}</td>
+                <td>{{ fours_obj_cumul_cur|round|int }}</td>
+                <td>{{ fours_reel_cumul_cur|round|int }}</td>
+
+                <td>{{ fours_obj_prev|round|int }}</td>
+                <td>{{ fours_reel_prev|round|int }}</td>
+                <td>{{ fours_obj_cumul_prev|round|int }}</td>
+                <td>{{ fours_reel_cumul_prev|round|int }}</td>
+
+                <td> {{ '{0:0.2f}'.format((fours_obj_cur - fours_obj_prev) / fours_obj_cur * 100) }} %</td>
+                <td> {{ '{0:0.2f}'.format((fours_reel_cur - fours_reel_prev) / fours_obj_cur * 100) }} %</td>
+                <td> {{ '{0:0.2f}'.format((fours_obj_cumul_cur - fours_obj_cumul_prev) / fours_obj_cumul_cur * 100) }} %</td>
+                <td> {{ '{0:0.2f}'.format((fours_reel_cumul_cur - fours_reel_cumul_prev) / fours_obj_cumul_cur * 100) }} %</td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td>{{ (hifi_obj_cur+magneto_obj_cur+fours_obj_cur)|round|int }}</td>
+                <td>{{ (hifi_reel_cur+magneto_reel_cur+fours_reel_cur)|round|int }}</td>
+                <td>{{ (hifi_obj_cumul_cur+magneto_obj_cumul_cur+fours_obj_cumul_cur)|round|int }}</td>
+                <td>{{ (hifi_reel_cumul_cur+magneto_reel_cumul_cur+fours_reel_cumul_cur)|round|int }}</td>
+
+                <td>{{ (hifi_obj_prev+magneto_obj_prev+fours_obj_prev)|round|int }}</td>
+                <td>{{ (hifi_reel_prev+magneto_reel_prev+fours_reel_prev)|round|int }}</td>
+                <td>{{ (hifi_obj_cumul_prev+magneto_obj_cumul_prev+fours_obj_cumul_prev)|round|int }}</td>
+                <td>{{ (hifi_reel_cumul_prev+magneto_reel_cumul_prev+fours_reel_cumul_prev)|round|int }}</td>
+            </tr>
+        </table>
+
+    </div>
+    
+
 </div>
 {% endblock %}
 
