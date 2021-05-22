@@ -300,3 +300,27 @@ def palmares_indicators_regional(annee, mois, classement, region):
         "indicators" : indicators
     }
 
+
+
+def all_devise(annee, mois):
+    conn = sqlite3.connect('data.db')
+
+    query = """
+        SELECT 
+            cours
+        
+        FROM cours
+        JOIN devise ON devise.id_devise = cours.id_devise
+
+        WHERE 
+            cours.annee = {0} AND
+            cours.mois = {1};
+    """
+
+    currencies = pd.read_sql(query.format(annee, mois), conn).values
+
+    conn.close()
+
+    return {
+        "currencies" : currencies
+    }

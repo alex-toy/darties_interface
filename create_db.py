@@ -217,6 +217,77 @@ def create_famille_produit() :
 
 
 
+def create_devise() :
+    conn = sqlite3.connect('data.db')
+    c = conn.cursor()    
+
+    create_query = """
+        CREATE TABLE IF NOT EXISTS devise (
+            id_devise integer,
+            lib_devise text
+        )
+    """
+    c.execute(create_query)
+
+    myfile = open("data/devise_000.csv", "r")
+    records = myfile.readlines()
+    myfile.close()
+
+    records_list = [
+        ( 
+            int(record[:-1].split('|')[0]),
+            record[:-1].split('|')[1]
+        )
+        for record in records
+    ]
+
+    insert_qry = """
+        INSERT INTO devise VALUES (?, ?)
+    """
+    c.executemany(insert_qry, records_list)
+    conn.commit()
+    conn.close()
+    print('end create_devise')
+
+
+
+def create_cours() :
+    conn = sqlite3.connect('data.db')
+    c = conn.cursor()    
+
+    create_query = """
+        CREATE TABLE IF NOT EXISTS cours (
+            id_cours integer,
+            mois integer,
+            annee integer,
+            cours_rate
+        )
+    """
+    c.execute(create_query)
+
+    myfile = open("data/cours_000.csv", "r")
+    records = myfile.readlines()
+    myfile.close()
+
+    records_list = [
+        ( 
+            int(record[:-1].split('|')[0]),
+            int(record[:-1].split('|')[1]),
+            int(record[:-1].split('|')[2]),
+            float(record[:-1].split('|')[3])
+        )
+        for record in records
+    ]
+
+    insert_qry = """
+        INSERT INTO cours VALUES (?, ?, ?, ?)
+    """
+    c.executemany(insert_qry, records_list)
+    conn.commit()
+    conn.close()
+    print('end create_cours')
+
+
 
 
 def delete_all() :
@@ -229,6 +300,9 @@ def delete_all() :
     c.execute("DROP TABLE temps;")
     c.execute("DROP TABLE magasin;")
     c.execute("DROP TABLE famille_produit;")
+    c.execute("DROP TABLE cours;")
+    c.execute("DROP TABLE devise;")
+    
 
     conn.commit()
     conn.close()
@@ -273,5 +347,9 @@ if __name__ == "__main__":
 
     create_famille_produit()
 
-    #show_tables('villes')
+    create_devise()
+
+    create_cours()
+
+    show_tables('cours')
 

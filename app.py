@@ -32,6 +32,10 @@ def accueil():
         annee = int(result['annee'])
         kpi = result['kpi']
 
+
+    currencies = all_devise(annee, mois_int)
+    print(currencies)
+
     
     perf_nat = performances_nationales(annee, mois_int)
     perf_reg1 = performances_region(annee, mois_int, list_departement_reg_1)
