@@ -196,4 +196,24 @@ div{
     background-color: #F0F8FF;
     padding: 10px;
 }
+
+.details{
+    position: absolute;
+    left: 600px;
+    top: 200px;
+    width: 800px;
+    height: 400px;
+    background-color: #F0F8FF;
+    padding: 10px;
+}
+
+.palmares{
+    position: absolute;
+    left: 600px;
+    top: 200px;
+    width: 800px;
+    height: 400px;
+    background-color: #F0F8FF;
+    padding: 10px;
+}
   

@@ -7,14 +7,39 @@
 {% block body %}
 <div class="content">
 
-    <ul>
-        <li><a href="/accueil">Accueil</a></li>
-        <li><a href="/historique">Historique</a></li>
-        <li><a href="/details">Détails</a></li>
-        <li><a href="/palmares">Palmares</a></li>
-      </ul>
 
-    <h3 style="text-align: center">Détails en France en Euros, de tous les indicateurs pour le mois de {{mois}} {{current_year}} </h3>
+    <div class="description">
+        <h3 style="text-align: center">Détails en France en Euros, de tous les indicateurs pour le mois de {{mois}} {{current_year}} </h3>
+    </div>
+
+    <div class="filtre">
+        <form action="/details" method="POST">
+        
+            <label for="mois-select">Année</label>
+            <select name="annee" id="mois-select">
+                <option value="2020">--Choix de l'année--</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+            </select></br>
+            
+            <label for="mois-select">Mois</label>
+            <select name="mois" id="mois-select">
+                <option value="1|janvier">--Choix du mois--</option>
+                <option value="1|janvier">janvier</option>
+                <option value="2|février">février</option>
+                <option value="3|mars">mars</option>
+                <option value="4|avril">avril</option>
+                <option value="5|mai">mai</option>
+                <option value="6|juin">juin</option>
+            </select></br>
+    
+            <input type="submit" value="Envoyer" />
+        </form>
+    </div>
+
+
+    <div class="details">
+            
     <table>
         <tr>
             <th></th>
@@ -128,41 +153,8 @@
     </table>
 
 
-    </br>
-    <form action="/details" method="POST">
-        
-        <label for="mois-select">Année</label>
-        <select name="annee" id="mois-select">
-            <option value="2020">--Choix de l'année--</option>
-            <option value="2020">2020</option>
-            <option value="2021">2021</option>
-        </select></br>
-        
-        <label for="mois-select">Mois</label>
-        <select name="mois" id="mois-select">
-            <option value="1|janvier">--Choix du mois--</option>
-            <option value="1|janvier">janvier</option>
-            <option value="2|février">février</option>
-            <option value="3|mars">mars</option>
-            <option value="4|avril">avril</option>
-            <option value="5|mai">mai</option>
-            <option value="6|juin">juin</option>
-        </select></br>
-
-        <input type="submit" value="Envoyer" />
-    </form>
-
-
-
-
-</br></br><form action="http://127.0.0.1:5000/details" method="POST">
-        <label>Nom</label> : <input type="text" name="nom" /></br>
-        
-        <label>Prénom</label> : <input type="text" name="prenom" /></br>
-
-        <input type="submit" value="Envoyer" />
-    </form>
-
+    </div>
+    
 
 </div>
 {% endblock %}
