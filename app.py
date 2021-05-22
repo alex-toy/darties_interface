@@ -66,8 +66,8 @@ def historique():
 
     result = request.form.to_dict()
     
-    mois_int = 1
-    mois_string = 'janvier'
+    mois_int = 2
+    mois_string = 'fevrier'
     if result :
         mois_int = int(result['mois'].split('|')[0])
         mois_string = result['mois'].split('|')[1]

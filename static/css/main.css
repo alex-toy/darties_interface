@@ -71,11 +71,6 @@ body, html {
     margin: 5px;
 }
 
-.content {
-    margin: 0 auto;
-    width: 800px;
-}
-
 table, td, th {
     border: 1px solid #aaa;
 }
