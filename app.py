@@ -21,43 +21,47 @@ db = SQLAlchemy(app)
 def accueil():
 
     result = request.form.to_dict()
+    currencies = all_devise()
     
-    mois_int = 1
-    mois_string = 'janvier'
-    annee = 2020
-    kpi = ""
+    mois_int = 5
+    mois_string = 'mai'
+    annee = 2021
+    devise = "Euro"
+    curr_rate = [1, "Euro"]
     if result :
         mois_int = int(result['mois'].split('|')[0])
         mois_string = result['mois'].split('|')[1]
         annee = int(result['annee'])
-        kpi = result['kpi']
+        id_devise = result['devise']
+        if int(id_devise) > 0 :
+            curr_rate_list = currency_rate(id_devise, annee, mois_int)
+            if len(curr_rate_list) > 0 :
+                curr_rate = curr_rate_list[0]
 
 
-    currencies = all_devise(annee, mois_int)
-    print(currencies)
-
-    
     perf_nat = performances_nationales(annee, mois_int)
     perf_reg1 = performances_region(annee, mois_int, list_departement_reg_1)
     perf_reg2 = performances_region(annee, mois_int, list_departement_reg_2)
     perf_reg3 = performances_region(annee, mois_int, list_departement_reg_3)
     perf_reg4 = performances_region(annee, mois_int, list_departement_reg_4)
     perf_reg5 = performances_region(annee, mois_int, list_departement_reg_5)
-    
+
+
     return render_template(
         'accueil.html', 
 
         mois_string=mois_string,
         annee=annee,
 
-        kpi=kpi,
+        currencies=currencies,
+        curr_rate=curr_rate,
 
-        perf_nat=perf_nat,
-        perf_reg1=perf_reg1,
-        perf_reg2=perf_reg2,
-        perf_reg3=perf_reg3,
-        perf_reg4=perf_reg4,
-        perf_reg5=perf_reg5
+        perf_nat={k:v*curr_rate[0] for (k,v) in perf_nat.items()},
+        perf_reg1={k:v*curr_rate[0] for (k,v) in perf_reg1.items()},
+        perf_reg2={k:v*curr_rate[0] for (k,v) in perf_reg2.items()},
+        perf_reg3={k:v*curr_rate[0] for (k,v) in perf_reg3.items()},
+        perf_reg4={k:v*curr_rate[0] for (k,v) in perf_reg4.items()},
+        perf_reg5={k:v*curr_rate[0] for (k,v) in perf_reg5.items()}
     )
 
 

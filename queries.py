@@ -302,25 +302,43 @@ def palmares_indicators_regional(annee, mois, classement, region):
 
 
 
-def all_devise(annee, mois):
+
+def all_devise():
+    conn = sqlite3.connect('data.db')
+
+    query = """
+        SELECT id_devise, lib_devise
+        
+        FROM devise;
+    """
+
+    currencies = pd.read_sql(query, conn).values
+
+    conn.close()
+
+    return currencies
+
+
+
+
+def currency_rate(id_devise, annee, mois):
     conn = sqlite3.connect('data.db')
 
     query = """
         SELECT 
-            cours
+            cours_rate, lib_devise
         
         FROM cours
         JOIN devise ON devise.id_devise = cours.id_devise
 
         WHERE 
-            cours.annee = {0} AND
-            cours.mois = {1};
+            devise.id_devise = {0} AND
+            cours.annee = {1} AND
+            cours.mois = {2};
     """
 
-    currencies = pd.read_sql(query.format(annee, mois), conn).values
+    currency = pd.read_sql(query.format(id_devise, annee, mois), conn).values
 
     conn.close()
 
-    return {
-        "currencies" : currencies
-    }
+    return currency

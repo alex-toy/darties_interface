@@ -257,7 +257,7 @@ def create_cours() :
 
     create_query = """
         CREATE TABLE IF NOT EXISTS cours (
-            id_cours integer,
+            id_devise integer,
             mois integer,
             annee integer,
             cours_rate
@@ -335,21 +335,21 @@ def show_tables(table_name):
 
 if __name__ == "__main__":
 
-    delete_all()
+    # delete_all()
 
-    create_ville()
+    # create_ville()
 
-    create_sales()
+    # create_sales()
 
-    create_temps()
+    # create_temps()
 
-    create_magasin()
+    # create_magasin()
 
-    create_famille_produit()
+    # create_famille_produit()
 
-    create_devise()
+    # create_devise()
 
-    create_cours()
+    # create_cours()
 
     show_tables('cours')
 
