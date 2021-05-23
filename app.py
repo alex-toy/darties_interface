@@ -215,6 +215,9 @@ def palmares():
 @main.route('/accueil/<int:region_id>', methods=['GET', 'POST'])
 def accueil_region(region_id):
 
+    if not (current_user.user_type == 'admin') and (not current_user.user_type == 'dir_gen') and (not current_user.user_type == f"dir_reg{region_id}") :
+        return redirect(url_for('auth.login'))
+
     result = request.form.to_dict()
     
     mois_int = 1
