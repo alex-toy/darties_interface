@@ -38,6 +38,14 @@
                 <button class="button" onclick="location.href='/accueil/3';">Accueil région 3</button>
             {% endif %}
 
+            {% if current_user.user_type == 'admin' or current_user.user_type == 'dir_gen' or current_user.user_type == 'dir_reg4' %}
+                <button class="button" onclick="location.href='/accueil/4';">Accueil région 4</button>
+            {% endif %}
+
+            {% if current_user.user_type == 'admin' or current_user.user_type == 'dir_gen' or current_user.user_type == 'dir_reg5' %}
+                <button class="button" onclick="location.href='/accueil/5';">Accueil région 5</button>
+            {% endif %}
+
             {% if current_user.user_type == 'admin' or current_user.user_type == 'dir_gen' %}
                 <button class="button" onclick="location.href='/historique';">Historique</button>
                 <button class="button" onclick="location.href='/details';">Détails</button>
