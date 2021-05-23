@@ -28,19 +28,14 @@
                             </a>
                             {% endif %}
 
-                            {% if current_user.is_authenticated %}
+                            {% if current_user.is_authenticated and (current_user.user_type == 'admin' or current_user.user_type == 'dir_gen') %}
                             <a href="{{ url_for('main.accueil') }}" class="navbar-item">
                                 Accueil
                             </a>
                             {% endif %}
 
                             {% if not current_user.is_authenticated %}
-                            <a href="{{ url_for('auth.login') }}" class="navbar-item">
-                                Login
-                            </a>
-                            <a href="{{ url_for('auth.signup') }}" class="navbar-item">
-                                Sign Up
-                            </a>
+                            <a href="{{ url_for('auth.login') }}" class="navbar-item">Login</a>
                             {% endif %}
 
                             {% if current_user.is_authenticated %}

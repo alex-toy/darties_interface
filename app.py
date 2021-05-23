@@ -14,9 +14,13 @@ from config import *
 main = Blueprint('main', __name__)
 
 
+
 @main.route('/accueil', methods=['GET', 'POST'])
 @login_required
 def accueil():
+
+    if not (current_user.user_type == 'admin') and (not current_user.user_type == 'dir_gen') :
+        return redirect(url_for('auth.login'))
 
     result = request.form.to_dict()
     currencies = all_devise()
@@ -66,7 +70,11 @@ def accueil():
 
 
 @main.route('/historique', methods=['GET', 'POST'])
+@login_required
 def historique():
+
+    if not (current_user.user_type == 'admin') and (not current_user.user_type == 'dir_gen') :
+        return redirect(url_for('auth.login'))
 
     current_year = date.today().year
 
@@ -124,7 +132,11 @@ def historique():
 
 
 @main.route('/details', methods=['GET', 'POST'])
+@login_required
 def details():
+
+    if not (current_user.user_type == 'admin') and (not current_user.user_type == 'dir_gen') :
+        return redirect(url_for('auth.login'))
     
     result = request.form.to_dict()
     
@@ -154,6 +166,9 @@ def details():
 
 @main.route('/palmares', methods=['GET', 'POST'])
 def palmares():
+
+    if not (current_user.user_type == 'admin') and (not current_user.user_type == 'dir_gen') :
+        return redirect(url_for('auth.login'))
     
     result = request.form.to_dict()
     

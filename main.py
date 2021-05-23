@@ -5,8 +5,6 @@ from app import *
 
 
 
-
-
 @main.route('/')
 def index():
     return render_template('index_login.html')
@@ -20,6 +18,7 @@ def profile():
         'profile.html', 
         name=current_user.name,
         email=current_user.email,
+        user_type=current_user.user_type
     )
 
 
