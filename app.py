@@ -13,6 +13,7 @@ from config import *
 
 main = Blueprint('main', __name__)
 
+
 @main.route('/accueil', methods=['GET', 'POST'])
 @login_required
 def accueil():

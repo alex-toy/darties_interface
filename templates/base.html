@@ -23,6 +23,9 @@
         <button class="button" onclick="location.href='/historique';">Historique</button>
         <button class="button" onclick="location.href='/details';">Détails</button>
         <button class="button" onclick="location.href='/palmares';">Palmares</button>
+
+        <button class="button" onclick="location.href='{{ url_for('auth.logout') }}';">Logout</button>
+
     </div>
     
     {% block body %}{% endblock %}
