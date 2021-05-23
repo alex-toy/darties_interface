@@ -50,7 +50,9 @@ def accueil():
 
 
     return render_template(
-        'accueil.html', 
+        'accueil.html',
+
+        name=current_user.name,
 
         mois_string=mois_string,
         annee=annee,
