@@ -15,3 +15,10 @@ def index():
 @login_required
 def profile():
     return render_template('profile.html', name=current_user.name)
+
+
+
+
+if __name__ == "__main__":
+    
+    app.run(debug=True)
