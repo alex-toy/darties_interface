@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect, flash, Blueprint
+from flask import Flask, render_template, url_for, request, redirect, flash
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -10,9 +10,14 @@ from datetime import date
 from queries import *
 from config import *
 
-main = Blueprint('main', __name__)
+app = Flask(__name__)
+app.secret_key = "super secret key"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+db = SQLAlchemy(app)
 
-@main.route('/accueil', methods=['GET', 'POST'])
+
+
+@app.route('/accueil', methods=['GET', 'POST'])
 def accueil():
 
     result = request.form.to_dict()
@@ -62,7 +67,7 @@ def accueil():
 
 
 
-@main.route('/historique', methods=['GET', 'POST'])
+@app.route('/historique', methods=['GET', 'POST'])
 def historique():
 
     current_year = date.today().year
@@ -120,7 +125,7 @@ def historique():
 
 
 
-@main.route('/details', methods=['GET', 'POST'])
+@app.route('/details', methods=['GET', 'POST'])
 def details():
     
     result = request.form.to_dict()
@@ -149,7 +154,7 @@ def details():
 
 
 
-@main.route('/palmares', methods=['GET', 'POST'])
+@app.route('/palmares', methods=['GET', 'POST'])
 def palmares():
     
     result = request.form.to_dict()
@@ -194,7 +199,7 @@ def palmares():
 
 
 
-@main.route('/accueil/<int:region_id>', methods=['GET', 'POST'])
+@app.route('/accueil/<int:region_id>', methods=['GET', 'POST'])
 def accueil_region(region_id):
 
     result = request.form.to_dict()
@@ -223,7 +228,7 @@ def accueil_region(region_id):
 
 
 
-@main.route('/test')
+@app.route('/test')
 def test():
 
     result = request.form.to_dict()

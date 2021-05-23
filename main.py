@@ -1,7 +1,9 @@
 from flask import Blueprint, render_template 
 from flask_login import login_required, current_user
 
-main = Blueprint('main', __name__)
+from app import *
+
+
 
 
 
@@ -22,3 +24,4 @@ def profile():
 if __name__ == "__main__":
     
     app.run(debug=True)
+
