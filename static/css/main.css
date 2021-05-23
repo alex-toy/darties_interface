@@ -41,7 +41,7 @@ body, html {
 .description{
     position: absolute;
     left: 10px;
-    top: 540px;
+    top: 640px;
     width: 400px;
     height: 150px;
     background-color: #87CEFA;
@@ -54,7 +54,7 @@ body, html {
     left: 10px;
     top: 100px;
     width: 400px;
-    height: 450px;
+    height: 520px;
     padding: 5px;
     background-color: #87CEFA;
     margin: 5px;
@@ -63,7 +63,7 @@ body, html {
 .filtre{
     position: absolute;
     left: 10px;
-    top: 700px;
+    top: 800px;
     width: 400px;
     height: 200px;
     padding: 5px;

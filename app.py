@@ -97,6 +97,8 @@ def historique():
     return render_template(
         'historique.html',
 
+        name=current_user.name,
+
         annee=current_year,
         mois_string=mois_string,
 
@@ -154,6 +156,9 @@ def details():
 
     return render_template(
         'details.html',
+
+        name=current_user.name,
+
         current_year=annee,
         mois=mois_string,
 
@@ -202,6 +207,9 @@ def palmares():
 
     return render_template(
         'palmares.html',
+
+        name=current_user.name,
+        
         current_year=annee,
         mois=mois_string,
         classement_indicator=classement_dict[classement],
@@ -236,40 +244,14 @@ def accueil_region(region_id):
     return render_template(
         'accueil_region.html',
 
+        name=current_user.name,
+
         current_year=annee,
         mois=mois_string,
 
         region_id=region_id,
         perf_reg=perf_reg
     )
-
-
-
-
-@main.route('/test')
-def test():
-
-    result = request.form.to_dict()
-    
-    mois_int = 1
-    mois_string = 'janvier'
-    annee = 2020
-    if result :
-        mois_int = int(result['mois'].split('|')[0])
-        mois_string = result['mois'].split('|')[1]
-        annee = int(result['annee'])
-    
-    perf_nat = performances_nationales(annee, mois_int)
-    perf_reg1 = performances_region(annee, mois_int, list_departement_reg_1)
-    perf_reg2 = performances_region(annee, mois_int, list_departement_reg_2)
-    
-    return render_template(
-        'test.html', 
-        perf_nat=perf_nat,
-        perf_reg1=perf_reg1,
-        perf_reg2=perf_reg2
-    )
-
 
 
 

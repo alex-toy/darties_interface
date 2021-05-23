@@ -44,6 +44,24 @@
                             </a>
                             {% endif %}
 
+                            {% if current_user.is_authenticated and (current_user.user_type == 'admin' or current_user.user_type == 'dir_gen' or current_user.user_type == 'dir_reg3') %}
+                            <a href="/accueil/3" class="navbar-item">
+                                Accueil région 3
+                            </a>
+                            {% endif %}
+
+                            {% if current_user.is_authenticated and (current_user.user_type == 'admin' or current_user.user_type == 'dir_gen' or current_user.user_type == 'dir_reg4') %}
+                            <a href="/accueil/4" class="navbar-item">
+                                Accueil région 4
+                            </a>
+                            {% endif %}
+
+                            {% if current_user.is_authenticated and (current_user.user_type == 'admin' or current_user.user_type == 'dir_gen' or current_user.user_type == 'dir_reg5') %}
+                            <a href="/accueil/5" class="navbar-item">
+                                Accueil région 5
+                            </a>
+                            {% endif %}
+
                             {% if not current_user.is_authenticated %}
                             <a href="{{ url_for('auth.login') }}" class="navbar-item">Login</a>
                             {% endif %}
