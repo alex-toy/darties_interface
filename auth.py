@@ -66,4 +66,4 @@ def signup_post():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('main.index_login'))
+    return redirect(url_for('main.index'))
