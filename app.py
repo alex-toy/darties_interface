@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect, flash, Blueprint
-from flask_login import login_required, current_user
+#from flask_login import login_required, current_user
+from flask_login_multi import login_required, current_user 
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -12,6 +13,10 @@ from queries import *
 from config import *
 
 main = Blueprint('main', __name__)
+admin_app = Blueprint('admin', __name__, url_prefix="/admin")  
+user_app = Blueprint('user', __name__, url_prefix="/user")
+
+
 
 
 @main.route('/accueil', methods=['GET', 'POST'])
