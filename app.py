@@ -240,6 +240,9 @@ def accueil_region(region_id):
         annee = int(result['annee'])
 
     perf_reg = performances_region(annee, mois_int, reg_id_to_name[region_id])
+    perf_reg_fours = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
+    perf_reg_hifi = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
+    perf_reg_magneto = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
     
     return render_template(
         'accueil_region.html',
