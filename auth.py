@@ -16,11 +16,11 @@ def login():
 
 @auth.route('/login', methods=['POST'])
 def login_post():
-    email = request.form.get('email')
+    mail = request.form.get('email')
     password = request.form.get('password')
     remember = True if request.form.get('remember') else False
 
-    user = User.query.filter_by(email=email).first()
+    user = User.query.filter_by(mail=mail).first()
 
     if not user and not check_password_hash(user.password, password):
         flash('Please check your login details and try again.')

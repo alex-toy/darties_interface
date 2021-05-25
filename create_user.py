@@ -4,8 +4,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 
-if __name__ == "__main__":
 
+def create_users() :
 
     myfile = open("data/staging_utilisateur_000", "r")
     records = myfile.readlines()
@@ -26,22 +26,51 @@ if __name__ == "__main__":
         for record in records
     ]
 
-    #print(records_list)
-
     
     db.create_all(app = create_app())
 
     app = create_app()
     with app.app_context():
 
-        for user in user_list :   #('babe', 'rene', 'rene_babe', 'babe', 'rene_babe@darties.com', 1, None, None, 2021)
+        for user in user_list :   
 
             new_user = User(  
-                email='alexei.80@hotmail.fr', 
-                name='alex', 
-                password=generate_password_hash('alex', method='sha256'), 
-                user_type='admin'
+                nom=user[0], 
+                prenom=user[1], 
+                login=user[2], 
+                pwd=generate_password_hash(user[3], method='sha256'),
+                mail=user[4],
+                id_profil=user[5],
+                id_region=user[6],
+                id_magasin=user[7]
             )
             db.session.add(new_user)
         
             db.session.commit()
+
+
+
+
+def show_users() :
+
+    myfile = open("data/staging_utilisateur_000", "r")
+    records = myfile.readlines()
+    myfile.close()
+    print(records)
+
+
+
+
+
+if __name__ == "__main__":
+
+    #create_users()
+
+    show_users()
+
+# babe|rene|rene_babe|babe|rene_babe@darties.com|1|||2021
+# playa|stephanie|stephanie_playa|playa|splaya31@gmail.com|2|1||2021
+# rea|alessio|alessio_rea|rea|alessio_rea@darties.com|2|2||2021
+# garraouii|oussama|oussama_garraouii|garraouii|oussama.garraouii@gmail.com|3||1|2021
+# touati|mahe|mahe_touati|touati|touaaatimahe@gmail.com|3||11|2021
+# perrin|aenor|aenor_perrin|perrin|aenor_perrin@darties.com|3||47|2021
