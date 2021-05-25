@@ -329,3 +329,13 @@ div{
     border-radius: 4px;
     cursor: pointer;
   }
+
+  .detail_magasin{
+    position: absolute;
+    left: 1000px;
+    top: 200px;
+    width: 800px;
+    height: 400px;
+    background-color: #F0F8FF;
+    padding: 10px;
+}

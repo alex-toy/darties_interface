@@ -38,10 +38,10 @@ def accueil_magasin(id_mag):
         mois_string = result['mois'].split('|')[1]
         annee = int(result['annee'])
 
-    # perf_reg = performances_region(annee, mois_int, reg_id_to_name[region_id])
-    # perf_reg_fours = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
-    # perf_reg_hifi = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
-    # perf_reg_magneto = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
+    perf_mag = performances_magasin(annee, mois_int, id_mag)
+    perf_mag_hifi = performances_magasin_item(annee, mois_int, id_mag, 1)
+    perf_mag_magneto = performances_magasin_item(annee, mois_int, id_mag, 2)
+    perf_mag_fours = performances_magasin_item(annee, mois_int, id_mag, 3)
     
     return render_template(
         'accueil_magasin.html',
@@ -52,7 +52,12 @@ def accueil_magasin(id_mag):
         current_year=annee,
         mois=mois_string,
 
-        id_mag=id_mag
+        id_mag=id_mag,
+
+        perf_mag=perf_mag,
+        perf_mag_hifi=perf_mag_hifi,
+        perf_mag_magneto=perf_mag_magneto,
+        perf_mag_fours=perf_mag_fours,
     )
 
 
