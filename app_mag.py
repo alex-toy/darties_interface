@@ -42,6 +42,12 @@ def accueil_magasin(id_mag):
     perf_mag_hifi = performances_magasin_item(annee, mois_int, id_mag, 1)
     perf_mag_magneto = performances_magasin_item(annee, mois_int, id_mag, 2)
     perf_mag_fours = performances_magasin_item(annee, mois_int, id_mag, 3)
+
+    magasins = None
+    if current_user.id_profil == 1 :
+        magasins = all_magasin()
+    elif current_user.id_region > 0 :
+        magasins = all_magasin_in_region(current_user.id_region)
     
     return render_template(
         'accueil_magasin.html',
@@ -58,6 +64,8 @@ def accueil_magasin(id_mag):
         perf_mag_hifi=perf_mag_hifi,
         perf_mag_magneto=perf_mag_magneto,
         perf_mag_fours=perf_mag_fours,
+
+        magasins=magasins
     )
 
 
