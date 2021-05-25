@@ -66,7 +66,9 @@ def accueil_magasin(id_mag):
         perf_mag_magneto=perf_mag_magneto,
         perf_mag_fours=perf_mag_fours,
 
-        magasins=magasins
+        magasins=magasins,
+
+        mag_name=mag_name(id_mag)
     )
 
 

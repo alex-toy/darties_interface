@@ -153,6 +153,28 @@ def performances_magasin_item(annee, mois_int, id_mag, id_famille_produit) :
 
 
 
+
+def mag_name(id_mag) :
+    conn = sqlite3.connect('data.db')
+
+    query = """
+        SELECT lib_magasin
+        
+        FROM magasin 
+        
+        WHERE 
+            magasin.id_magasin = {};
+    """
+    result = pd.read_sql(query.format(id_mag), conn).values
+    conn.close()
+
+    if len(result) > 0:
+        return result[0][0]
+
+    return result
+
+
+
 # def hist_indicator(indicator, annee, mois, lib_famille_produit):
 #     conn = sqlite3.connect('data.db')
 
