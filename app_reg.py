@@ -36,11 +36,16 @@ def accueil_region(region_id):
         annee = int(result['annee'])
 
     perf_reg = performances_region(annee, mois_int, reg_id_to_name[region_id])
-    perf_reg_fours = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
     perf_reg_hifi = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
-    perf_reg_magneto = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
+    perf_reg_magneto = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 2)
+    perf_reg_fours = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 3)
 
-    magasins = all_magasin_in_region(region_id)
+    magasins = None
+    if current_user.id_profil == 1 :
+        magasins = all_magasin()
+    elif current_user.id_region :
+        if current_user.id_region > 0 :
+            magasins = all_magasin_in_region(current_user.id_region)
     
     return render_template(
         'accueil_region.html',
@@ -52,7 +57,11 @@ def accueil_region(region_id):
         mois=mois_string,
 
         region_id=region_id,
+
         perf_reg=perf_reg,
+        perf_reg_fours=perf_reg_fours,
+        perf_reg_hifi=perf_reg_hifi,
+        perf_reg_magneto=perf_reg_magneto,
 
         magasins=magasins
     )

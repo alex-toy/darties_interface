@@ -356,18 +356,20 @@ def performances_region_produit(annee, mois_int, list_departement, id_famille_pr
         FROM sales
         JOIN temps ON sales.id_temps = temps.id_temps
         JOIN villes ON sales.id_ville = villes.id_ville
+        JOIN famille_produit ON sales.id_famille_produit = famille_produit.id_famille_produit
         
         WHERE 
             temps.annee = {} AND
             temps.mois = {} AND
-            villes.lib_departement IN {};
+            villes.lib_departement IN {} AND
+            famille_produit.id_famille_produit = {};
     """
-    ca_obj = pd.read_sql(query.format('ca_objectif', annee, mois_int, list_departement), conn).values[0][0]
-    ca_reel = pd.read_sql(query.format('ca_reel', annee, mois_int, list_departement), conn).values[0][0]
-    ventes_objectif = pd.read_sql(query.format('ventes_objectif', annee, mois_int, list_departement), conn).values[0][0]
-    vente_reel = pd.read_sql(query.format('vente_reel', annee, mois_int, list_departement), conn).values[0][0]
-    marge_objectif = pd.read_sql(query.format('marge_objectif', annee, mois_int, list_departement), conn).values[0][0]
-    marge_reel = pd.read_sql(query.format('marge_reel', annee, mois_int, list_departement), conn).values[0][0]
+    ca_obj = pd.read_sql(query.format('ca_objectif', annee, mois_int, list_departement, id_famille_produit), conn).values[0][0]
+    ca_reel = pd.read_sql(query.format('ca_reel', annee, mois_int, list_departement, id_famille_produit), conn).values[0][0]
+    ventes_objectif = pd.read_sql(query.format('ventes_objectif', annee, mois_int, list_departement, id_famille_produit), conn).values[0][0]
+    vente_reel = pd.read_sql(query.format('vente_reel', annee, mois_int, list_departement, id_famille_produit), conn).values[0][0]
+    marge_objectif = pd.read_sql(query.format('marge_objectif', annee, mois_int, list_departement, id_famille_produit), conn).values[0][0]
+    marge_reel = pd.read_sql(query.format('marge_reel', annee, mois_int, list_departement, id_famille_produit), conn).values[0][0]
 
     conn.close()
 

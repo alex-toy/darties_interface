@@ -85,23 +85,23 @@
                 </tr>
                     <tr>
                         <td>CA</td>
-                        <td>{{perf_reg["ca_obj"]|round|int}}</td>
-                        <td>{{perf_reg["ca_reel"]|round|int}}</td>
-                        <td> {{ '{0:0.2f}'.format(perf_reg["ca_reel"]/perf_reg["ca_obj"]) }}</td>
+                        <td>{{perf_reg_hifi["ca_obj"]|round|int}}</td>
+                        <td>{{perf_reg_hifi["ca_reel"]|round|int}}</td>
+                        <td> {{ '{0:0.2f}'.format(perf_reg_hifi["ca_reel"]/perf_reg_hifi["ca_obj"]) }}</td>
                     </tr>
                     
                     <tr>
                         <td>Ventes</td>
-                        <td>{{perf_reg["ventes_objectif"]|round|int}}</td>
-                        <td>{{perf_reg["vente_reel"]|round|int}}</td>
-                        <td> {{ '{0:0.2f}'.format(perf_reg["vente_reel"]/perf_reg["ventes_objectif"]) }}</td>
+                        <td>{{perf_reg_hifi["ventes_objectif"]|round|int}}</td>
+                        <td>{{perf_reg_hifi["vente_reel"]|round|int}}</td>
+                        <td> {{ '{0:0.2f}'.format(perf_reg_hifi["vente_reel"]/perf_reg_hifi["ventes_objectif"]) }}</td>
                     </tr>
     
                     <tr>
                         <td>Marges</td>
-                        <td>{{perf_reg["marge_objectif"]|round|int}}</td>
-                        <td>{{perf_reg["marge_reel"]|round|int}}</td>
-                        <td> {{ '{0:0.2f}'.format(perf_reg["marge_reel"]/perf_reg["marge_objectif"]) }}</td>
+                        <td>{{perf_reg_hifi["marge_objectif"]|round|int}}</td>
+                        <td>{{perf_reg_hifi["marge_reel"]|round|int}}</td>
+                        <td> {{ '{0:0.2f}'.format(perf_reg_hifi["marge_reel"]/perf_reg_hifi["marge_objectif"]) }}</td>
                     </tr>
     
             </table>
@@ -114,23 +114,23 @@
                 </tr>
                     <tr>
                         <td>CA</td>
-                        <td>{{perf_reg["ca_obj"]|round|int}}</td>
-                        <td>{{perf_reg["ca_reel"]|round|int}}</td>
-                        <td> {{ '{0:0.2f}'.format(perf_reg["ca_reel"]/perf_reg["ca_obj"]) }}</td>
+                        <td>{{perf_reg_magneto["ca_obj"]|round|int}}</td>
+                        <td>{{perf_reg_magneto["ca_reel"]|round|int}}</td>
+                        <td> {{ '{0:0.2f}'.format(perf_reg_magneto["ca_reel"]/perf_reg_magneto["ca_obj"]) }}</td>
                     </tr>
                     
                     <tr>
                         <td>Ventes</td>
-                        <td>{{perf_reg["ventes_objectif"]|round|int}}</td>
-                        <td>{{perf_reg["vente_reel"]|round|int}}</td>
-                        <td> {{ '{0:0.2f}'.format(perf_reg["vente_reel"]/perf_reg["ventes_objectif"]) }}</td>
+                        <td>{{perf_reg_magneto["ventes_objectif"]|round|int}}</td>
+                        <td>{{perf_reg_magneto["vente_reel"]|round|int}}</td>
+                        <td> {{ '{0:0.2f}'.format(perf_reg_magneto["vente_reel"]/perf_reg_magneto["ventes_objectif"]) }}</td>
                     </tr>
     
                     <tr>
                         <td>Marges</td>
-                        <td>{{perf_reg["marge_objectif"]|round|int}}</td>
-                        <td>{{perf_reg["marge_reel"]|round|int}}</td>
-                        <td> {{ '{0:0.2f}'.format(perf_reg["marge_reel"]/perf_reg["marge_objectif"]) }}</td>
+                        <td>{{perf_reg_magneto["marge_objectif"]|round|int}}</td>
+                        <td>{{perf_reg_magneto["marge_reel"]|round|int}}</td>
+                        <td> {{ '{0:0.2f}'.format(perf_reg_magneto["marge_reel"]/perf_reg_magneto["marge_objectif"]) }}</td>
                     </tr>
     
             </table>
@@ -143,23 +143,23 @@
                 </tr>
                     <tr>
                         <td>CA</td>
-                        <td>{{perf_reg["ca_obj"]|round|int}}</td>
-                        <td>{{perf_reg["ca_reel"]|round|int}}</td>
-                        <td> {{ '{0:0.2f}'.format(perf_reg["ca_reel"]/perf_reg["ca_obj"]) }}</td>
+                        <td>{{perf_reg_fours["ca_obj"]|round|int}}</td>
+                        <td>{{perf_reg_fours["ca_reel"]|round|int}}</td>
+                        <td> {{ '{0:0.2f}'.format(perf_reg_fours["ca_reel"]/perf_reg_fours["ca_obj"]) }}</td>
                     </tr>
                     
                     <tr>
                         <td>Ventes</td>
-                        <td>{{perf_reg["ventes_objectif"]|round|int}}</td>
-                        <td>{{perf_reg["vente_reel"]|round|int}}</td>
-                        <td> {{ '{0:0.2f}'.format(perf_reg["vente_reel"]/perf_reg["ventes_objectif"]) }}</td>
+                        <td>{{perf_reg_fours["ventes_objectif"]|round|int}}</td>
+                        <td>{{perf_reg_fours["vente_reel"]|round|int}}</td>
+                        <td> {{ '{0:0.2f}'.format(perf_reg_fours["vente_reel"]/perf_reg_fours["ventes_objectif"]) }}</td>
                     </tr>
     
                     <tr>
                         <td>Marges</td>
-                        <td>{{perf_reg["marge_objectif"]|round|int}}</td>
-                        <td>{{perf_reg["marge_reel"]|round|int}}</td>
-                        <td> {{ '{0:0.2f}'.format(perf_reg["marge_reel"]/perf_reg["marge_objectif"]) }}</td>
+                        <td>{{perf_reg_fours["marge_objectif"]|round|int}}</td>
+                        <td>{{perf_reg_fours["marge_reel"]|round|int}}</td>
+                        <td> {{ '{0:0.2f}'.format(perf_reg_fours["marge_reel"]/perf_reg_fours["marge_objectif"]) }}</td>
                     </tr>
     
             </table>
