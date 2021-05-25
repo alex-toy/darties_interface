@@ -132,7 +132,9 @@ def historique():
         magneto_obj_cumul_cur=hist_indicators_cumul_cur['magneto_obj_cumul'],
         magneto_reel_cumul_cur=hist_indicators_cumul_cur['magneto_reel_cumul'],
         fours_obj_cumul_cur=hist_indicators_cumul_cur['fours_obj_cumul'],
-        fours_reel_cumul_cur=hist_indicators_cumul_cur['fours_reel_cumul']
+        fours_reel_cumul_cur=hist_indicators_cumul_cur['fours_reel_cumul'],
+
+        magasins=all_magasin()
     )
 
 
@@ -160,7 +162,8 @@ def details():
     return render_template(
         'details.html',
 
-        name=current_user.name,
+        nom=current_user.nom,
+        prenom=current_user.prenom,
 
         current_year=annee,
         mois=mois_string,
@@ -168,6 +171,8 @@ def details():
         hifi_kpi=di["hifi_kpi"],
         fours_kpi=di["fours_kpi"],
         magneto_kpi=di["magneto_kpi"],
+
+        magasins=all_magasin()
     )
 
 
@@ -212,7 +217,8 @@ def palmares():
     return render_template(
         'palmares.html',
 
-        name=current_user.name,
+        nom=current_user.nom,
+        prenom=current_user.prenom,
         
         current_year=annee,
         mois=mois_string,
@@ -220,47 +226,11 @@ def palmares():
 
         pi=pi,
         pi_prev=pi_prev,
-        ranks=ranks
+        ranks=ranks,
+
+        magasins=all_magasin()
     )
 
-
-
-
-# @main.route('/accueil/<int:region_id>', methods=['GET', 'POST'])
-# @login_required
-# def accueil_region(region_id):
-
-#     if not (current_user.id_profil == 1) and (not current_user.id_region == region_id) :
-#         return redirect(url_for('auth.login'))
-
-#     result = request.form.to_dict()
-    
-#     mois_int = 1
-#     mois_string = 'janvier'
-#     annee = 2020
-#     classement = 'ca_reel'
-#     if result :
-#         mois_int = int(result['mois'].split('|')[0])
-#         mois_string = result['mois'].split('|')[1]
-#         annee = int(result['annee'])
-
-#     perf_reg = performances_region(annee, mois_int, reg_id_to_name[region_id])
-#     perf_reg_fours = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
-#     perf_reg_hifi = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
-#     perf_reg_magneto = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
-    
-#     return render_template(
-#         'accueil_region.html',
-
-#         nom=current_user.nom,
-#         prenom=current_user.prenom,
-
-#         current_year=annee,
-#         mois=mois_string,
-
-#         region_id=region_id,
-#         perf_reg=perf_reg
-#     )
 
 
 

@@ -30,7 +30,7 @@
                                 <a href="{{ url_for('main.accueil') }}" class="navbar-item">Accueil</a>
                                 {% endif %}
 
-                                {% for id_reg in range(1, 5) %}
+                                {% for id_reg in range(1, 6) %}
                                     {% if current_user.id_profil == 1 or current_user.id_region == id_reg %}
                                     <a href="/accueil/{{id_reg}}" class="navbar-item"> Accueil région {{id_reg}} </a>
                                     {% endif %}

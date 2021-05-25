@@ -27,9 +27,7 @@
                 <button class="button" onclick="location.href='/historique';">Historique</button>
                 <button class="button" onclick="location.href='/details';">Détails</button>
                 <button class="button" onclick="location.href='/palmares';">Palmares</button>
-            {% endif %}
 
-            {% if current_user.id_profil == 1 %}
                 <form>
                     <select name="region" id="mois-select" onchange="location.href='/accueil/'+form.region.value;">
                         <option value={{id_reg}}>--choix de la région--</option>
@@ -49,9 +47,28 @@
                 </form>
             {% endif %}
 
-            {% if current_user.id_region == 1 %}
-                {{magasins}}
-            {% endif %}
+
+            {% for id_reg in range(1, 6) %}
+                {% if current_user.id_region == id_reg %}
+                    <button class="button" onclick="location.href='/accueil/{{id_reg}}';">Accueil région {{id_reg}}</button>
+
+                    <form>
+                        <select name="magasin" id="mois-select" onchange="location.href='/magasin/'+form.magasin.value;">
+                            <option value={{id_reg}}>--choix du magasin--</option>
+                            {% for mag in magasins %}
+                            <option value={{mag[0]}}>{{mag[1]}}</option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                {% endif %}
+            {% endfor %}
+
+
+            {% for id_mag in range(1, 200) %}
+                {% if current_user.id_magasin == id_mag %}
+                    <button class="button" onclick="location.href='/magasin/{{id_mag}}';">Accueil magasin {{id_mag}}</button>
+                {% endif %}
+            {% endfor %}
 
             
 

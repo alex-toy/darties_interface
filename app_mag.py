@@ -9,6 +9,7 @@ import time
 from datetime import date
 
 from queries import *
+from queries_mag import *
 from config import *
 
 main_mag = Blueprint('main_mag', __name__)
@@ -19,7 +20,9 @@ main_mag = Blueprint('main_mag', __name__)
 @login_required
 def accueil_magasin(id_mag):
 
-    if not (current_user.id_profil == 1) and (not current_user.id_magasin == id_mag) :
+    id_reg = region_containing(id_mag)
+
+    if not (current_user.id_profil == 1) and (not current_user.id_magasin == id_mag) and (not current_user.id_region == id_reg) :
         return redirect(url_for('auth.login'))
 
     result = request.form.to_dict()

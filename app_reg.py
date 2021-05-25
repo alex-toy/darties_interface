@@ -9,6 +9,8 @@ import time
 from datetime import date
 
 from queries import *
+from queries_region import *
+from queries_mag import *
 from config import *
 
 main_reg = Blueprint('main_reg', __name__)
