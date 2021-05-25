@@ -12,8 +12,7 @@ def all_magasin_in_region(id_region) :
         FROM magasin
         JOIN villes ON villes.lib_ville = magasin.lib_magasin
 
-        WHERE villes.lib_departement in {}
-        ;
+        WHERE villes.lib_departement in {};
     """
     magasins = pd.read_sql(query.format(reg_id_to_name[id_region]), conn).values
 
