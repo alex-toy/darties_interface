@@ -21,6 +21,17 @@
 
     <div class="links btn-group">
         {% if current_user.is_authenticated %}
+
+            {% if current_user.id_profil == 1 %}
+                <form action="/accueil" method="POST">
+                    <label for="mois-select">Magasin</label>
+                    <select name="magasin" id="mois-select">
+                        {% for mag in magasins %}
+                        <option value={{mag[0]}}>{{mag[1]}}</option>
+                        {% endfor %}
+                    </select>
+                </form>
+            {% endif %}
             
             {% if current_user.id_profil == 1 %}
                 <button class="button" onclick="location.href='/accueil';">Accueil national</button>
@@ -54,7 +65,9 @@
 
             <button class="button" onclick="location.href='{{ url_for('auth.logout') }}';">Logout</button>
 
-            {% endif %}
+            
+
+        {% endif %}
 
     </div>
     

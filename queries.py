@@ -378,3 +378,18 @@ def performances_region_produit(annee, mois_int, list_departement, id_famille_pr
         "marge_objectif" : marge_objectif,
         "marge_reel" : marge_reel
     }
+
+
+def all_magasin() :
+    conn = sqlite3.connect('data.db')
+
+    query = """
+        SELECT * 
+        
+        FROM magasin;
+    """
+    magasins = pd.read_sql(query, conn).values
+
+    conn.close()
+
+    return magasins

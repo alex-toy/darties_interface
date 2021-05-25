@@ -14,7 +14,6 @@ from config import *
 main = Blueprint('main', __name__)
 
 
-
 @main.route('/accueil', methods=['GET', 'POST'])
 @login_required
 def accueil():
@@ -52,7 +51,8 @@ def accueil():
     return render_template(
         'accueil.html',
 
-        name=current_user.nom,
+        nom=current_user.nom,
+        prenom=current_user.prenom,
 
         mois_string=mois_string,
         annee=annee,
@@ -65,7 +65,9 @@ def accueil():
         perf_reg2={k:v*curr_rate[0] for (k,v) in perf_reg2.items()},
         perf_reg3={k:v*curr_rate[0] for (k,v) in perf_reg3.items()},
         perf_reg4={k:v*curr_rate[0] for (k,v) in perf_reg4.items()},
-        perf_reg5={k:v*curr_rate[0] for (k,v) in perf_reg5.items()}
+        perf_reg5={k:v*curr_rate[0] for (k,v) in perf_reg5.items()},
+
+        magasins=all_magasin()
     )
 
 
