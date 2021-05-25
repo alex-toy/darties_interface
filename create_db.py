@@ -19,7 +19,7 @@ def create_ville() :
     c.execute(create_villes_query)
 
 
-    myfile = open("data/ville_000.csv", "r")
+    myfile = open("data/ville_000", "r")
     records = myfile.readlines()
     myfile.close()
 
@@ -68,7 +68,7 @@ def create_sales() :
     c.execute(create_query)
 
 
-    myfile = open("data/sales_000.csv", "r")
+    myfile = open("data/sales_000", "r")
     records = myfile.readlines()
     myfile.close()
 
@@ -116,7 +116,7 @@ def create_temps() :
     c.execute(create_query)
 
 
-    myfile = open("data/temps_000.csv", "r")
+    myfile = open("data/temps_000", "r")
     records = myfile.readlines()
     myfile.close()
 
@@ -158,7 +158,7 @@ def create_magasin() :
     """
     c.execute(create_query)
 
-    myfile = open("data/magasin_000.csv", "r")
+    myfile = open("data/magasin_000", "r")
     records = myfile.readlines()
     myfile.close()
 
@@ -195,7 +195,7 @@ def create_famille_produit() :
     """
     c.execute(create_query)
 
-    myfile = open("data/famille_produit_000.csv", "r")
+    myfile = open("data/famille_produit_000", "r")
     records = myfile.readlines()
     myfile.close()
 
@@ -229,7 +229,7 @@ def create_devise() :
     """
     c.execute(create_query)
 
-    myfile = open("data/devise_000.csv", "r")
+    myfile = open("data/devise_000", "r")
     records = myfile.readlines()
     myfile.close()
 
@@ -265,7 +265,7 @@ def create_cours() :
     """
     c.execute(create_query)
 
-    myfile = open("data/cours_000.csv", "r")
+    myfile = open("data/cours_000", "r")
     records = myfile.readlines()
     myfile.close()
 
@@ -295,13 +295,13 @@ def delete_all() :
     conn = sqlite3.connect('data.db')
     c = conn.cursor()
 
-    c.execute("DROP TABLE villes;")
-    c.execute("DROP TABLE sales;")
-    c.execute("DROP TABLE temps;")
-    c.execute("DROP TABLE magasin;")
-    c.execute("DROP TABLE famille_produit;")
-    c.execute("DROP TABLE cours;")
-    c.execute("DROP TABLE devise;")
+    c.execute("DROP TABLE IF EXISTS villes;")
+    c.execute("DROP TABLE IF EXISTS sales;")
+    c.execute("DROP TABLE IF EXISTS temps;")
+    c.execute("DROP TABLE IF EXISTS magasin;")
+    c.execute("DROP TABLE IF EXISTS famille_produit;")
+    c.execute("DROP TABLE IF EXISTS cours;")
+    c.execute("DROP TABLE IF EXISTS devise;")
     
 
     conn.commit()
@@ -351,5 +351,5 @@ if __name__ == "__main__":
 
     # create_cours()
 
-    show_tables('cours')
+    show_tables('devise')
 
