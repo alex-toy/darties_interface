@@ -113,11 +113,13 @@ def performances_magasin(annee, mois_int, id_mag):
     """
     result = pd.read_sql(query.format(annee, mois_int, id_mag), conn).values
     conn.close()
+    
 
     if len(result) > 0:
-        return result[0]
+        if result[0][0] :
+            return result[0]
 
-    return result
+    return [0.01, 0, 0.01, 0, 0.01, 0]
 
 
 
@@ -147,9 +149,10 @@ def performances_magasin_item(annee, mois_int, id_mag, id_famille_produit) :
     conn.close()
 
     if len(result) > 0:
-        return result[0]
+        if result[0][0] :
+            return result[0]
 
-    return result
+    return [0.01, 0, 0.01, 0, 0.01, 0]
 
 
 

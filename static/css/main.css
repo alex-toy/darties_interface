@@ -297,6 +297,17 @@ div{
     background-position: bottom -1700px right -2200px;
 }
 
+.backimage_region_5{
+    position: absolute;
+    left: 900px;
+    top: 100px;
+    width: 700px;
+    height: 700px;
+    background-image: url("../images/france2.png");
+    background-size: 3000px 3000px;
+    background-repeat: no-repeat;
+    background-position: bottom -1700px right -2200px;
+}
 
 
 
