@@ -172,6 +172,7 @@ def details():
 
 
 @main.route('/palmares', methods=['GET', 'POST'])
+@login_required
 def palmares():
 
     if not current_user.id_profil == 1 :
@@ -223,6 +224,7 @@ def palmares():
 
 
 @main.route('/accueil/<int:region_id>', methods=['GET', 'POST'])
+@login_required
 def accueil_region(region_id):
 
     if not (current_user.id_profil == 1) and (not current_user.id_region == region_id) :

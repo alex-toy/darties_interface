@@ -27,44 +27,23 @@
                                 <a href="{{ url_for('main.profile') }}" class="navbar-item">Profile</a>
 
                                 {% if current_user.id_profil == 1 %}
-                                <a href="{{ url_for('main.accueil') }}" class="navbar-item">
-                                    Accueil
-                                </a>
+                                <a href="{{ url_for('main.accueil') }}" class="navbar-item">Accueil</a>
                                 {% endif %}
 
-                                {% if current_user.id_profil == 1 or current_user.id_region == 1 %}
-                                <a href="/accueil/1" class="navbar-item">
-                                    Accueil région 1
-                                </a>
-                                {% endif %}
+                                {% for id_reg in range(1, 5) %}
+                                    {% if current_user.id_profil == 1 or current_user.id_region == id_reg %}
+                                    <a href="/accueil/{{id_reg}}" class="navbar-item"> Accueil région {{id_reg}} </a>
+                                    {% endif %}
+                                {% endfor %}
 
-                                {% if current_user.id_profil == 1 or current_user.id_region == 2 %}
-                                <a href="/accueil/2" class="navbar-item">
-                                    Accueil région 2
-                                </a>
-                                {% endif %}
-
-                                {% if current_user.id_profil == 1 or current_user.id_region == 3 %}
-                                <a href="/accueil/3" class="navbar-item">
-                                    Accueil région 3
-                                </a>
-                                {% endif %}
-
-                                {% if current_user.id_profil == 1 or current_user.id_region == 4 %}
-                                <a href="/accueil/4" class="navbar-item">
-                                    Accueil région 4
-                                </a>
-                                {% endif %}
-
-                                {% if current_user.id_profil == 1 or current_user.id_region == 5 %}
-                                <a href="/accueil/5" class="navbar-item">
-                                    Accueil région 5
-                                </a>
-                                {% endif %}
+                                {% for id_mag in range(1, 200) %}
+                                    {% if current_user.id_magasin == id_mag %}
+                                    <a href="/magasin/{{id_mag}}" class="navbar-item"> Accueil magasin {{id_mag}} </a>
+                                    {% endif %}
+                                {% endfor %}
 
                             {% endif %}
 
-                        
 
                             {% if not current_user.is_authenticated %}
                             <a href="{{ url_for('auth.login') }}" class="navbar-item">Login</a>
