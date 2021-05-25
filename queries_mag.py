@@ -37,9 +37,12 @@ def region_containing(id_mag) :
         WHERE magasin.id_magasin = {}
         ;
     """
-
-    lib_departement = pd.read_sql(query.format(id_mag), conn).values[0][0]
+    lib_departement = ''
+    result = pd.read_sql(query.format(id_mag), conn).values
     conn.close()
+    if len(result) > 0 :
+        lib_departement = result[0][0]
+    
 
 
     print(lib_departement)
