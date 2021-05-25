@@ -19,7 +19,7 @@ main = Blueprint('main', __name__)
 @login_required
 def accueil():
 
-    if not (current_user.user_type == 'admin') and (not current_user.user_type == 'dir_gen') :
+    if not current_user.id_profil == 1 :
         return redirect(url_for('auth.login'))
 
     result = request.form.to_dict()
@@ -52,7 +52,7 @@ def accueil():
     return render_template(
         'accueil.html',
 
-        name=current_user.name,
+        name=current_user.nom,
 
         mois_string=mois_string,
         annee=annee,
@@ -75,7 +75,7 @@ def accueil():
 @login_required
 def historique():
 
-    if not (current_user.user_type == 'admin') and (not current_user.user_type == 'dir_gen') :
+    if not current_user.id_profil == 1 :
         return redirect(url_for('auth.login'))
 
     current_year = date.today().year
@@ -139,7 +139,7 @@ def historique():
 @login_required
 def details():
 
-    if not (current_user.user_type == 'admin') and (not current_user.user_type == 'dir_gen') :
+    if not current_user.id_profil == 1 :
         return redirect(url_for('auth.login'))
     
     result = request.form.to_dict()
@@ -174,7 +174,7 @@ def details():
 @main.route('/palmares', methods=['GET', 'POST'])
 def palmares():
 
-    if not (current_user.user_type == 'admin') and (not current_user.user_type == 'dir_gen') :
+    if not current_user.id_profil == 1 :
         return redirect(url_for('auth.login'))
     
     result = request.form.to_dict()
@@ -225,7 +225,7 @@ def palmares():
 @main.route('/accueil/<int:region_id>', methods=['GET', 'POST'])
 def accueil_region(region_id):
 
-    if not (current_user.user_type == 'admin') and (not current_user.user_type == 'dir_gen') and (not current_user.user_type == f"dir_reg{region_id}") :
+    if not (current_user.id_profil == 1) and (not current_user.id_region == region_id) :
         return redirect(url_for('auth.login'))
 
     result = request.form.to_dict()
@@ -247,7 +247,8 @@ def accueil_region(region_id):
     return render_template(
         'accueil_region.html',
 
-        name=current_user.name,
+        nom=current_user.nom,
+        prenom=current_user.prenom,
 
         current_year=annee,
         mois=mois_string,

@@ -11,7 +11,7 @@
 
     <div class="logo">
         <h4>DARTIES</h4>
-        <p>User : {{ name }}</p>
+        <p>User : {{ nom }} {{ prenom }}</p>
     </div>
 
 
@@ -22,31 +22,31 @@
     <div class="links btn-group">
         {% if current_user.is_authenticated %}
             
-            {% if current_user.user_type == 'admin' or current_user.user_type == 'dir_gen' %}
+            {% if current_user.id_profil == 1 %}
                 <button class="button" onclick="location.href='/accueil';">Accueil national</button>
             {% endif %}
 
-            {% if current_user.user_type == 'admin' or current_user.user_type == 'dir_gen' or current_user.user_type == 'dir_reg1' %}
+            {% if current_user.id_profil == 1 or current_user.id_region == 1 %}
                 <button class="button" onclick="location.href='/accueil/1';">Accueil région 1</button>
             {% endif %}
             
-            {% if current_user.user_type == 'admin' or current_user.user_type == 'dir_gen' or current_user.user_type == 'dir_reg2' %}
+            {% if current_user.id_profil == 1 or current_user.id_region == 2 %}
                 <button class="button" onclick="location.href='/accueil/2';">Accueil région 2</button>
             {% endif %}
 
-            {% if current_user.user_type == 'admin' or current_user.user_type == 'dir_gen' or current_user.user_type == 'dir_reg3' %}
+            {% if current_user.id_profil == 1 or current_user.id_region == 3 %}
                 <button class="button" onclick="location.href='/accueil/3';">Accueil région 3</button>
             {% endif %}
 
-            {% if current_user.user_type == 'admin' or current_user.user_type == 'dir_gen' or current_user.user_type == 'dir_reg4' %}
+            {% if current_user.id_profil == 1 or current_user.id_region == 4 %}
                 <button class="button" onclick="location.href='/accueil/4';">Accueil région 4</button>
             {% endif %}
 
-            {% if current_user.user_type == 'admin' or current_user.user_type == 'dir_gen' or current_user.user_type == 'dir_reg5' %}
+            {% if current_user.id_profil == 1 or current_user.id_region == 5 %}
                 <button class="button" onclick="location.href='/accueil/5';">Accueil région 5</button>
             {% endif %}
 
-            {% if current_user.user_type == 'admin' or current_user.user_type == 'dir_gen' %}
+            {% if current_user.id_profil == 1 %}
                 <button class="button" onclick="location.href='/historique';">Historique</button>
                 <button class="button" onclick="location.href='/details';">Détails</button>
                 <button class="button" onclick="location.href='/palmares';">Palmares</button>

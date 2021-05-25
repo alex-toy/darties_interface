@@ -5,15 +5,20 @@
   Application DARTIES
 </h1>
 <h1 class="title">
-  Bienvenue {{ name }}
+  Bienvenue {{ prenom[0]|upper}}{{prenom[1:] }} {{ nom[0]|upper}}{{nom[1:] }}
 </h1>
 <p>mail : {{ email }}</p>
 <p>Vous êtes authentifié en tant que : {{ user_type }}</p>
 
+{% if id_region -%}
+  <p>Vous êtes responsable de la région {{ id_region }}</p>
+{% endif %}
+
+{% if id_magasin -%}
+  <p>Vous êtes responsable du magasin : {{ id_magasin }}</p>
+{% endif %}
 
 
-<p>Vous êtes responsable de la région : {{ id_region }}</p>
-<p>Vous êtes responsable du magasin : {{ id_magasin }}</p>
 
 
 {% endblock %}

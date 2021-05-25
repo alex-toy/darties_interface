@@ -19,7 +19,8 @@ def profile():
 
     return render_template(
         'profile.html', 
-        name=current_user.nom,
+        prenom=current_user.prenom,
+        nom=current_user.nom,
         email=current_user.mail,
         user_type=id_profil_to_user_type[current_user.id_profil],
         id_profil=current_user.id_profil,
