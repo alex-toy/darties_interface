@@ -99,7 +99,8 @@ def historique():
     return render_template(
         'historique.html',
 
-        name=current_user.name,
+        nom=current_user.nom,
+        prenom=current_user.prenom,
 
         annee=current_year,
         mois_string=mois_string,
