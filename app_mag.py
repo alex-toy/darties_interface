@@ -46,8 +46,9 @@ def accueil_magasin(id_mag):
     magasins = None
     if current_user.id_profil == 1 :
         magasins = all_magasin()
-    elif current_user.id_region > 0 :
-        magasins = all_magasin_in_region(current_user.id_region)
+    elif current_user.id_region :
+        if current_user.id_region > 0 :
+            magasins = all_magasin_in_region(current_user.id_region)
     
     return render_template(
         'accueil_magasin.html',
