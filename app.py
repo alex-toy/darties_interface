@@ -226,41 +226,41 @@ def palmares():
 
 
 
-@main.route('/accueil/<int:region_id>', methods=['GET', 'POST'])
-@login_required
-def accueil_region(region_id):
+# @main.route('/accueil/<int:region_id>', methods=['GET', 'POST'])
+# @login_required
+# def accueil_region(region_id):
 
-    if not (current_user.id_profil == 1) and (not current_user.id_region == region_id) :
-        return redirect(url_for('auth.login'))
+#     if not (current_user.id_profil == 1) and (not current_user.id_region == region_id) :
+#         return redirect(url_for('auth.login'))
 
-    result = request.form.to_dict()
+#     result = request.form.to_dict()
     
-    mois_int = 1
-    mois_string = 'janvier'
-    annee = 2020
-    classement = 'ca_reel'
-    if result :
-        mois_int = int(result['mois'].split('|')[0])
-        mois_string = result['mois'].split('|')[1]
-        annee = int(result['annee'])
+#     mois_int = 1
+#     mois_string = 'janvier'
+#     annee = 2020
+#     classement = 'ca_reel'
+#     if result :
+#         mois_int = int(result['mois'].split('|')[0])
+#         mois_string = result['mois'].split('|')[1]
+#         annee = int(result['annee'])
 
-    perf_reg = performances_region(annee, mois_int, reg_id_to_name[region_id])
-    perf_reg_fours = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
-    perf_reg_hifi = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
-    perf_reg_magneto = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
+#     perf_reg = performances_region(annee, mois_int, reg_id_to_name[region_id])
+#     perf_reg_fours = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
+#     perf_reg_hifi = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
+#     perf_reg_magneto = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
     
-    return render_template(
-        'accueil_region.html',
+#     return render_template(
+#         'accueil_region.html',
 
-        nom=current_user.nom,
-        prenom=current_user.prenom,
+#         nom=current_user.nom,
+#         prenom=current_user.prenom,
 
-        current_year=annee,
-        mois=mois_string,
+#         current_year=annee,
+#         mois=mois_string,
 
-        region_id=region_id,
-        perf_reg=perf_reg
-    )
+#         region_id=region_id,
+#         perf_reg=perf_reg
+#     )
 
 
 

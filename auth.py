@@ -33,32 +33,32 @@ def login_post():
 
 
 
-@auth.route('/signup')
-def signup():
-    return render_template('signup.html')
+# @auth.route('/signup')
+# def signup():
+#     return render_template('signup.html')
 
 
 
 
-@auth.route('/signup', methods=['POST'])
-def signup_post():
-    email = request.form.get('email')
-    name = request.form.get('name')
-    password = request.form.get('password')
-    user_type = request.form.get('user_type')
+# @auth.route('/signup', methods=['POST'])
+# def signup_post():
+#     email = request.form.get('email')
+#     name = request.form.get('name')
+#     password = request.form.get('password')
+#     user_type = request.form.get('user_type')
 
-    user = User.query.filter_by(email=email).first()
+#     user = User.query.filter_by(email=email).first()
 
-    if user:
-        flash('Email address already exists.')
-        return redirect(url_for('auth.signup'))
+#     if user:
+#         flash('Email address already exists.')
+#         return redirect(url_for('auth.signup'))
 
-    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'), user_type=user_type)
+#     new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'), user_type=user_type)
 
-    db.session.add(new_user)
-    db.session.commit()
+#     db.session.add(new_user)
+#     db.session.commit()
 
-    return redirect(url_for('auth.login'))
+#     return redirect(url_for('auth.login'))
 
 
 

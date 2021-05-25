@@ -28,6 +28,12 @@ def create_app():
     from main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
+    from app_mag import main_mag as main_mag_blueprint
+    app.register_blueprint(main_mag_blueprint)
+
+    from app_reg import main_reg as main_reg_blueprint
+    app.register_blueprint(main_reg_blueprint)
+
     return app
 
 
