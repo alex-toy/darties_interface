@@ -37,6 +37,8 @@ def accueil_region(region_id):
     perf_reg_fours = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
     perf_reg_hifi = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
     perf_reg_magneto = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
+
+    magasins = all_magasin_in_region(region_id)
     
     return render_template(
         'accueil_region.html',
@@ -48,7 +50,9 @@ def accueil_region(region_id):
         mois=mois_string,
 
         region_id=region_id,
-        perf_reg=perf_reg
+        perf_reg=perf_reg,
+
+        magasins=magasins
     )
 
 

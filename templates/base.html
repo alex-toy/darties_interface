@@ -49,6 +49,12 @@
                 </form>
             {% endif %}
 
+            {% if current_user.id_region == 1 %}
+                {{magasins}}
+            {% endif %}
+
+            
+
             <button class="button" onclick="location.href='{{ url_for('auth.logout') }}';">Logout</button>
 
             
