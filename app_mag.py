@@ -65,6 +65,21 @@ def accueil_magasin(id_mag):
     nat_rank_marge_hifi = nat_rank_mag_item(id_mag, 'marge_reel', annee, mois_int, 1)
     nat_rank_marge_magneto = nat_rank_mag_item(id_mag, 'marge_reel', annee, mois_int, 2)
     nat_rank_marge_fours = nat_rank_mag_item(id_mag, 'marge_reel', annee, mois_int, 3)
+
+    reg_rank_ca = reg_rank_mag(id_mag, 'ca_reel', annee, mois_int)
+    reg_rank_ca_hifi = reg_rank_mag_item(id_mag, 'ca_reel', annee, mois_int, 1)
+    reg_rank_ca_magneto = reg_rank_mag_item(id_mag, 'ca_reel', annee, mois_int, 2)
+    reg_rank_ca_fours = reg_rank_mag_item(id_mag, 'ca_reel', annee, mois_int, 3)
+
+    reg_rank_vente = reg_rank_mag(id_mag, 'vente_reel', annee, mois_int)
+    reg_rank_vente_hifi = reg_rank_mag_item(id_mag, 'vente_reel', annee, mois_int, 1)
+    reg_rank_vente_magneto = reg_rank_mag_item(id_mag, 'vente_reel', annee, mois_int, 2)
+    reg_rank_vente_fours = reg_rank_mag_item(id_mag, 'vente_reel', annee, mois_int, 3)
+
+    reg_rank_marge = reg_rank_mag(id_mag, 'marge_reel', annee, mois_int)
+    reg_rank_marge_hifi = reg_rank_mag_item(id_mag, 'marge_reel', annee, mois_int, 1)
+    reg_rank_marge_magneto = reg_rank_mag_item(id_mag, 'marge_reel', annee, mois_int, 2)
+    reg_rank_marge_fours = reg_rank_mag_item(id_mag, 'marge_reel', annee, mois_int, 3)
     
     return render_template(
         'accueil_magasin.html',
@@ -99,7 +114,22 @@ def accueil_magasin(id_mag):
         nat_rank_marge=nat_rank_marge,
         nat_rank_marge_hifi=nat_rank_marge_hifi,
         nat_rank_marge_magneto=nat_rank_marge_magneto,
-        nat_rank_marge_fours=nat_rank_marge_fours
+        nat_rank_marge_fours=nat_rank_marge_fours,
+
+        reg_rank_ca=reg_rank_ca,
+        reg_rank_ca_hifi=reg_rank_ca_hifi,
+        reg_rank_ca_magneto=reg_rank_ca_magneto,
+        reg_rank_ca_fours=reg_rank_ca_fours,
+
+        reg_rank_vente=reg_rank_vente,
+        reg_rank_vente_hifi=reg_rank_vente_hifi,
+        reg_rank_vente_magneto=reg_rank_vente_magneto,
+        reg_rank_vente_fours=reg_rank_vente_fours,
+
+        reg_rank_marge=reg_rank_marge,
+        reg_rank_marge_hifi=reg_rank_marge_hifi,
+        reg_rank_marge_magneto=reg_rank_marge_magneto,
+        reg_rank_marge_fours=reg_rank_marge_fours
     )
 
 
