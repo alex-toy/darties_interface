@@ -57,7 +57,14 @@ def accueil_magasin(id_mag):
     nat_rank_ca_fours = nat_rank_mag_item(id_mag, 'ca_reel', annee, mois_int, 3)
 
     nat_rank_vente = nat_rank_mag(id_mag, 'vente_reel', annee, mois_int)
+    nat_rank_vente_hifi = nat_rank_mag_item(id_mag, 'vente_reel', annee, mois_int, 1)
+    nat_rank_vente_magneto = nat_rank_mag_item(id_mag, 'vente_reel', annee, mois_int, 2)
+    nat_rank_vente_fours = nat_rank_mag_item(id_mag, 'vente_reel', annee, mois_int, 3)
+
     nat_rank_marge = nat_rank_mag(id_mag, 'marge_reel', annee, mois_int)
+    nat_rank_marge_hifi = nat_rank_mag_item(id_mag, 'marge_reel', annee, mois_int, 1)
+    nat_rank_marge_magneto = nat_rank_mag_item(id_mag, 'marge_reel', annee, mois_int, 2)
+    nat_rank_marge_fours = nat_rank_mag_item(id_mag, 'marge_reel', annee, mois_int, 3)
     
     return render_template(
         'accueil_magasin.html',
@@ -85,10 +92,14 @@ def accueil_magasin(id_mag):
         nat_rank_ca_fours=nat_rank_ca_fours,
 
         nat_rank_vente=nat_rank_vente,
+        nat_rank_vente_hifi=nat_rank_vente_hifi,
+        nat_rank_vente_magneto=nat_rank_vente_magneto,
+        nat_rank_vente_fours=nat_rank_vente_fours,
 
-
-        nat_rank_marge=nat_rank_marge
-
+        nat_rank_marge=nat_rank_marge,
+        nat_rank_marge_hifi=nat_rank_marge_hifi,
+        nat_rank_marge_magneto=nat_rank_marge_magneto,
+        nat_rank_marge_fours=nat_rank_marge_fours
     )
 
 
