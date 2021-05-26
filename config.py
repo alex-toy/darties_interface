@@ -1,8 +1,8 @@
-dep_reg_1 = ['yveline', 'essonne', 'seine-saint-denis', 'val-de-marne']
-dep_reg_2 = ['cher', 'yonne']
-dep_reg_3 = ['aude']
-dep_reg_4 = ['oise']
-dep_reg_5 = ['moselle']
+dep_reg_1 = ['yvelines', 'essonne', 'seine-saint-denis', 'val-de-marne', 'hauts-de-seine', 'seine-et-marne']
+dep_reg_2 = ['cher', 'finistere', 'morbihan', 'manche', 'calvados', 'mayenne', 'sarthe', 'vendee', 'orne', 'loire-atlantique', 'maine-et-loire']
+dep_reg_3 = ['pas-de-calais', 'marne', 'meuse', 'moselle', 'doubs', 'bas-rhin', 'nord', 'somme', 'yonne', 'meurthe-et-moselle', 'saone-et-loire']
+dep_reg_4 = ['bouches-du-rhone', 'var', 'vaucluse', 'drome', 'ardeche', 'isere', 'gard', 'savoie', 'haute-savoie', 'pyrenees-orientales', 'alpes-maritimes']
+dep_reg_5 = ['hautes-pyrenees', 'landes', 'gironde', 'dordogne', 'tarn', 'ariege', 'gers', 'aveyron', 'haute-garonne', 'charente-maritime', 'vienne', 'haute-vienne']
 
 
 #list_departement_reg_1 = "('yveline', 'essonne', 'seine-saint-denis', 'val-de-marne')"
