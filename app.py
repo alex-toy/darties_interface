@@ -212,7 +212,20 @@ def palmares():
     pi = palmares_indicators(annee, mois_int, classement)["indicators"]
     pi_prev = palmares_indicators(annee-1, mois_int, classement)["indicators"]
 
-    pi_reg1 = palmares_indicators_region(annee, mois_int, classement, list_departement_reg_1)
+    pi_reg1 = palmares_indicators_region(annee, mois_int, classement, list_departement_reg_1)[:,0]
+    pi_reg1_prev = palmares_indicators_region(annee-1, mois_int, classement, list_departement_reg_1)[:,0]
+
+    pi_reg2 = palmares_indicators_region(annee, mois_int, classement, list_departement_reg_2)[:,0]
+    pi_reg2_prev = palmares_indicators_region(annee-1, mois_int, classement, list_departement_reg_2)[:,0]
+
+    pi_reg3 = palmares_indicators_region(annee, mois_int, classement, list_departement_reg_3)[:,0]
+    pi_reg3_prev = palmares_indicators_region(annee-1, mois_int, classement, list_departement_reg_3)[:,0]
+
+    pi_reg4 = palmares_indicators_region(annee, mois_int, classement, list_departement_reg_4)[:,0]
+    pi_reg4_prev = palmares_indicators_region(annee-1, mois_int, classement, list_departement_reg_4)[:,0]
+
+    pi_reg5 = palmares_indicators_region(annee, mois_int, classement, list_departement_reg_5)[:,0]
+    pi_reg5_prev = palmares_indicators_region(annee-1, mois_int, classement, list_departement_reg_5)[:,0]
 
     ranks = { city_record[0] : index+1 for index, city_record in  enumerate(pi_prev)}
 
@@ -231,7 +244,19 @@ def palmares():
         ranks=ranks,
 
         pi_reg1=pi_reg1,
-        pi_reg1_cities=pi_reg1[:,0],
+        pi_reg1_prev=pi_reg1_prev,
+
+        pi_reg2=pi_reg2,
+        pi_reg2_prev=pi_reg2_prev,
+
+        pi_reg3=pi_reg3,
+        pi_reg3_prev=pi_reg3_prev,
+
+        pi_reg4=pi_reg4,
+        pi_reg4_prev=pi_reg4_prev,
+
+        pi_reg5=pi_reg5,
+        pi_reg5_prev=pi_reg5_prev,
 
         magasins=all_magasin()
     )

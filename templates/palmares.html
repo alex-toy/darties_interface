@@ -107,10 +107,147 @@
                     {% endif %}
                 {% endif %}
 
-                {% if city_pi[0] in pi_reg1_cities %}
-                    <td>{{ pi_reg1 }}</td>
+
+                {% if city_pi[0] in pi_reg1 %}
+                    {% for city in pi_reg1 %}
+                        {% if city_pi[0] == city %}
+                            {% set reg_rank = loop.index %}
+                            
+                            <td>{{reg_rank}} </td>
+                            
+                            {% if city_pi[0] in pi_reg1_prev %}
+                                {% for city in pi_reg1_prev %}
+                                    {% if city_pi[0] == city %}
+                                    {% set reg_rank_prev = loop.index %}
+                                        <td>{{reg_rank_prev}} </td>
+                                        {% if reg_rank - reg_rank_prev == 0 %}
+                                            <td> = </td>
+                                        {% elif reg_rank - reg_rank_prev > 0 %}
+                                            <td>+{{ reg_rank - reg_rank_prev}}</td>
+                                        {% else %}
+                                            <td>{{ reg_rank - reg_rank_prev}}</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+
+                {% if city_pi[0] in pi_reg2 %}
+                    {% for city in pi_reg2 %}
+                        {% if city_pi[0] == city %}
+                            {% set reg_rank = loop.index %}
+                            
+                            <td>{{reg_rank}} </td>
+                            
+                            {% if city_pi[0] in pi_reg2_prev %}
+                                {% for city in pi_reg2_prev %}
+                                    {% if city_pi[0] == city %}
+                                    {% set reg_rank_prev = loop.index %}
+                                        <td>{{reg_rank_prev}} </td>
+                                        {% if reg_rank - reg_rank_prev == 0 %}
+                                            <td> = </td>
+                                        {% elif reg_rank - reg_rank_prev > 0 %}
+                                            <td>+{{ reg_rank - reg_rank_prev}}</td>
+                                        {% else %}
+                                            <td>{{ reg_rank - reg_rank_prev}}</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+
+                {% if city_pi[0] in pi_reg3 %}
+                    {% for city in pi_reg3 %}
+                        {% if city_pi[0] == city %}
+                            {% set reg_rank = loop.index %}
+                            
+                            <td>{{reg_rank}} </td>
+                            
+                            {% if city_pi[0] in pi_reg3_prev %}
+                                {% for city in pi_reg3_prev %}
+                                    {% if city_pi[0] == city %}
+                                    {% set reg_rank_prev = loop.index %}
+                                        <td>{{reg_rank_prev}} </td>
+                                        {% if reg_rank - reg_rank_prev == 0 %}
+                                            <td> = </td>
+                                        {% elif reg_rank - reg_rank_prev > 0 %}
+                                            <td>+{{ reg_rank - reg_rank_prev}}</td>
+                                        {% else %}
+                                            <td>{{ reg_rank - reg_rank_prev}}</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+
+                {% if city_pi[0] in pi_reg4 %}
+                    {% for city in pi_reg4 %}
+                        {% if city_pi[0] == city %}
+                            {% set reg_rank = loop.index %}
+                            
+                            <td>{{reg_rank}} </td>
+                            
+                            {% if city_pi[0] in pi_reg4_prev %}
+                                {% for city in pi_reg4_prev %}
+                                    {% if city_pi[0] == city %}
+                                    {% set reg_rank_prev = loop.index %}
+                                        <td>{{reg_rank_prev}} </td>
+                                        {% if reg_rank - reg_rank_prev == 0 %}
+                                            <td> = </td>
+                                        {% elif reg_rank - reg_rank_prev > 0 %}
+                                            <td>+{{ reg_rank - reg_rank_prev}}</td>
+                                        {% else %}
+                                            <td>{{ reg_rank - reg_rank_prev}}</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+
+                {% if city_pi[0] in pi_reg5 %}
+                    {% for city in pi_reg5 %}
+                        {% if city_pi[0] == city %}
+                            {% set reg_rank = loop.index %}
+                            
+                            <td>{{reg_rank}} </td>
+                            
+                            {% if city_pi[0] in pi_reg5_prev %}
+                                {% for city in pi_reg5_prev %}
+                                    {% if city_pi[0] == city %}
+                                    {% set reg_rank_prev = loop.index %}
+                                        <td>{{reg_rank_prev}} </td>
+                                        {% if reg_rank - reg_rank_prev == 0 %}
+                                            <td> = </td>
+                                        {% elif reg_rank - reg_rank_prev > 0 %}
+                                            <td>+{{ reg_rank - reg_rank_prev}}</td>
+                                        {% else %}
+                                            <td>{{ reg_rank - reg_rank_prev}}</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+
+                        {% endif %}
+                    {% endfor %}
                 {% endif %}
                 
+    
             </tr>
         {% endfor %}
 

@@ -1,8 +1,8 @@
 dep_reg_1 = ['yveline', 'essonne', 'seine-saint-denis', 'val-de-marne']
 dep_reg_2 = ['cher', 'yonne']
-dep_reg_3 = ['cher', 'yonne', 'aude']
-dep_reg_4 = ['cher', 'yonne', 'oise']
-dep_reg_5 = ['cher', 'yonne', 'moselle']
+dep_reg_3 = ['aude']
+dep_reg_4 = ['oise']
+dep_reg_5 = ['moselle']
 
 
 #list_departement_reg_1 = "('yveline', 'essonne', 'seine-saint-denis', 'val-de-marne')"
