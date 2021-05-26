@@ -351,5 +351,5 @@ if __name__ == "__main__":
 
     # create_cours()
 
-    show_tables('devise')
+    show_tables('cours')
 

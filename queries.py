@@ -337,11 +337,11 @@ def currency_rate(id_devise, annee, mois):
             cours.mois = {2};
     """
 
-    currency = pd.read_sql(query.format(id_devise, annee, mois), conn).values
+    result = pd.read_sql(query.format(id_devise, annee, mois), conn).values
 
     conn.close()
 
-    return currency
+    return result
 
 
 

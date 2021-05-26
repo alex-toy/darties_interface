@@ -13,7 +13,7 @@ python -m pip install -r requirements.txt
 
 python create_db.py
 
-python app.py
+python create_app.py
 
 
 http://127.0.0.1:5000
@@ -21,3 +21,16 @@ http://127.0.0.1:5000
 
 ## docker
 docker build --tag darties .
+docker run -d -p 5000:5000 -v $(pwd):/app  --rm --name darties_server darties
+docker run -p 5000:5000 -v $(pwd):/app --rm --name darties_server darties
+
+docker stop darties_server
+
+docker rmi darties
+
+curl localhost:5000
+
+
+
+
+

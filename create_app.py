@@ -25,14 +25,18 @@ def create_app():
     from auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint)
 
-    from main import main as main_blueprint
-    app.register_blueprint(main_blueprint)
+    from main import main_init as main_init_blueprint
+    app.register_blueprint(main_init_blueprint)
 
     from app_mag import main_mag as main_mag_blueprint
     app.register_blueprint(main_mag_blueprint)
 
     from app_reg import main_reg as main_reg_blueprint
     app.register_blueprint(main_reg_blueprint)
+
+    from app_gen import main_app as main_app_blueprint
+    app.register_blueprint(main_app_blueprint)
+
 
     return app
 

@@ -11,10 +11,10 @@ from datetime import date
 from queries import *
 from config import *
 
-main = Blueprint('main', __name__)
+main_app = Blueprint('main_app', __name__)
 
 
-@main.route('/accueil', methods=['GET', 'POST'])
+@main_app.route('/accueil', methods=['GET', 'POST'])
 @login_required
 def accueil():
 
@@ -47,6 +47,8 @@ def accueil():
     perf_reg4 = performances_region(annee, mois_int, list_departement_reg_4)
     perf_reg5 = performances_region(annee, mois_int, list_departement_reg_5)
 
+    print(curr_rate)
+
 
     return render_template(
         'accueil.html',
@@ -73,7 +75,7 @@ def accueil():
 
 
 
-@main.route('/historique', methods=['GET', 'POST'])
+@main_app.route('/historique', methods=['GET', 'POST'])
 @login_required
 def historique():
 
@@ -140,7 +142,7 @@ def historique():
 
 
 
-@main.route('/details', methods=['GET', 'POST'])
+@main_app.route('/details', methods=['GET', 'POST'])
 @login_required
 def details():
 
@@ -179,7 +181,7 @@ def details():
 
 
 
-@main.route('/palmares', methods=['GET', 'POST'])
+@main_app.route('/palmares', methods=['GET', 'POST'])
 @login_required
 def palmares():
 

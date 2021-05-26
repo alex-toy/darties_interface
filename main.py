@@ -1,18 +1,17 @@
 from flask import Blueprint, render_template 
 from flask_login import login_required, current_user
 
-from app import *
-from app_mag import *
+
+main_init = Blueprint('main_init', __name__)
 
 
-
-@main.route('/')
+@main_init.route('/')
 def index():
     return render_template('index_login.html')
 
 
 
-@main.route('/profile')
+@main_init.route('/profile')
 @login_required
 def profile():
 
