@@ -106,6 +106,10 @@
                         <td>{{ ranks[city_pi[0]]-loop.index}}</td>
                     {% endif %}
                 {% endif %}
+
+                {% if city_pi[0] in pi_reg1_cities %}
+                    <td>{{ pi_reg1 }}</td>
+                {% endif %}
                 
             </tr>
         {% endfor %}

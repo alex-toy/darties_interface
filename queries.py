@@ -266,7 +266,7 @@ def palmares_indicators(annee, mois, classement):
 
 
 
-def palmares_indicators_regional(annee, mois, classement, region):
+def palmares_indicators_region(annee, mois, classement, list_departement_reg):
     conn = sqlite3.connect('data.db')
 
     query = """
@@ -286,20 +286,19 @@ def palmares_indicators_regional(annee, mois, classement, region):
 
         WHERE 
             temps.annee = {0} AND
-            temps.mois = {1} 
+            temps.mois = {1} AND
+            villes.lib_departement IN {3}
             
         GROUP BY magasin.lib_magasin
         
         ORDER BY {2} DESC;
     """
 
-    indicators = pd.read_sql(query.format(annee, mois, classement), conn).values
+    indicators = pd.read_sql(query.format(annee, mois, classement, list_departement_reg), conn).values
 
     conn.close()
 
-    return {
-        "indicators" : indicators
-    }
+    return indicators
 
 
 

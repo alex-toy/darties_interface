@@ -212,6 +212,8 @@ def palmares():
     pi = palmares_indicators(annee, mois_int, classement)["indicators"]
     pi_prev = palmares_indicators(annee-1, mois_int, classement)["indicators"]
 
+    pi_reg1 = palmares_indicators_region(annee, mois_int, classement, list_departement_reg_1)
+
     ranks = { city_record[0] : index+1 for index, city_record in  enumerate(pi_prev)}
 
     return render_template(
@@ -227,6 +229,9 @@ def palmares():
         pi=pi,
         pi_prev=pi_prev,
         ranks=ranks,
+
+        pi_reg1=pi_reg1,
+        pi_reg1_cities=pi_reg1[:,0],
 
         magasins=all_magasin()
     )
