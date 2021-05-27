@@ -29,7 +29,7 @@
                 <button class="button" onclick="location.href='/palmares';">Palmares</button>
 
                 <form>
-                    <select name="region" id="mois-select" onchange="location.href='/accueil/'+form.region.value;">
+                    <select style="width:150px;height:30px" name="region" id="mois-select" onchange="location.href='/accueil/'+form.region.value;">
                         <option value={{id_reg}}>--choix de la région--</option>
                         {% for id_reg in range(1, 6) %}
                         <option value={{id_reg}}>région {{id_reg}}</option>
@@ -38,7 +38,7 @@
                 </form>
 
                 <form>
-                    <select name="magasin" id="mois-select" onchange="location.href='/magasin/'+form.magasin.value;">
+                    <select style="width:150px;height:30px" name="magasin" id="mois-select" onchange="location.href='/magasin/'+form.magasin.value;">
                         <option value={{id_reg}}>--choix du magasin--</option>
                         {% for mag in magasins %}
                         <option value={{mag[0]}}>{{mag[1]}}</option>
@@ -53,7 +53,7 @@
                     <button class="button" onclick="location.href='/accueil/{{id_reg}}';">Accueil région {{id_reg}}</button>
 
                     <form>
-                        <select name="magasin" id="mois-select" onchange="location.href='/magasin/'+form.magasin.value;">
+                        <select style="width:150px;height:30px" name="magasin" id="mois-select" onchange="location.href='/magasin/'+form.magasin.value;">
                             <option value={{id_reg}}>--choix du magasin--</option>
                             {% for mag in magasins %}
                             <option value={{mag[0]}}>{{mag[1]}}</option>
@@ -70,14 +70,16 @@
                 {% endif %}
             {% endfor %}
 
-            
 
-            <button class="button" onclick="location.href='{{ url_for('auth.logout') }}';">Logout</button>
 
             
 
         {% endif %}
 
+    </div>
+
+    <div class="logout">
+        <button class="button" onclick="location.href='{{ url_for('auth.logout') }}';">Logout</button>
     </div>
     
     {% block body %}{% endblock %}

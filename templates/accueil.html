@@ -16,14 +16,14 @@
     <div class="filtre">
         <form action="/accueil" method="POST">
 
-            <select name="annee" id="mois-select">
+            <select style="width:150px;height:30px" name="annee" id="mois-select">
                 <option value="2020">--Choix de l'année--</option>
                 <option value="2019">2019</option>
                 <option value="2020">2020</option>
                 <option value="2021">2021</option>
             </select><br>
 
-            <select name="mois" id="mois-select">
+            <select style="width:150px;height:30px" name="mois" id="mois-select">
                 <option value="1|janvier">--Choix du mois--</option>
                 <option value="1|janvier">janvier</option>
                 <option value="2|fevrier">février</option>
@@ -39,7 +39,7 @@
                 <option value="12|decembre">decembre</option>
             </select><br>
             
-            <select name="devise" id="devise-select">
+            <select style="width:150px;height:30px" name="devise" id="mois-select">
                 <option value=0>--Choix de la devise--</option>
                 {% for currency in currencies %}
                 <option value={{currency[0]}}>{{currency[1]}}</option>
