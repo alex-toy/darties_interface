@@ -8,6 +8,7 @@ import pandas as pd
 import time
 from datetime import date
 from html2excel import ExcelParser
+import os
 
 from queries import *
 from queries_mag import *
@@ -21,23 +22,20 @@ main_export = Blueprint('main_export', __name__)
 @login_required
 def export(page_name):
 
-    print(f"page_name : {page_name}" )
-
-
     if not (current_user.id_profil == 1) :
         return redirect(url_for('auth.login'))
 
+    
+    output_file = ''
+    result = request.form.to_dict()
+    if result :
+        output_file = result['output_file']
 
-    input_file = "/Users/alexei/darties_interface/templates/historique.html"
-    output_file = '/Users/alexei/Downloads'
 
+    input_file = os.path.join(os.path.os.getcwd(), 'templates', f"{page_name}.html")
 
     parser = ExcelParser(input_file)
     parser.to_excel(output_file)
-
-
-    
-    
 
 
     return redirect(url_for('main_app.historique'))

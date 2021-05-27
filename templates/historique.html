@@ -130,7 +130,13 @@
         </table>
 
         <br>
-        <button class="button" onclick="location.href='/export/historique';">Export</button>
+        <form action="/export/historique" method="POST">
+            
+            <label for="fname">Output file </label>
+            <input type="text" id="fname" name="output_file" value="/Users/alexei/Downloads/converted_file.xlsx"><br><br>
+            
+            <input type="submit" value="Export" />
+        </form>
 
     </div>
     
