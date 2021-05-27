@@ -49,21 +49,90 @@
 
     <div class="detail_magasin">
 
-        <p>Rang national CA : {{nat_rank_ca}} / Rang régional CA : {{reg_rank_ca}}</p>
-        <p>Rang national CA hifi : {{nat_rank_ca_hifi}} / Rang régional CA hifi : {{reg_rank_ca_hifi}}</p>
-        <p>Rang national CA magnéto : {{nat_rank_ca_magneto}} / Rang régional CA magnéto : {{reg_rank_ca_magneto}}</p>
-        <p>Rang national CA fours : {{nat_rank_ca_fours}} / Rang régional CA fours : {{reg_rank_ca_fours}}</p>
-        <br>
-        <p>Rang national ventes : {{nat_rank_vente}} / Rang régional ventes : {{reg_rank_vente}}</p>
-        <p>Rang national ventes magnéto : {{nat_rank_vente_magneto}} / Rang régional ventes hifi : {{reg_rank_vente_hifi}}</p>
-        <p>Rang national ventes magnéto : {{nat_rank_vente_magneto}} / Rang régional ventes magnéto : {{reg_rank_vente_magneto}}</p>
-        <p>Rang national ventes fours : {{nat_rank_vente_fours}} / Rang régional ventes fours : {{reg_rank_vente_fours}}</p>
-        <br>
-        <p>Rang national marge : {{nat_rank_marge}} / Rang régional marge : {{reg_rank_vente}}</p>
-        <p>Rang national marge magnéto : {{nat_rank_marge_magneto}} / Rang régional marge hifi : {{reg_rank_marge_hifi}}</p>
-        <p>Rang national marge magnéto : {{nat_rank_marge_magneto}} / Rang régional marge magnéto : {{reg_rank_marge_magneto}}</p>
-        <p>Rang national marge fours : {{nat_rank_marge_fours}} / Rang régional marge fours : {{reg_rank_marge_fours}}</p>
+        <div>
+            <table>
+                <tr>
+                    <th>Classements</th><th>Rang</th> <th>National</th> <th>Régional</th>
+                </tr>
+                    <th rowspan="4">CA</th>
+                    <th>tous</th>
+                    <td>{{nat_rank_ca}}</td> 
+                    <td>{{reg_rank_ca}}</td>
+                </tr>
+                
+                <tr>
+                    <th>hifi</th>
+                    <td>{{nat_rank_ca_hifi}}</td> 
+                    <td>{{reg_rank_ca_hifi}}</td>
+                </tr>
 
+                <tr>
+                    <th>magnéto</th>
+                    <td>{{nat_rank_ca_magneto}}</td> 
+                    <td>{{reg_rank_ca_magneto}}</td>
+                </tr>
+
+                <tr>
+                    <th>fours</th>
+                    <td>{{nat_rank_ca_fours}}</td> 
+                    <td>{{reg_rank_ca_fours}}</td>
+                </tr>
+
+
+                </tr>
+                    <th rowspan="4">Ventes</th>
+                    <th>tous</th>
+                    <td>{{nat_rank_vente}}</td> 
+                    <td>{{reg_rank_vente}}</td>
+                </tr>
+                
+                <tr>
+                    <th>hifi</th>
+                    <td>{{nat_rank_vente_hifi}}</td> 
+                    <td>{{reg_rank_vente_hifi}}</td>
+                </tr>
+
+                <tr>
+                    <th>magnéto</th>
+                    <td>{{nat_rank_vente_magneto}}</td> 
+                    <td>{{reg_rank_vente_magneto}}</td>
+                </tr>
+
+                <tr>
+                    <th>fours</th>
+                    <td>{{nat_rank_vente_fours}}</td> 
+                    <td>{{reg_rank_vente_fours}}</td>
+                </tr>
+
+
+                </tr>
+                    <th rowspan="4">Marge brute</td>
+                    <th>tous</th>
+                    <td>{{nat_rank_marge}}</td> 
+                    <td>{{reg_rank_marge}}</td>
+                </tr>
+                
+                <tr>
+                    <th>hifi</th>
+                    <td>{{nat_rank_marge_hifi}}</td> 
+                    <td>{{reg_rank_marge_hifi}}</td>
+                </tr>
+
+                <tr>
+                    <th>magnéto</th>
+                    <td>{{nat_rank_marge_magneto}}</td> 
+                    <td>{{reg_rank_marge_magneto}}</td>
+                </tr>
+
+                <tr>
+                    <th>fours</th>
+                    <td>{{nat_rank_marge_fours}}</td> 
+                    <td>{{reg_rank_marge_fours}}</td>
+                </tr>
+            </table>
+        </div>
+
+        
         <div class={{"total_magasin"}}>
             <table>
                 <tr>
