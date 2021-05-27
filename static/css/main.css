@@ -130,6 +130,7 @@ ul {
     left: 400px;
     top: 10px;
     background-color: white;
+    background-size: 100% 100%;
     padding: 5px;
 }
 
@@ -138,7 +139,8 @@ ul {
     position: absolute;
     left: -50px;
     top: 100px;
-    background-color: #7CFC00;
+    background-color: white;
+    background-size: 100% 100%;
     padding: 5px;
 }
 
@@ -147,7 +149,8 @@ ul {
     position: absolute;
     left: 800px;
     top: 100px;
-    background-color: violet;
+    background-color: white;
+    background-size: 100% 100%;
     padding: 5px;
 }
 
@@ -155,7 +158,8 @@ ul {
     position: absolute;
     left: 800px;
     top: 500px;
-    background-color: #FFFFF0;
+    background-color: white;
+    background-size: 100% 100%;
     padding: 5px;
 }
 
@@ -163,7 +167,8 @@ ul {
     position: absolute;
     left: 90px;
     top: 550px;
-    background-color: #F0F8FF;
+    background-color: white;
+    background-size: 100% 100%;
     padding: 0px;
 }
 
