@@ -1,4 +1,4 @@
-# Darties - web development project -  web app with flask for dartien interface
+# Darties - web development project -  web app with flask for darties interface
 
 By Alessio Rea
 
@@ -8,22 +8,18 @@ You need to have Python 3.8.5 installed for this project. You also need to have 
 
 # Context of the project
 
-Darties is a french firm that sells secialized products, such as home appliances, audiovisual and computer equipment. It is composed of three brands : 
-
-
-# Technical insights 
 
 ## 1. Purpose of the project
 
-The purpose of the project is to build the 
+The purpose of the project is to build the interface for the darties project.
 
-- Initial dag :
+- Welcome page :
     <img src="static/images/accueil.png" alt="Markdown Monster icon" style="float: left; margin-right: 10px;" />
 
-- Global dag :
+- Region :
     <img src="static/images/region.png" alt="Markdown Monster icon" style="float: left; margin-right: 10px;" />
 
-- We also have a monthly global dag allowing us to process monthly sales data :
+- Store :
     <img src="static/images/magasin.png" alt="Markdown Monster icon" style="float: left; margin-right: 10px;" />
 
 
