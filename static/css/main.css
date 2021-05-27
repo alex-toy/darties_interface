@@ -34,9 +34,9 @@ div {
 
 .bandeau{
     position: absolute;
-    left: 600px;
+    left: 430px;
     top: 0px;
-    width: 1000px;
+    width: 1300px;
     height: 90px;
     background-color: #87CEFA;
     padding: 5px;
@@ -46,7 +46,7 @@ div {
 .description{
     position: absolute;
     left: 10px;
-    top: 540px;
+    top: 530px;
     width: 400px;
     height: 150px;
     background-color: #87CEFA;
@@ -57,7 +57,7 @@ div {
 .links{
     position: absolute;
     left: 10px;
-    top: 120px;
+    top: 110px;
     width: 400px;
     height: 400px;
     padding: 5px;
@@ -69,7 +69,7 @@ div {
 .filtre{
     position: absolute;
     left: 10px;
-    top: 720px;
+    top: 700px;
     width: 400px;
     height: 200px;
     padding: 5px;
