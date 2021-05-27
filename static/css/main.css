@@ -4,6 +4,10 @@ body, html {
 
 }
 
+div {
+    padding: 10px;
+}
+
 .backimage{
     position: absolute;
     left: 600px;
@@ -41,7 +45,7 @@ body, html {
 .description{
     position: absolute;
     left: 10px;
-    top: 640px;
+    top: 580px;
     width: 400px;
     height: 150px;
     background-color: #87CEFA;
@@ -52,10 +56,11 @@ body, html {
 .links{
     position: absolute;
     left: 10px;
-    top: 100px;
+    top: 120px;
     width: 400px;
-    height: 520px;
+    height: 400px;
     padding: 5px;
+    margin: 5px;
     background-color: #87CEFA;
     margin: 5px;
 }
@@ -63,7 +68,7 @@ body, html {
 .filtre{
     position: absolute;
     left: 10px;
-    top: 800px;
+    top: 780px;
     width: 400px;
     height: 200px;
     padding: 5px;
@@ -107,16 +112,6 @@ ul {
     padding: 0;
 }
 
-div{
-    width: 100px;
-    height: 100px;
-    display: inline-block;
-    border: 1px solid black;
-    box-sizing: border-box;
-}
-
-  
-
 .perf_nat{
     position: absolute;
     left: 600px;
@@ -134,9 +129,7 @@ div{
     left: 400px;
     top: 0px;
     background-color: white;
-    background-size: 100% 100%;
-    width: 250px;
-    height: 140px;
+    padding: 5px;
 }
 
 
@@ -146,8 +139,6 @@ div{
     top: 100px;
     background-color: #7CFC00;
     padding: 5px;
-    width: 250px;
-    height: 140px;
 }
 
 
@@ -157,8 +148,6 @@ div{
     top: 100px;
     background-color: violet;
     padding: 5px;
-    width: 250px;
-    height: 140px;
 }
 
 .perf_reg4{
@@ -167,16 +156,12 @@ div{
     top: 500px;
     background-color: #FFFFF0;
     padding: 5px;
-    width: 250px;
-    height: 140px;
 }
 
 .perf_reg5{
     position: absolute;
     left: 00px;
     top: 500px;
-    width: 250px;
-    height: 140px;
     background-color: #F0F8FF;
     padding: 0px;
 }
@@ -195,8 +180,6 @@ div{
     position: absolute;
     left: 600px;
     top: 200px;
-    width: 800px;
-    height: 400px;
     background-color: #F0F8FF;
     padding: 10px;
 }
@@ -247,6 +230,7 @@ div{
     left: -400px;
     top: 540px;
     padding: 10px;
+    background-color: #F0F8FF;
 }
 
 .backimage_region_1{
@@ -315,7 +299,9 @@ div{
 
 
 
-
+#mois-select {
+    margin: 5px;
+}
 
 
 
@@ -324,6 +310,7 @@ div{
     border: none;
     color: white;
     padding: 15px 32px;
+    margin: 5px;
     text-align: center;
     text-decoration: none;
     display: block;
