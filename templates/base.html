@@ -15,8 +15,15 @@
 
 
     <div class="bandeau">
-        <h4 style="color:blue;text-align:center;">TABLEAU DE BORD DARTIES</h4>
-        <p style="color:blue;text-align:center;">User : {{ nom }} {{ prenom }}</p>
+        <div style="width: 75%;  float: left; text-align:center;"> 
+            <h4 >TABLEAU DE BORD DARTIES</h4>
+            <p>User : {{ nom }} {{ prenom }}</p>
+        </div>
+        
+        <div style="margin-left: 25%;"> 
+            <p>Mise à jour : </p>
+            <p>Date du jour : {{today}}</p>
+        </div>
     </div>
 
     <div class="links btn-group">

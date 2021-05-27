@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, request, redirect, flash, Blu
 from flask_login import login_required, current_user
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+from datetime import datetime, date
 import sqlite3
 import pandas as pd
 import time
@@ -47,7 +47,8 @@ def accueil():
     perf_reg4 = performances_region(annee, mois_int, list_departement_reg_4)
     perf_reg5 = performances_region(annee, mois_int, list_departement_reg_5)
 
-    print(curr_rate)
+    now = datetime.now()
+    today = now.strftime("%d/%m/%Y %H:%M:%S")
 
 
     return render_template(
@@ -69,7 +70,9 @@ def accueil():
         perf_reg4={k:v*curr_rate[0] for (k,v) in perf_reg4.items()},
         perf_reg5={k:v*curr_rate[0] for (k,v) in perf_reg5.items()},
 
-        magasins=all_magasin()
+        magasins=all_magasin(),
+        
+        today=today
     )
 
 
