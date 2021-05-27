@@ -116,7 +116,7 @@
                 <td> {{ '{0:0.2f}'.format((fours_reel_cumul_cur - fours_reel_cumul_prev) / fours_obj_cumul_cur * 100) }} %</td>
             </tr>
             <tr>
-                <td bgcolor="#0FA">Total</td>
+                <th bgcolor="#0FA">Total</th>
                 <td>{{ (hifi_obj_cur+magneto_obj_cur+fours_obj_cur)|round|int }}</td>
                 <td>{{ (hifi_reel_cur+magneto_reel_cur+fours_reel_cur)|round|int }}</td>
                 <td>{{ (hifi_obj_cumul_cur+magneto_obj_cumul_cur+fours_obj_cumul_cur)|round|int }}</td>
@@ -128,6 +128,9 @@
                 <td>{{ (hifi_reel_cumul_prev+magneto_reel_cumul_prev+fours_reel_cumul_prev)|round|int }}</td>
             </tr>
         </table>
+
+        <br>
+        <button class="button" onclick="location.href='/export/historique';">Export</button>
 
     </div>
     

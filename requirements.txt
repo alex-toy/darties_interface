@@ -5,5 +5,8 @@ pandas
 wtforms
 Flask-Login
 flask_login
-
+lxml
+html5lib
+BeautifulSoup4
+html2excel
 

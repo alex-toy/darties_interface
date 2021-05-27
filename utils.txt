@@ -28,6 +28,8 @@ docker stop darties_server
 
 docker rmi darties
 
+docker exec -it darties_server bash
+
 curl localhost:5000
 
 

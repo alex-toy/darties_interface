@@ -37,6 +37,9 @@ def create_app():
     from app_gen import main_app as main_app_blueprint
     app.register_blueprint(main_app_blueprint)
 
+    from app_export import main_export as main_export_blueprint
+    app.register_blueprint(main_export_blueprint)
+
 
     return app
 
