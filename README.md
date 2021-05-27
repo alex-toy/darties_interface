@@ -4,7 +4,7 @@ By Alessio Rea
 
 ==============================
 
-You need to have Python 3.8.5 installed for this project. You also need to have docker in order to run **Airflow**.
+You need to have Python 3.8.5 installed for this project. You also need to have docker.
 
 # Context of the project
 
