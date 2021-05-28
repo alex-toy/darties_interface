@@ -34,5 +34,16 @@ curl localhost:5000
 
 
 
+## Heroku
+heroku login
+heroku create
+https://darties.herokuapp.com/
 
+heroku rename darties
+
+git push heroku main
+
+heroku run rails console
+
+heroku restart
 

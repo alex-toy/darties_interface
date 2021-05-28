@@ -1,2 +1,3 @@
-web : gunicorn
-app : create-app
+web : uwsgi uwsgi.ini
+
+
