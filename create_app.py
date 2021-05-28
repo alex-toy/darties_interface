@@ -46,9 +46,12 @@ def create_app():
 
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    my_app = create_app()
+#     my_app = create_app()
     
-    #app.run(debug=True)
+#     app.run(debug=True)
 
+
+
+my_app = create_app()
