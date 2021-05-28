@@ -51,7 +51,7 @@
         <div class={{"total_magasin"}}>
             <table>
                 <tr bgcolor="#0AF">
-                    <th>Total magasin</th> <th>Budget</th> <th>Reel</th> <th>Ratio</th>
+                    <th>Région {{region_id}}</th> <th>Budget</th> <th>Reel</th> <th>Ratio</th>
                 </tr>
                     <tr>
                         <td bgcolor="#0AF">CA</td>
@@ -167,35 +167,35 @@
         <div class={{"accueil_region"}}>
             <table>
                 <tr bgcolor="#0AF" bgcolor="#0AF">
-                    <th>Région {{region_id}}</th> <th>Budget</th> <th>Reel</th> <th>Ratio</th>
+                    <th>classement</th> <th>hifi</th> <th>magneto</th> <th>fours</th> <th>total</th>
                 </tr>
                     <tr>
                         <td bgcolor="#0AF">CA</td>
-                        <td>{{perf_reg["ca_obj"]|round|int}}</td>
-                        <td>{{perf_reg["ca_reel"]|round|int}}</td>
-                        <td> {{ '{0:0.2f}'.format(perf_reg["ca_reel"]/perf_reg["ca_obj"]) }}</td>
+                        <td>{{region_rank_hifi[0]}}</td>
+                        <td>{{region_rank_magneto[0]}}</td>
+                        <td> {{region_rank_fours[0]}}</td>
+                        <td> {{ region_rank_total[0] }}</td>
                     </tr>
                     
                     <tr>
                         <td bgcolor="#0AF">Ventes</td>
-                        <td>{{perf_reg["ventes_objectif"]|round|int}}</td>
-                        <td>{{perf_reg["vente_reel"]|round|int}}</td>
-                        <td> {{ '{0:0.2f}'.format(perf_reg["vente_reel"]/perf_reg["ventes_objectif"]) }}</td>
+                        <td>{{region_rank_hifi[1]}}</td>
+                        <td>{{region_rank_magneto[1]}}</td>
+                        <td> {{region_rank_fours[1]}}</td>
+                        <td> {{region_rank_total[1]}}</td>
                     </tr>
     
                     <tr>
                         <td bgcolor="#0AF">Marges</td>
-                        <td>{{perf_reg["marge_objectif"]|round|int}}</td>
-                        <td>{{perf_reg["marge_reel"]|round|int}}</td>
-                        <td> {{ '{0:0.2f}'.format(perf_reg["marge_reel"]/perf_reg["marge_objectif"]) }}</td>
+                        <td>{{region_rank_hifi[2]}}</td>
+                        <td>{{region_rank_magneto[2]}}</td>
+                        <td> {{region_rank_fours[2]}}</td>
+                        <td> {{region_rank_total[2]}}</td>
                     </tr>
     
             </table>
         </div>
     </div>
-
-
-    
 
 
 </div>

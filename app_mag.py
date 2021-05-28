@@ -80,6 +80,9 @@ def accueil_magasin(id_mag):
     reg_rank_marge_hifi = reg_rank_mag_item(id_mag, 'marge_reel', annee, mois_int, 1)
     reg_rank_marge_magneto = reg_rank_mag_item(id_mag, 'marge_reel', annee, mois_int, 2)
     reg_rank_marge_fours = reg_rank_mag_item(id_mag, 'marge_reel', annee, mois_int, 3)
+
+    now = datetime.now()
+    today = now.strftime("%d/%m/%Y %H:%M:%S")
     
     return render_template(
         'accueil_magasin.html',
@@ -129,7 +132,9 @@ def accueil_magasin(id_mag):
         reg_rank_marge=reg_rank_marge,
         reg_rank_marge_hifi=reg_rank_marge_hifi,
         reg_rank_marge_magneto=reg_rank_marge_magneto,
-        reg_rank_marge_fours=reg_rank_marge_fours
+        reg_rank_marge_fours=reg_rank_marge_fours,
+
+        today=today
     )
 
 

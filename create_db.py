@@ -1,4 +1,5 @@
 import sqlite3
+from queries_region import *
 
 
 def create_ville() :
@@ -351,5 +352,8 @@ if __name__ == "__main__":
 
     # create_cours()
 
-    show_tables('cours')
+    #show_tables('cours')
+
+    temp = region_classify_fam_prod(2020, 1, 1, 3)
+    print(temp)
 

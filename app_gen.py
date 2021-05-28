@@ -71,7 +71,7 @@ def accueil():
         perf_reg5={k:v*curr_rate[0] for (k,v) in perf_reg5.items()},
 
         magasins=all_magasin(),
-        
+
         today=today
     )
 
@@ -100,6 +100,9 @@ def historique():
     
     hist_indicators_cur = hist(current_year, mois_int)
     hist_indicators_cumul_cur = hist_cumul(current_year, mois_int)
+
+    now = datetime.now()
+    today = now.strftime("%d/%m/%Y %H:%M:%S")
     
     return render_template(
         'historique.html',
@@ -139,7 +142,9 @@ def historique():
         fours_obj_cumul_cur=hist_indicators_cumul_cur['fours_obj_cumul'],
         fours_reel_cumul_cur=hist_indicators_cumul_cur['fours_reel_cumul'],
 
-        magasins=all_magasin()
+        magasins=all_magasin(),
+
+        today=today
     )
 
 
@@ -164,6 +169,9 @@ def details():
 
     di = details_indicators(annee, mois_int)
 
+    now = datetime.now()
+    today = now.strftime("%d/%m/%Y %H:%M:%S")
+
     return render_template(
         'details.html',
 
@@ -177,7 +185,9 @@ def details():
         fours_kpi=di["fours_kpi"],
         magneto_kpi=di["magneto_kpi"],
 
-        magasins=all_magasin()
+        magasins=all_magasin(),
+
+        today=today
     )
 
 
@@ -234,6 +244,9 @@ def palmares():
 
     ranks = { city_record[0] : index+1 for index, city_record in  enumerate(pi_prev)}
 
+    now = datetime.now()
+    today = now.strftime("%d/%m/%Y %H:%M:%S")
+
     return render_template(
         'palmares.html',
 
@@ -263,7 +276,9 @@ def palmares():
         pi_reg5=pi_reg5,
         pi_reg5_prev=pi_reg5_prev,
 
-        magasins=all_magasin()
+        magasins=all_magasin(),
+
+        today=today
     )
 
 

@@ -46,6 +46,15 @@ def accueil_region(region_id):
     elif current_user.id_region :
         if current_user.id_region > 0 :
             magasins = all_magasin_in_region(current_user.id_region)
+
+
+    region_rank_total = region_classify(annee, mois_int, region_id)
+    region_rank_hifi = region_classify_fam_prod(annee, mois_int, region_id, 1)
+    region_rank_magneto = region_classify_fam_prod(annee, mois_int, region_id, 2)
+    region_rank_fours = region_classify_fam_prod(annee, mois_int, region_id, 3)
+
+    now = datetime.now()
+    today = now.strftime("%d/%m/%Y %H:%M:%S")
     
     return render_template(
         'accueil_region.html',
@@ -63,7 +72,14 @@ def accueil_region(region_id):
         perf_reg_hifi=perf_reg_hifi,
         perf_reg_magneto=perf_reg_magneto,
 
-        magasins=magasins
+        magasins=magasins,
+
+        region_rank_total=region_rank_total,
+        region_rank_hifi=region_rank_hifi,
+        region_rank_magneto=region_rank_magneto,
+        region_rank_fours=region_rank_fours,
+
+        today=today
     )
 
 
