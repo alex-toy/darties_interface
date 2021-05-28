@@ -16,12 +16,12 @@
     <div class="filtre">
         <form action="/accueil" method="POST">
 
-            <select style="width:150px;height:30px" name="annee" id="mois-select">
+            <select style="width:150px;height:30px" name="annee" id="year-select"  onchange="update()">
                 <option value="2020">--Choix de l'année--</option>
-                <option value="2019">2019</option>
-                <option value="2020">2020</option>
-                <option value="2021">2021</option>
-            </select><br>
+                {% for year in years %}
+                    <option value="{{year}}">{{year}}</option>
+                {% endfor %}
+            </select></br>
 
             <select style="width:150px;height:30px" name="mois" id="mois-select">
                 <option value="1|janvier">--Choix du mois--</option>

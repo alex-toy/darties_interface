@@ -59,4 +59,17 @@ reg_id_to_name = {
 }
 
 
-#name_to_reg_id = { list_dep:id_reg for (id_reg, list_dep) in reg_id_to_name.items()}
+int_to_name = {
+    1 : 'janvier',
+    2 : 'fevrier',
+    3 : 'mars',
+    4 : 'avril',
+    5 : 'mai',
+    6 : 'juin',
+    7 : 'juillet',
+    8 : 'aout',
+    9 : 'septembre',
+    10 : 'octobre',
+    11 : 'novembre',
+    12 : 'decembre'
+}

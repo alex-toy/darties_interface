@@ -13,17 +13,16 @@
             pour toutes les enseignes, pour le mois de {{mois}} {{current_year}}.</h4>
     </div>
 
-
     <div class="filtre">
         <form action={{"/accueil/"~region_id}} method="POST">
-        
+
             <select style="width:150px;height:30px" name="annee" id="mois-select">
                 <option value="2020">--Choix de l'année--</option>
-                <option value="2019">2019</option>
-                <option value="2020">2020</option>
-                <option value="2021">2021</option>
+                {% for year in years %}
+                    <option value="{{year}}">{{year}}</option>
+                {% endfor %}
             </select></br>
-            
+        
             <select style="width:150px;height:30px" name="mois" id="mois-select">
                 <option value="1|janvier">--Choix du mois--</option>
                 <option value="1|janvier">janvier</option>
@@ -197,7 +196,7 @@
         </div>
     </div>
 
-
+    {{years}}
 </div>
 {% endblock %}
 
