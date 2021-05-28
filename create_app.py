@@ -48,7 +48,7 @@ def create_app():
 
 # if __name__ == "__main__":
 
-#     my_app = create_app()
+#     app = create_app()
     
 #     app.run(debug=True)
 

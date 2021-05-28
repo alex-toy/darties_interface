@@ -83,6 +83,10 @@ def accueil_magasin(id_mag):
 
     now = datetime.now()
     today = now.strftime("%d/%m/%Y %H:%M:%S")
+    year = int(now.year)
+    month = int(now.month)
+    years = [y for y in range(year-2, year+1)]
+    months = {m:int_to_name[m] for m in range(month+1, 13)}
     
     return render_template(
         'accueil_magasin.html',
@@ -134,7 +138,9 @@ def accueil_magasin(id_mag):
         reg_rank_marge_magneto=reg_rank_marge_magneto,
         reg_rank_marge_fours=reg_rank_marge_fours,
 
-        today=today
+        today=today,
+        years=years,
+        months=months
     )
 
 

@@ -53,7 +53,6 @@ def accueil():
     month = int(now.month)
     years = [y for y in range(year-2, year+1)]
     months = {m:int_to_name[m] for m in range(month+1, 13)}
-    print(months)
 
 
     return render_template(

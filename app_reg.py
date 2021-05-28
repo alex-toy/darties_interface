@@ -55,6 +55,10 @@ def accueil_region(region_id):
 
     now = datetime.now()
     today = now.strftime("%d/%m/%Y %H:%M:%S")
+    year = int(now.year)
+    month = int(now.month)
+    years = [y for y in range(year-2, year+1)]
+    months = {m:int_to_name[m] for m in range(month+1, 13)}
     
     return render_template(
         'accueil_region.html',
@@ -79,7 +83,9 @@ def accueil_region(region_id):
         region_rank_magneto=region_rank_magneto,
         region_rank_fours=region_rank_fours,
 
-        today=today
+        today=today,
+        years=years,
+        months=months
     )
 
 
