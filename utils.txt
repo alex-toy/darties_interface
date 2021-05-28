@@ -47,3 +47,4 @@ heroku run rails console
 
 heroku restart
 
+heroku logs --app=darties
