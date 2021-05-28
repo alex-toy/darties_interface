@@ -19,6 +19,7 @@ main_app = Blueprint('main_app', __name__)
 def accueil():
 
     if not current_user.id_profil == 1 :
+        flash("Vous n'êtes pas autorisé à acceder à cette partie de l'application.")
         return redirect(url_for('auth.login'))
 
     result = request.form.to_dict()
@@ -89,6 +90,7 @@ def accueil():
 def historique():
 
     if not current_user.id_profil == 1 :
+        flash("Vous n'êtes pas autorisé à acceder à cette partie de l'application.")
         return redirect(url_for('auth.login'))
 
     current_year = date.today().year
@@ -161,6 +163,7 @@ def historique():
 def details():
 
     if not current_user.id_profil == 1 :
+        flash("Vous n'êtes pas autorisé à acceder à cette partie de l'application.")
         return redirect(url_for('auth.login'))
     
     result = request.form.to_dict()
@@ -205,6 +208,7 @@ def details():
 def palmares():
 
     if not current_user.id_profil == 1 :
+        flash("Vous n'êtes pas autorisé à acceder à cette partie de l'application.")
         return redirect(url_for('auth.login'))
     
     result = request.form.to_dict()

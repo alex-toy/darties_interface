@@ -22,6 +22,7 @@ main_reg = Blueprint('main_reg', __name__)
 def accueil_region(region_id):
 
     if not (current_user.id_profil == 1) and (not current_user.id_region == region_id) :
+        flash("Vous n'êtes pas autorisé à acceder à cette partie de l'application.")
         return redirect(url_for('auth.login'))
 
     result = request.form.to_dict()
