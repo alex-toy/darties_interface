@@ -22,7 +22,7 @@ def login_post():
 
     user = User.query.filter_by(mail=mail).first()
 
-    if not user and not check_password_hash(user.password, password):
+    if not user or not check_password_hash(user.pwd, password):
         flash('Please check your login details and try again.')
         return redirect(url_for('auth.login'))
 
