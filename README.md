@@ -8,6 +8,8 @@ You need to have Python 3.8.5 installed for this project. You also need to have 
 
 # Context of the project
 
+The app is available at the following address : https://darties.herokuapp.com
+
 
 ## 1. Purpose of the project
 
