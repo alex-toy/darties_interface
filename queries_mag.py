@@ -1,6 +1,7 @@
 import sqlite3
 import pandas as pd
 from config import *
+from distance import levenshtein
 
 
 def all_magasin_in_region(id_region) :
@@ -34,8 +35,7 @@ def region_containing(id_mag) :
         FROM magasin
         JOIN villes ON villes.lib_ville = magasin.lib_magasin
 
-        WHERE magasin.id_magasin = {}
-        ;
+        WHERE magasin.id_magasin = {};
     """
     lib_departement = ''
     result = pd.read_sql(query.format(id_mag), conn).values
@@ -50,9 +50,44 @@ def region_containing(id_mag) :
     if lib_departement in dep_reg_4 : return 4
     if lib_departement in dep_reg_5 : return 5
 
-    return 0
+    return None
 
 
+
+
+def similarity(my_string1, my_string2):
+    return levenshtein(my_string1, my_string2)
+
+
+
+
+def region_containing_sim(id_mag) :
+    conn = sqlite3.connect('data.db')
+    conn.create_function("SIMILARITY", 2, similarity)
+
+    magasin_name = mag_name(id_mag)
+
+    query = f"""
+        SELECT lib_departement 
+
+        FROM villes
+
+        ORDER BY SIMILARITY(lib_departement,'{magasin_name}') DESC
+        
+        LIMIT 1
+    """
+    
+    result = pd.read_sql(query, conn).values
+    if len(result) > 0 :
+        lib_departement = result[0][0]
+
+    if lib_departement in dep_reg_1 : return 1
+    if lib_departement in dep_reg_2 : return 2
+    if lib_departement in dep_reg_3 : return 3
+    if lib_departement in dep_reg_4 : return 4
+    if lib_departement in dep_reg_5 : return 5
+
+    return None
 
 
 
@@ -133,6 +168,7 @@ def mag_name(id_mag) :
         WHERE 
             magasin.id_magasin = {};
     """
+
     result = pd.read_sql(query.format(id_mag), conn).values
     conn.close()
 
@@ -140,6 +176,8 @@ def mag_name(id_mag) :
         return result[0][0]
 
     return result
+
+
 
 
 
@@ -194,13 +232,6 @@ def nat_rank_mag_item(id_mag, classifier, annee, mois, id_famille_produit) :
     conn = sqlite3.connect('data.db')
 
     query = """
-    SELECT v, RANK () OVER (  ORDER BY {}) rank_no 
-    
-    FROM
-        sales.rank_demo;
-    """
-
-    query = """
         SELECT 
             id_mag, lib_ville, kpi_rank
         
@@ -243,6 +274,7 @@ def nat_rank_mag_item(id_mag, classifier, annee, mois, id_famille_produit) :
 
 
 
+
 def reg_rank_mag(id_mag, classifier, annee, mois) :
     conn = sqlite3.connect('data.db')
 
@@ -277,7 +309,10 @@ def reg_rank_mag(id_mag, classifier, annee, mois) :
         ;
     """
 
-    formated_query = query.format(classifier, annee, mois, id_mag, reg_id_to_name[region_containing(id_mag)])
+    
+    reg_containing = region_containing(id_mag) if region_containing(id_mag) else region_containing_sim(id_mag)
+
+    formated_query = query.format(classifier, annee, mois, id_mag, reg_id_to_name[reg_containing])
 
     result = pd.read_sql(formated_query, conn).values
     conn.close()
@@ -326,7 +361,8 @@ def reg_rank_mag_item(id_mag, classifier, annee, mois, id_famille_produit) :
         ;
     """
 
-    formated_query = query.format(classifier, annee, mois, id_mag, reg_id_to_name[region_containing(id_mag)], id_famille_produit)
+    reg_containing = region_containing(id_mag) if region_containing(id_mag) else region_containing_sim(id_mag)
+    formated_query = query.format(classifier, annee, mois, id_mag, reg_id_to_name[reg_containing], id_famille_produit)
 
     result = pd.read_sql(formated_query, conn).values
     conn.close()
@@ -335,3 +371,6 @@ def reg_rank_mag_item(id_mag, classifier, annee, mois, id_famille_produit) :
         return result[0][2]
 
     return result
+
+
+
