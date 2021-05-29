@@ -302,7 +302,7 @@ ul {
     top: 120px;
     width: 700px;
     height: 700px;
-    background-image: url("../images/regionidf.png");
+    background-image: url("../images/region1.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border: 1px solid black;
@@ -315,7 +315,7 @@ ul {
     top: 120px;
     width: 700px;
     height: 700px;
-    background-image: url("../images/regionno.png");
+    background-image: url("../images/region2.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border: 1px solid black;
@@ -328,7 +328,7 @@ ul {
     top: 120px;
     width: 700px;
     height: 700px;
-    background-image: url("../images/regionne.png");
+    background-image: url("../images/region3.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border: 1px solid black;
@@ -341,7 +341,7 @@ ul {
     top: 120px;
     width: 700px;
     height: 700px;
-    background-image: url("../images/regionse.png");
+    background-image: url("../images/region4.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border: 1px solid black;
@@ -354,7 +354,7 @@ ul {
     top: 120px;
     width: 700px;
     height: 700px;
-    background-image: url("../images/regionso.png");
+    background-image: url("../images/region5.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border: 1px solid black;
