@@ -253,6 +253,7 @@ ul {
     background-color: #F0F8FF;
     padding: 10px;
     width: 350px;
+    box-shadow: 10px 5px 5px black;
 }
 
 .total_magasin{
@@ -262,6 +263,7 @@ ul {
     background-color: #F0F8FF;
     padding: 10px;
     width: 300px;
+    box-shadow: 10px 5px 5px black;
 }
 
 .region_hifi{
@@ -271,6 +273,7 @@ ul {
     background-color: #F0F8FF;
     padding: 10px;
     width: 300px;
+    box-shadow: 10px 5px 5px black;
 }
 
 .region_magneto{
@@ -280,6 +283,7 @@ ul {
     background-color: #F0F8FF;
     padding: 10px;
     width: 300px;
+    box-shadow: 10px 5px 5px black;
 }
 
 .region_four{
@@ -289,6 +293,7 @@ ul {
     padding: 10px;
     background-color: #F0F8FF;
     width: 300px;
+    box-shadow: 10px 5px 5px black;
 }
 
 .backimage_region_1{
@@ -297,10 +302,11 @@ ul {
     top: 120px;
     width: 700px;
     height: 700px;
-    background-image: url("../images/france2.png");
-    background-size: 3000px 3000px;
+    background-image: url("../images/regionidf.png");
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-position: bottom -1900px right -1250px;
+    border: 1px solid black;
+    box-shadow: 10px 5px 5px black;
 }
   
 .backimage_region_2{
@@ -309,10 +315,11 @@ ul {
     top: 120px;
     width: 700px;
     height: 700px;
-    background-image: url("../images/france2.png");
-    background-size: 3000px 3000px;
+    background-image: url("../images/regionno.png");
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-position: bottom -1700px right -2200px;
+    border: 1px solid black;
+    box-shadow: 10px 5px 5px black;
 }
 
 .backimage_region_3{
@@ -321,10 +328,11 @@ ul {
     top: 120px;
     width: 700px;
     height: 700px;
-    background-image: url("../images/france2.png");
-    background-size: 3000px 3000px;
+    background-image: url("../images/regionne.png");
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-position: bottom -1700px right -2200px;
+    border: 1px solid black;
+    box-shadow: 10px 5px 5px black;
 }
 
 .backimage_region_4{
@@ -333,10 +341,11 @@ ul {
     top: 120px;
     width: 700px;
     height: 700px;
-    background-image: url("../images/france2.png");
-    background-size: 3000px 3000px;
+    background-image: url("../images/regionse.png");
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-position: bottom -1700px right -2200px;
+    border: 1px solid black;
+    box-shadow: 10px 5px 5px black;
 }
 
 .backimage_region_5{
@@ -345,10 +354,11 @@ ul {
     top: 120px;
     width: 700px;
     height: 700px;
-    background-image: url("../images/france2.png");
-    background-size: 3000px 3000px;
+    background-image: url("../images/regionso.png");
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-position: bottom -1700px right -2200px;
+    border: 1px solid black;
+    box-shadow: 10px 5px 5px black;
 }
 
 
@@ -400,6 +410,7 @@ ul {
     background-color: #F0F8FF;
     padding: 5px;
     margin: 5px;
+    box-shadow: 10px 5px 5px black;
 }
 
 
