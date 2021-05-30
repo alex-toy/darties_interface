@@ -2,6 +2,7 @@ document.onclick = function(){
     document.getElementById('myPopup-haute-savoie').classList.remove('show');
     document.getElementById('myPopup-savoie').classList.remove('show');
     document.getElementById('myPopup-ain').classList.remove('show');
+    document.getElementById('myPopup-isere').classList.remove('show');
 };
 
 
