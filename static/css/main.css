@@ -568,7 +568,53 @@ ul {
 
 
 
-
+.popup-isere {
+    position: absolute;
+    left: 320px;
+    top: 180px;
+    width: 25px;
+    height: 20px;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.popup-isere:hover{
+    background-color: rgb(192, 192, 192);
+}
+.popup-isere .popuptext-isere::after {
+    position: absolute;
+    left: 390px;
+    top: 95px;
+    width: 15px;
+    height: 10px;
+    content: "";
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+.popup-isere .popuptext-isere {
+    visibility: hidden;
+    background-color: #FFEBCD;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    left: -600px;
+    top: 0px;
+    width: 400px;
+    height: 400px;
+    z-index: 1;
+}
+.popup-isere .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
 
 
 

@@ -65,6 +65,7 @@ def accueil_region(region_id):
     perf_dep_haute_savoie = performances_dep(annee, mois_int, 'haute-savoie')
     perf_dep_savoie = performances_dep(annee, mois_int, 'savoie')
     perf_dep_ain = performances_dep(annee, mois_int, 'ain')
+    perf_dep_isere = performances_dep(annee, mois_int, 'isere')
     
     return render_template(
         'accueil_region.html',
@@ -92,6 +93,7 @@ def accueil_region(region_id):
         perf_dep_haute_savoie=perf_dep_haute_savoie,
         perf_dep_savoie=perf_dep_savoie,
         perf_dep_ain=perf_dep_ain,
+        perf_dep_isere=perf_dep_isere,
 
         today=today,
         years=years,
