@@ -11,6 +11,7 @@ from datetime import date
 from queries import *
 from queries_region import *
 from queries_mag import *
+from queries_dep import *
 from config import *
 
 main_reg = Blueprint('main_reg', __name__)
@@ -60,6 +61,10 @@ def accueil_region(region_id):
     month = int(now.month)
     years = [y for y in range(year-2, year+1)]
     months = {m:int_to_name[m] for m in range(month+1, 13)}
+
+    perf_dep_haute_savoie = performances_dep(annee, mois_int, 'haute-savoie')
+    perf_dep_savoie = performances_dep(annee, mois_int, 'savoie')
+    perf_dep_ain = performances_dep(annee, mois_int, 'ain')
     
     return render_template(
         'accueil_region.html',
@@ -83,6 +88,10 @@ def accueil_region(region_id):
         region_rank_hifi=region_rank_hifi,
         region_rank_magneto=region_rank_magneto,
         region_rank_fours=region_rank_fours,
+
+        perf_dep_haute_savoie=perf_dep_haute_savoie,
+        perf_dep_savoie=perf_dep_savoie,
+        perf_dep_ain=perf_dep_ain,
 
         today=today,
         years=years,

@@ -191,12 +191,56 @@
                         <td> {{region_rank_fours[2]}}</td>
                         <td> {{region_rank_total[2]}}</td>
                     </tr>
-    
             </table>
         </div>
+
+
+
+
+        <div class="popup-haute-savoie" onclick="myFunction_haute_savoie(event)">
+            <span class="popuptext-haute-savoie" id="myPopup-haute-savoie">
+                <h4>Information haute savoie</h4>
+                <p>CA objectif : {{perf_dep_haute_savoie[0]}}</p>
+                <p>CA réel : {{perf_dep_haute_savoie[1]}}</p>
+                <p>Ventes objectif : {{perf_dep_haute_savoie[2]}}</p>
+                <p>Ventes objectif : {{perf_dep_haute_savoie[3]}}</p>
+                <p>Marge brute objectif : {{perf_dep_haute_savoie[4]}}</p>
+                <p>Marge brute réel : {{perf_dep_haute_savoie[5]}}</p>
+            </span>
+        </div>
+
+        <div class="popup-savoie" onclick="myFunction_savoie(event)">
+            <span class="popuptext-savoie" id="myPopup-savoie">
+                <h4>Information savoie</h4>
+                <p>CA objectif : {{ '{0:0.2f}'.format(perf_dep_savoie[0]) }}</p>
+                <p>CA réel : {{'{0:0.2f}'.format(perf_dep_savoie[1])}}</p>
+                <p>Ventes objectif : {{'{0:0.2f}'.format(perf_dep_savoie[2])}}</p>
+                <p>Ventes objectif : {{'{0:0.2f}'.format(perf_dep_savoie[3])}}</p>
+                <p>Marge brute objectif : {{'{0:0.2f}'.format(perf_dep_savoie[4])}}</p>
+                <p>Marge brute réel : {{'{0:0.2f}'.format(perf_dep_savoie[5])}}</p>
+            </span>
+        </div>
+
+
+        <div class="popup-ain" onclick="myFunction_ain(event)">
+            <span class="popuptext-ain" id="myPopup-ain">
+                <h4>Information Ain</h4>
+                <p>CA objectif : {{ '{0:0.2f}'.format(perf_dep_ain[0]) }}</p>
+                <p>CA réel : {{'{0:0.2f}'.format(perf_dep_ain[1])}}</p>
+                <p>Ventes objectif : {{'{0:0.2f}'.format(perf_dep_ain[2])}}</p>
+                <p>Ventes objectif : {{'{0:0.2f}'.format(perf_dep_ain[3])}}</p>
+                <p>Marge brute objectif : {{'{0:0.2f}'.format(perf_dep_ain[4])}}</p>
+                <p>Marge brute réel : {{'{0:0.2f}'.format(perf_dep_ain[5])}}</p>
+            </span>
+        </div>
+
+
+
+
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
     </div>
 
-    {{years}}
 </div>
 {% endblock %}
 

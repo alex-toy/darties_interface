@@ -417,153 +417,71 @@ ul {
 
 
 
-.popup-ain {
+
+.haute-savoie{
+    position: absolute;
+    left: 390px;
+    top: 95px;
+    width: 15px;
+    height: 10px;
+}
+.haute-savoie:hover{
+    background-color: rgb(192, 192, 192);
+}
+
+.popup-haute-savoie{
+    background-color: orangered;
+    padding: 1em 2em;
+    cursor: pointer;
+}
+
+.savoie{
     position: absolute;
     left: 300px;
     top: 90px;
     width: 35px;
     height: 20px;
-    display: inline-block;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
-.popup-ain:hover{
+.savoie:hover{
     background-color: rgb(192, 192, 192);
 }
-.popup-ain .popuptext-ain::after {
-    position: absolute;
-    left: 300px;
-    top: 90px;
-    width: 35px;
-    height: 20px;
-    content: "";
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-.popup-ain .popuptext-ain {
-    visibility: hidden;
-    background-color: #FFEBCD;
-    color: black;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    left: -600px;
-    top: 0px;
-    width: 400px;
-    height: 400px;
-    z-index: 1;
-}
-.popup-ain .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-}
-
-
-
-
-.popup-haute-savoie {
-    position: absolute;
-    left: 390px;
-    top: 95px;
-    width: 15px;
-    height: 10px;
-    display: inline-block;
+.popup-savoie{
+    background-color: orangered;
+    padding: 1em 2em;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
-.popup-haute-savoie:hover{
-    background-color: rgb(192, 192, 192);
+
+
+.overlay {
+    position: fixed;
+    left: 0px;
+    top:0px;
+    background-color: rgba(0,0 ,0 , 0.5);
+    width: 100%;
+    height: 100%;
+    z-index:1;
+    display:none;
 }
-.popup-haute-savoie .popuptext-haute-savoie::after {
+
+.popup{
     position: absolute;
-    left: 390px;
+    left: -200px;
     top: 95px;
-    width: 15px;
-    height: 10px;
-    content: "";
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-.popup-haute-savoie .popuptext-haute-savoie {
-    visibility: hidden;
+    width: 600px;
+    height: 600px;
+    margin: 10% auto;
     background-color: #FFEBCD;
-    color: black;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    left: -600px;
-    top: 0px;
-    width: 400px;
-    height: 400px;
-    z-index: 1;
-}
-.popup-haute-savoie .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
+    padding: 1em;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    display:none;
 }
 
-
-
-.popup-savoie {
-    position: absolute;
-    left: 390px;
-    top: 160px;
-    width: 25px;
-    height: 20px;
-    display: inline-block;
+.btnClose {
+    float: left;
+    font-size:16pt;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-.popup-savoie:hover{
-    background-color: rgb(192, 192, 192);
-}
-.popup-savoie .popuptext-savoie::after {
-    position: absolute;
-    left: 390px;
-    top: 95px;
-    width: 15px;
-    height: 10px;
-    content: "";
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-.popup-savoie .popuptext-savoie {
-    visibility: hidden;
-    background-color: #FFEBCD;
-    color: black;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    left: -600px;
-    top: 0px;
-    width: 400px;
-    height: 400px;
-    z-index: 1;
-}
-.popup-savoie .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
+    color: rgb(129, 8, 8);
 }
 
 
@@ -573,13 +491,8 @@ ul {
 
 
 
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-    from {opacity: 0;} 
-    to {opacity: 1;}
-}
 
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-}
+
+
+
+

@@ -313,9 +313,6 @@ def delete_all() :
 
 
 
-
-
-
 def show_tables(table_name):
     
     conn = sqlite3.connect('data.db')
@@ -330,7 +327,36 @@ def show_tables(table_name):
 
 
 
+def test():
+    
+    conn = sqlite3.connect('data.db')
+    c = conn.cursor()
 
+    query = """
+        SELECT 
+            sum(ca_objectif), sum(ca_reel), 
+            sum(ventes_objectif), sum(vente_reel), 
+            sum(marge_objectif), sum(marge_reel)
+        
+        FROM sales
+        JOIN temps ON sales.id_temps = temps.id_temps
+        JOIN villes ON sales.id_ville = villes.id_ville
+        
+        WHERE 
+            temps.annee = {} AND
+            temps.mois = {} AND
+            villes.lib_departement = '{}';
+    """
+
+
+    c.execute(query.format(2020, 1, 'savoie'))
+    results = c.fetchall()
+    print(results)
+
+    conn.commit()
+    conn.close()
+
+    
 
 
 
@@ -354,6 +380,5 @@ if __name__ == "__main__":
 
     #show_tables('cours')
 
-    temp = region_classify_fam_prod(2020, 1, 1, 3)
-    print(temp)
+    test()
 
