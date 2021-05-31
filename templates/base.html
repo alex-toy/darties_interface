@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="{{ url_for('static', filename='js/script_time.js') }}"></script>
     {% block head %}{% endblock %}
 </head>
 <body>
@@ -20,9 +21,26 @@
             <p>User : {{ nom }} {{ prenom }}</p>
         </div>
         
-        <div style="margin-left: 25%;"> 
-            <p>Mise à jour : 15/05/2021</p>
-            <p>Date du jour : {{today}}</p>
+        <div style="margin-left: 25%;" id="load_date">
+            <script>
+                var element = document.getElementById("load_date");
+                
+                var load_date = new Date(2021, 2);
+                load_date = get_load_date(2021, 2)
+                var today_date_display = load_date.getFullYear()+'-'+(load_date.getMonth()+1)+'-'+load_date.getDate();
+                var tag1 = document.createElement("p");
+                var text = document.createTextNode("Mise à jour : " + today_date_display);
+                tag1.appendChild(text);
+
+                const today = new Date();
+                var today_date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                var tag2 = document.createElement("p");
+                var text = document.createTextNode("Date du jour : " + today_date);
+                tag2.appendChild(text);
+
+                element.appendChild(tag1);
+                element.appendChild(tag2);
+             </script>
         </div>
     </div>
 
@@ -95,8 +113,6 @@
 
     
     {% block body %}{% endblock %}
-
-    <script src="{{ url_for('static', filename='js/script_time.js') }}"></script>
 
 </body>
 </html>
