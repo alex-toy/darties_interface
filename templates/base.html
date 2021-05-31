@@ -78,7 +78,7 @@
 
                 <form style="text-align:center;">
                     <select 
-                        {% if location == 'region' %} style="border: 2px solid blue;height: 30px" {% endif %}
+                        {% if location == 'accueil_region' %} style="border: 2px solid blue;height: 30px" {% endif %}
                         style="width:150px;height:30px" name="region" id="mois-select" onchange="location.href='/accueil/'+form.region.value;">
                         <option value={{id_reg}}>--choix de la région--</option>
                         {% for id_reg in range(1, 6) %}
@@ -103,7 +103,7 @@
             {% for id_reg in range(1, 6) %}
                 {% if current_user.id_region == id_reg %}
                     <button 
-                        {% if location == 'accueil' %} style="border: 2px solid blue;" {% endif %}
+                        {% if location == 'accueil_region' %} style="border: 2px solid blue;" {% endif %}
                         class="button" 
                         onclick="location.href='/accueil/{{id_reg}}';">Accueil région {{id_reg}}</button>
 

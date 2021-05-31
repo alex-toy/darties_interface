@@ -100,7 +100,7 @@ def accueil_region(region_id):
         today=today,
         years=years,
         months=months,
-        location='accueil'
+        location='accueil_region'
     )
 
 
