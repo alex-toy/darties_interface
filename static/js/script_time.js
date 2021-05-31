@@ -4,6 +4,7 @@ function get_load_date(year, monthIndex) {
 }
 
 
+
 function get_delta() {
     var year = document.getElementById("year-select").value;
     const today = new Date()
@@ -31,12 +32,12 @@ function get_html_months() {
     if(delta < 2){
         html += '<option value="1|janvier">--Choix du mois--</option>'
     } else {
-        var init = current_month + 1;
-        html += option_prev + init + '|' + month_list[current_month] + '">' +  month_list[current_month] + option_next;
+        var init = current_month;
+        html += option_prev + init + '|' + month_list[current_month] + '">--Choix du mois--' + option_next;
     }
     
     for (i = init; i < month_list.length; i++) { 
-        month_int = i+1
+        month_int = i + 1
         html += option_prev + month_int + '|' + month_list[i] + '">' +  month_list[i] + option_next;
     }
     
@@ -44,6 +45,27 @@ function get_html_months() {
 
     document.getElementById("month_select").innerHTML = html;
 }
+
+
+
+
+function get_html_years() {
+    const current_year = today.getFullYear();
+
+    var html = '<select style="width:150px;height:30px" name="mois" id="mois-select">'
+    var option_prev = '<option value="'
+    var option_next = '</option>'
+
+    var i;
+    for (i = current_year-2; i < 2; i++) { 
+        html += option_prev + i + '">' +  i + option_next;
+    }
+    
+    html += '</select>'
+
+    document.getElementById("month_select").innerHTML = html;
+}
+
 
 
 

@@ -31,8 +31,9 @@ def accueil():
     devise = "Euro"
     curr_rate = [1, "Euro"]
     if result :
-        mois_int = int(result['mois'].split('|')[0])
-        mois_string = result['mois'].split('|')[1]
+        if 'mois' in result.keys():
+            mois_int = int(result['mois'].split('|')[0])
+            mois_string = result['mois'].split('|')[1]
         annee = int(result['annee'])
         id_devise = result['devise']
         if int(id_devise) > 0 :
@@ -180,6 +181,10 @@ def details():
 
     now = datetime.now()
     today = now.strftime("%d/%m/%Y %H:%M:%S")
+    year = int(now.year)
+    month = int(now.month)
+    years = [y for y in range(year-2, year+1)]
+    months = {m:int_to_name[m] for m in range(month+1, 13)}
 
     return render_template(
         'details.html',
@@ -196,7 +201,8 @@ def details():
 
         magasins=all_magasin(),
 
-        today=today
+        today=today,
+        years=years
     )
 
 
@@ -256,6 +262,10 @@ def palmares():
 
     now = datetime.now()
     today = now.strftime("%d/%m/%Y %H:%M:%S")
+    year = int(now.year)
+    month = int(now.month)
+    years = [y for y in range(year-2, year+1)]
+    months = {m:int_to_name[m] for m in range(month+1, 13)}
 
     return render_template(
         'palmares.html',
@@ -288,7 +298,8 @@ def palmares():
 
         magasins=all_magasin(),
 
-        today=today
+        today=today,
+        years=years
     )
 
 

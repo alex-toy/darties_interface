@@ -16,7 +16,7 @@
         <form action="/accueil" method="POST" style="text-align:center;">
 
             <select style="width:150px;height:30px" name="annee" id="year-select"  onchange="get_delta()">
-                <option value="2020">--Choix de l'année--</option>
+                <option value="{{years[0]}}">--Choix de l'année--</option>
                 {% for year in years %}
                     <option value="{{year}}">{{year}}</option>
                 {% endfor %}

@@ -18,29 +18,19 @@
 
     <div class="filtre">
         <form action="/details" method="POST" style="text-align:center;">
-        
-            <select style="width:150px;height:30px" name="annee" id="mois-select">
-                <option value="2020">--Choix de l'année--</option>
-                <option value="2019">2019</option>
-                <option value="2020">2020</option>
-                <option value="2021">2021</option>
+
+            <select style="width:150px;height:30px" name="annee" id="year-select"  onchange="get_delta()">
+                <option value="{{years[0]}}">--Choix de l'année--</option>
+                {% for year in years %}
+                    <option value="{{year}}">{{year}}</option>
+                {% endfor %}
             </select></br>
+
+            <div id="month_select"></div>
             
-            <select style="width:150px;height:30px" name="mois" id="mois-select">
-                <option value="1|janvier">--Choix du mois--</option>
-                <option value="1|janvier">janvier</option>
-                <option value="2|février">février</option>
-                <option value="3|mars">mars</option>
-                <option value="4|avril">avril</option>
-                <option value="5|mai">mai</option>
-                <option value="6|juin">juin</option>
-                <option value="7|juillet">juillet</option>
-                <option value="8|aout">aout</option>
-                <option value="9|septembre">septembre</option>
-                <option value="10|octobre">octobre</option>
-                <option value="11|novembre">novembre</option>
-                <option value="12|decembre">decembre</option>
-            </select></br>
+            <script>
+                document.getElementById("year-select").addEventListener("change", get_html_months);
+            </script>
     
             <button class="button" type="submit">Recherche</button>
         </form>
