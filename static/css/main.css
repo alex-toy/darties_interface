@@ -10,12 +10,12 @@ div {
 
 .backimage{
     position: absolute;
-    left: 600px;
-    top: 110px;
+    left: 400px;
+    top: 90px;
     width: 1000px;
     height: 900px;
     background-image: url("../images/france.png");
-    background-size: 1000px 1000px;
+    background-size: 800px 800px;
     background-repeat: no-repeat;
     background-position: bottom 0px right 0px;
 }
@@ -47,14 +47,12 @@ div {
 
 .description{
     position: absolute;
-    left: 10px;
-    top: 430px;
-    width: 400px;
-    height: 150px;
-    background-color: #87CEFA;
-    padding: 5px;
+    left: 430px;
+    top: 110px;
+    width: 1300px;
+    height: 50px;
     margin: 5px;
-    border: 1px solid black;
+    display: inline-block;
 }
 
 .links{
@@ -62,7 +60,7 @@ div {
     left: 10px;
     top: 110px;
     width: 400px;
-    height: 300px;
+    height: 320px;
     padding: 5px;
     margin: 5px;
     background-color: #87CEFA;
@@ -73,9 +71,9 @@ div {
 .filtre{
     position: absolute;
     left: 10px;
-    top: 600px;
+    top: 450px;
     width: 400px;
-    height: 180px;
+    height: 330px;
     padding: 5px;
     background-color: #87CEFA;
     margin: 5px;
@@ -139,7 +137,7 @@ ul {
 
 .perf_nat{
     position: absolute;
-    left: 600px;
+    left: 1050px;
     top: 790px;
     background-color: white;
     background-size: 100% 100%;
@@ -153,8 +151,8 @@ ul {
 
 .perf_reg1{
     position: absolute;
-    left: 400px;
-    top: 10px;
+    left: 500px;
+    top: 150px;
     background-color: white;
     background-size: 100% 100%;
     padding: 0px;
@@ -162,13 +160,25 @@ ul {
     border-style:solid; 
     border-color:black;
     width:250px;
+}
+.perf_reg1::after {
+    content: '';
+    position: absolute;
+    left: 100px;
+    top: 150px;
+    padding:  10% 10% 10% 10%;
+    background: url("../images/1.jpg")no-repeat;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    z-index: 10;
 }
 
 
 .perf_reg2{
     position: absolute;
-    left: -50px;
-    top: 100px;
+    left: 140px;
+    top: 180px;
     background-color: white;
     background-size: 100% 100%;
     padding: 0px;
@@ -176,13 +186,25 @@ ul {
     border-style:solid; 
     border-color:black;
     width:250px;
+}
+.perf_reg2::after {
+    content: '';
+    position: absolute;
+    left: 300px;
+    top: 170px;
+    padding:  10% 10% 10% 10%;
+    background: url("../images/2.jpg")no-repeat;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    z-index: 10;
 }
 
 
 .perf_reg3{
     position: absolute;
-    left: 800px;
-    top: 100px;
+    left: 950px;
+    top: 200px;
     background-color: white;
     background-size: 100% 100%;
     padding: 0px;
@@ -190,24 +212,23 @@ ul {
     border-style:solid; 
     border-color:black;
     width:250px;
+}
+.perf_reg3::after {
+    content: '';
+    position: absolute;
+    left: -200px;
+    top: 150px;
+    padding:  10% 10% 10% 10%;
+    background: url("../images/3.jpg")no-repeat;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    z-index: 10;
 }
 
 .perf_reg4{
     position: absolute;
-    left: 800px;
-    top: 500px;
-    background-color: white;
-    background-size: 100% 100%;
-    padding: 0px;
-    border-width:1px; 
-    border-style:solid; 
-    border-color:black;
-    width:250px;
-}
-
-.perf_reg5{
-    position: absolute;
-    left: 90px;
+    left: 950px;
     top: 550px;
     background-color: white;
     background-size: 100% 100%;
@@ -216,6 +237,43 @@ ul {
     border-style:solid; 
     border-color:black;
     width:250px;
+}
+.perf_reg4::after {
+    content: '';
+    position: absolute;
+    left: -200px;
+    top: 70px;
+    padding:  10% 10% 10% 10%;
+    background: url("../images/4.jpg")no-repeat;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    z-index: 10;
+}
+
+.perf_reg5{
+    position: absolute;
+    left: 140px;
+    top: 600px;
+    background-color: white;
+    background-size: 100% 100%;
+    padding: 0px;
+    border-width:1px; 
+    border-style:solid; 
+    border-color:black;
+    width:250px;
+}
+.perf_reg5::after {
+    content: '';
+    position: absolute;
+    left: 350px;
+    top: 50px;
+    padding:  10% 10% 10% 10%;
+    background: url("../images/5.jpg")no-repeat;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    z-index: 10;
 }
 
 .historique{
@@ -380,13 +438,14 @@ ul {
 
 
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: whitesmoke;
     border: none;
     color: white;
     padding: 15px 32px;
-    margin: 5px;
+    margin: 5px auto;
     text-align: center;
     text-decoration: none;
+    color: black;
     display: block;
     font-size: 16px;
     width: 150px;

@@ -21,7 +21,7 @@
         </div>
         
         <div style="margin-left: 25%;"> 
-            <p>Mise à jour : </p>
+            <p>Mise à jour : 15/05/2021</p>
             <p>Date du jour : {{today}}</p>
         </div>
     </div>
@@ -30,12 +30,15 @@
         {% if current_user.is_authenticated %}
 
             {% if current_user.id_profil == 1 %}
-                <button class="button" onclick="location.href='/accueil';">Accueil</button>
-                <button class="button" onclick="location.href='/historique';">Historique</button>
-                <button class="button" onclick="location.href='/details';">Détails</button>
-                <button class="button" onclick="location.href='/palmares';">Palmares</button>
+                <div style="text-align:center;">
+                    <button class="button" onclick="location.href='/accueil';">Accueil</button>
+                    <button class="button" onclick="location.href='/historique';">Historique</button>
+                    <button class="button" onclick="location.href='/details';">Détails</button>
+                    <button class="button" onclick="location.href='/palmares';">Palmares</button>
+                </div>
 
-                <form>
+
+                <form style="text-align:center;">
                     <select style="width:150px;height:30px" name="region" id="mois-select" onchange="location.href='/accueil/'+form.region.value;">
                         <option value={{id_reg}}>--choix de la région--</option>
                         {% for id_reg in range(1, 6) %}
@@ -44,7 +47,7 @@
                     </select>
                 </form>
 
-                <form>
+                <form style="text-align:center;">
                     <select style="width:150px;height:30px" name="magasin" id="mois-select" onchange="location.href='/magasin/'+form.magasin.value;">
                         <option value={{id_reg}}>--choix du magasin--</option>
                         {% for mag in magasins %}
@@ -59,14 +62,14 @@
                 {% if current_user.id_region == id_reg %}
                     <button class="button" onclick="location.href='/accueil/{{id_reg}}';">Accueil région {{id_reg}}</button>
 
-                    <form>
+                    <form style="text-align:center;">
                         <select style="width:150px;height:30px" name="magasin" id="mois-select" onchange="location.href='/magasin/'+form.magasin.value;">
                             <option value={{id_reg}}>--choix du magasin--</option>
                             {% for mag in magasins %}
                             <option value={{mag[0]}}>{{mag[1]}}</option>
                             {% endfor %}
                         </select>
-                    </form>
+                    </form style="text-align:center;">
                 {% endif %}
             {% endfor %}
 
@@ -85,7 +88,7 @@
 
     </div>
 
-    <div class="logout">
+    <div class="logout" style="text-align:center;">
         <button class="button" onclick="location.href='{{ url_for('auth.logout') }}';">Logout</button>
     </div>
 
