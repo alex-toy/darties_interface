@@ -43,28 +43,28 @@
         <table>
             <tr>
                 <th style="border-top-width:0px;border-left-width:0px;border-bottom-width:0px"></th>
-                <th colspan="4" bgcolor="#0AF"> {{annee}} </th>
-                <th colspan="4" bgcolor="#0AF"> {{annee-1}} </th>
-                <th colspan="2" rowspan="2" bgcolor="#0AF"> Ecart entre {{mois_string}} {{annee-1}} et {{mois_string}} {{annee}} </th>
-                <th colspan="2" rowspan="2" bgcolor="#0AF"> Ecart du cumul entre {{mois_string}} {{annee-1}} et {{mois_string}} {{annee}} </th>
+                <th colspan="4" bgcolor="#87CEFA"> {{annee}} </th>
+                <th colspan="4" bgcolor="#87CEFA"> {{annee-1}} </th>
+                <th colspan="2" rowspan="2" bgcolor="#87CEFA"> Ecart entre {{mois_string}} {{annee-1}} et {{mois_string}} {{annee}} </th>
+                <th colspan="2" rowspan="2" bgcolor="#87CEFA"> Ecart du cumul entre {{mois_string}} {{annee-1}} et {{mois_string}} {{annee}} </th>
             </tr>
                 
             <tr>
                 <th style="border-top-width:0px;border-left-width:0px"></th> 
-                <th colspan="2" bgcolor="#0AF"> {{mois_string}} </th> <th colspan="2" bgcolor="#0AF"> Cumul de janvier à {{mois_string}} </th> 
-                <th colspan="2" bgcolor="#0AF"> {{mois_string}} </th> <th colspan="2" bgcolor="#0AF"> Cumul de janvier à {{mois_string}} </th> 
+                <th colspan="2" bgcolor="#87CEFA"> {{mois_string}} </th> <th colspan="2" bgcolor="#87CEFA"> Cumul de janvier à {{mois_string}} </th> 
+                <th colspan="2" bgcolor="#87CEFA"> {{mois_string}} </th> <th colspan="2" bgcolor="#87CEFA"> Cumul de janvier à {{mois_string}} </th> 
             </tr>
             <tr cellpadding="15">
-                <th bgcolor="#0AF">CA</th> 
-                <th bgcolor="#0AF">Budget</th> <th bgcolor="#0AF">Reel</th> 
-                <th bgcolor="#0AF">Budget</th> <th bgcolor="#0AF">Reel</th> 
-                <th bgcolor="#0AF">Budget</th> <th bgcolor="#0AF">Reel</th> 
-                <th bgcolor="#0AF">Budget</th> <th bgcolor="#0AF">Reel</th>
-                <th bgcolor="#0AF">Budget</th> <th bgcolor="#0AF">Reel</th> 
-                <th bgcolor="#0AF">Budget</th> <th bgcolor="#0AF">Reel</th>
+                <th bgcolor="#87CEFA">CA</th> 
+                <th bgcolor="#87CEFA">Budget</th> <th bgcolor="#87CEFA">Reel</th> 
+                <th bgcolor="#87CEFA">Budget</th> <th bgcolor="#87CEFA">Reel</th> 
+                <th bgcolor="#87CEFA">Budget</th> <th bgcolor="#87CEFA">Reel</th> 
+                <th bgcolor="#87CEFA">Budget</th> <th bgcolor="#87CEFA">Reel</th>
+                <th bgcolor="#87CEFA">Budget</th> <th bgcolor="#87CEFA">Reel</th> 
+                <th bgcolor="#87CEFA">Budget</th> <th bgcolor="#87CEFA">Reel</th>
             </tr>
             <tr>
-                <th bgcolor="#0AF">Hi-fi</th>
+                <th bgcolor="#87CEFA">Hi-fi</th>
                 <td>{{ hifi_obj_cur|round|int }}</td>
                 <td>{{ hifi_reel_cur|round|int }}</td>
                 <td>{{ hifi_obj_cumul_cur|round|int }}</td>
@@ -81,7 +81,7 @@
                 <td> {{ '{0:0.2f}'.format((hifi_reel_cumul_cur - hifi_reel_cumul_prev) / hifi_obj_cumul_cur * 100) }} %</td>
             </tr>
             <tr>
-                <th bgcolor="#0AF">Magnéto</th>
+                <th bgcolor="#87CEFA">Magnéto</th>
                 <td>{{ magneto_obj_cur|round|int }}</td>
                 <td>{{ magneto_reel_cur|round|int }}</td>
                 <td>{{ magneto_obj_cumul_cur|round|int }}</td>
@@ -98,7 +98,7 @@
                 <td> {{ '{0:0.2f}'.format((magneto_reel_cumul_cur - magneto_reel_cumul_prev) / magneto_obj_cumul_cur * 100) }} %</td>
             </tr>
             <tr>
-                <th bgcolor="#0AF">Fours</th>
+                <th bgcolor="#87CEFA">Fours</th>
                 <td>{{ fours_obj_cur|round|int }}</td>
                 <td>{{ fours_reel_cur|round|int }}</td>
                 <td>{{ fours_obj_cumul_cur|round|int }}</td>
@@ -115,7 +115,7 @@
                 <td> {{ '{0:0.2f}'.format((fours_reel_cumul_cur - fours_reel_cumul_prev) / fours_obj_cumul_cur * 100) }} %</td>
             </tr>
             <tr>
-                <th bgcolor="#0AF">Total</th>
+                <th bgcolor="#87CEFA">Total</th>
                 <td>{{ (hifi_obj_cur+magneto_obj_cur+fours_obj_cur)|round|int }}</td>
                 <td>{{ (hifi_reel_cur+magneto_reel_cur+fours_reel_cur)|round|int }}</td>
                 <td>{{ (hifi_obj_cumul_cur+magneto_obj_cumul_cur+fours_obj_cumul_cur)|round|int }}</td>

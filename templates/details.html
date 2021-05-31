@@ -52,20 +52,20 @@
     <table>
         <tr>
             <th style="border-top-width:0px;border-left-width:0px;border-bottom-width:0px"></th>
-            <th colspan="3" bgcolor="#0AF"> CA </th>
-            <th colspan="3" bgcolor="#0AF"> Ventes </th>
-            <th colspan="3" bgcolor="#0AF"> Marge </th>
+            <th colspan="3" bgcolor="#87CEFA"> CA </th>
+            <th colspan="3" bgcolor="#87CEFA"> Ventes </th>
+            <th colspan="3" bgcolor="#87CEFA"> Marge </th>
         </tr>
 
         <tr>
             <th style="border-top-width:0px;border-left-width:0px;border-bottom-width:0px"></th>
-            <th bgcolor="#0AF">Budget</th><th bgcolor="#0AF">Reel</th bgcolor="#0AF"><th bgcolor="#0AF">Ecart</th>
-            <th bgcolor="#0AF">Budget</th><th bgcolor="#0AF">Reel</th bgcolor="#0AF"><th bgcolor="#0AF">Ecart</th>
-            <th bgcolor="#0AF">Budget</th><th bgcolor="#0AF">Reel</th bgcolor="#0AF"><th bgcolor="#0AF">Ecart</th>
+            <th bgcolor="#87CEFA">Budget</th><th bgcolor="#87CEFA">Reel</th bgcolor="#87CEFA"><th bgcolor="#87CEFA">Ecart</th>
+            <th bgcolor="#87CEFA">Budget</th><th bgcolor="#87CEFA">Reel</th bgcolor="#87CEFA"><th bgcolor="#87CEFA">Ecart</th>
+            <th bgcolor="#87CEFA">Budget</th><th bgcolor="#87CEFA">Reel</th bgcolor="#87CEFA"><th bgcolor="#87CEFA">Ecart</th>
         </tr>
             
             <tr>
-                <th bgcolor="#0AF">Hi-fi</th>
+                <th bgcolor="#87CEFA">Hi-fi</th>
 
                 <td> {{ '{0:0.2f}'.format(hifi_kpi["ca_objectif"]) }}</td>
                 <td> {{ '{0:0.2f}'.format(hifi_kpi["ca_reel"]) }}</td>
@@ -81,7 +81,7 @@
             </tr>
 
             <tr>
-                <th bgcolor="#0AF">Fours</th>
+                <th bgcolor="#87CEFA">Fours</th>
 
                 <td> {{ '{0:0.2f}'.format(fours_kpi["ca_objectif"]) }}</td>
                 <td> {{ '{0:0.2f}'.format(fours_kpi["ca_reel"]) }}</td>
@@ -98,7 +98,7 @@
             </tr>
 
             <tr>
-                <th bgcolor="#0AF">Magnétoscopes</th>
+                <th bgcolor="#87CEFA">Magnétoscopes</th>
 
                 <td> {{ '{0:0.2f}'.format(magneto_kpi["ca_objectif"]) }}</td>
                 <td> {{ '{0:0.2f}'.format(magneto_kpi["ca_reel"]) }}</td>
@@ -114,7 +114,7 @@
             </tr>
 
             <tr>
-                <th bgcolor="#0AF">Total</th>
+                <th bgcolor="#87CEFA">Total</th>
 
                 {% set total_ca_objectif = hifi_kpi["ca_objectif"]+fours_kpi["ca_objectif"]+magneto_kpi["ca_objectif"] %}
                 {% set total_ca_reel = hifi_kpi["ca_reel"]+fours_kpi["ca_reel"]+magneto_kpi["ca_reel"] %}
@@ -136,7 +136,7 @@
             </tr>
 
             <tr>
-                <th bgcolor="#0AF">Poids Hifi réel</th>
+                <th bgcolor="#87CEFA">Poids Hifi réel</th>
 
                 <td  colspan="3"> {{ '{0:0.2f}'.format(hifi_kpi["ca_reel"] / total_ca_objectif * 100) }}%</td>
                 <td  colspan="3"> {{ '{0:0.2f}'.format(hifi_kpi["vente_reel"] / total_ventes_objectif * 100) }}%</td>
@@ -144,7 +144,7 @@
             </tr>
 
             <tr>
-                <th bgcolor="#0AF">Poids Four réel</th>
+                <th bgcolor="#87CEFA">Poids Four réel</th>
 
                 <td  colspan="3"> {{ '{0:0.2f}'.format(fours_kpi["ca_reel"] / total_ca_objectif * 100) }}%</td>
                 <td  colspan="3"> {{ '{0:0.2f}'.format(fours_kpi["vente_reel"] / total_ventes_objectif * 100) }}%</td>
@@ -152,7 +152,7 @@
             </tr>
 
             <tr>
-                <th bgcolor="#0AF">Poids Magnétoscope réel</th>
+                <th bgcolor="#87CEFA">Poids Magnétoscope réel</th>
 
                 <td  colspan="3"> {{ '{0:0.2f}'.format(magneto_kpi["ca_reel"] / total_ca_objectif * 100) }}%</td>
                 <td  colspan="3"> {{ '{0:0.2f}'.format(magneto_kpi["vente_reel"] / total_ventes_objectif * 100) }}%</td>

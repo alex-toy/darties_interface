@@ -297,22 +297,11 @@ ul {
 .palmares{
     position: absolute;
     left: 500px;
-    top: 130px;
+    top: 200px;
     background-color: #F0F8FF;
     padding: 10px;
     margin: 10px;
     width: 1150px;
-}
-
-
-.accueil_region{
-    position: absolute;
-    left: 0px;
-    top: 750px;
-    background-color: #F0F8FF;
-    padding: 10px;
-    width: 350px;
-    box-shadow: 10px 5px 5px black;
 }
 
 .total_magasin{
@@ -321,7 +310,7 @@ ul {
     top: 0px;
     background-color: #F0F8FF;
     padding: 10px;
-    width: 300px;
+    width: 350px;
     box-shadow: 10px 5px 5px black;
 }
 
@@ -331,7 +320,7 @@ ul {
     top: 150px;
     background-color: #F0F8FF;
     padding: 10px;
-    width: 300px;
+    width: 350px;
     box-shadow: 10px 5px 5px black;
 }
 
@@ -341,7 +330,7 @@ ul {
     top: 300px;
     background-color: #F0F8FF;
     padding: 10px;
-    width: 300px;
+    width: 350px;
     box-shadow: 10px 5px 5px black;
 }
 
@@ -351,14 +340,24 @@ ul {
     top: 450px;
     padding: 10px;
     background-color: #F0F8FF;
-    width: 300px;
+    width: 350px;
+    box-shadow: 10px 5px 5px black;
+}
+
+.accueil_region{
+    position: absolute;
+    left: -400px;
+    top: 600px;
+    background-color: #F0F8FF;
+    padding: 10px;
+    width: 350px;
     box-shadow: 10px 5px 5px black;
 }
 
 .backimage_region_1{
     position: absolute;
     left: 900px;
-    top: 120px;
+    top: 200px;
     width: 700px;
     height: 700px;
     background-image: url("../images/region1.png");
@@ -371,7 +370,7 @@ ul {
 .backimage_region_2{
     position: absolute;
     left: 900px;
-    top: 120px;
+    top: 200px;
     width: 700px;
     height: 700px;
     background-image: url("../images/region2.png");
@@ -384,7 +383,7 @@ ul {
 .backimage_region_3{
     position: absolute;
     left: 900px;
-    top: 120px;
+    top: 200px;
     width: 700px;
     height: 700px;
     background-image: url("../images/region3.png");
@@ -397,7 +396,7 @@ ul {
 .backimage_region_4{
     position: absolute;
     left: 900px;
-    top: 120px;
+    top: 200px;
     width: 700px;
     height: 700px;
     background-image: url("../images/region4.png");
@@ -410,7 +409,7 @@ ul {
 .backimage_region_5{
     position: absolute;
     left: 900px;
-    top: 120px;
+    top: 200px;
     width: 700px;
     height: 700px;
     background-image: url("../images/region5.png");
