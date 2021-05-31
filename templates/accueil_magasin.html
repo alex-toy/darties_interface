@@ -140,21 +140,42 @@
                         <td bgcolor="#87CEFA">CA</td>
                         <td>{{ '{0:0.2f}'.format(perf_mag[0]) }}</td> 
                         <td>{{ '{0:0.2f}'.format(perf_mag[1]) }}</td>
-                        <td>{{ '{0:0.2f}'.format(perf_mag[1] / perf_mag[0]) }}</td>
+                        {% set ratio_ca = perf_mag[1] / perf_mag[0] %}
+                        {% if ratio_ca < 1 %} 
+                            <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_ca) }}</td>
+                        {% elif ratio_ca > 1 %} 
+                            <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_ca) }}</td>
+                        {% else %} 
+                            <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_ca) }}</td>
+                        {% endif %}
                     </tr>
                     
                     <tr>
                         <td bgcolor="#87CEFA">Ventes</td>
                         <td>{{ '{0:0.2f}'.format(perf_mag[2]) }}</td> 
                         <td>{{ '{0:0.2f}'.format(perf_mag[3]) }}</td>
-                        <td>{{ '{0:0.2f}'.format(perf_mag[3] / perf_mag[2]) }}</td>
+                        {% set ratio_vente = perf_mag[3] / perf_mag[2] %}
+                        {% if ratio_vente < 1 %} 
+                            <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_vente) }}</td>
+                        {% elif ratio_vente > 1 %} 
+                            <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_vente) }}</td>
+                        {% else %} 
+                            <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_vente) }}</td>
+                        {% endif %}
                     </tr>
     
                     <tr>
                         <td bgcolor="#87CEFA">Marges</td>
                         <td>{{ '{0:0.2f}'.format(perf_mag[4]) }}</td> 
                         <td>{{ '{0:0.2f}'.format(perf_mag[5]) }}</td>
-                        <td>{{ '{0:0.2f}'.format(perf_mag[5] / perf_mag[4]) }}</td>
+                        {% set ratio_marge = perf_mag[5] / perf_mag[4] %}
+                        {% if ratio_marge < 1 %} 
+                            <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_marge) }}</td>
+                        {% elif ratio_marge > 1 %} 
+                            <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_marge) }}</td>
+                        {% else %} 
+                            <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_marge) }}</td>
+                        {% endif %}
                     </tr>
             </table>
         </div>
@@ -167,21 +188,42 @@
                 <td bgcolor="#87CEFA">CA</td>
                 <td>{{ '{0:0.2f}'.format(perf_mag_hifi[0]) }}</td> 
                 <td>{{ '{0:0.2f}'.format(perf_mag_hifi[1]) }}</td>
-                <td>{{ '{0:0.2f}'.format(perf_mag_hifi[1] / perf_mag_hifi[0]) }}</td>
+                {% set ratio_hifi_ca = perf_mag_hifi[1] / perf_mag_hifi[0] %}
+                {% if ratio_hifi_ca < 1 %} 
+                    <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_hifi_ca) }}</td>
+                {% elif ratio_hifi_ca > 1 %} 
+                    <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_hifi_ca) }}</td>
+                {% else %} 
+                    <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_hifi_ca) }}</td>
+                {% endif %}
             </tr>
             
             <tr>
                 <td bgcolor="#87CEFA">Ventes</td>
                 <td>{{ '{0:0.2f}'.format(perf_mag_hifi[2]) }}</td> 
                 <td>{{ '{0:0.2f}'.format(perf_mag_hifi[3]) }}</td>
-                <td>{{ '{0:0.2f}'.format(perf_mag_hifi[3] / perf_mag_hifi[2]) }}</td>
+                {% set ratio_hifi_vente = perf_mag_hifi[3] / perf_mag_hifi[2] %}
+                {% if ratio_hifi_vente < 1 %} 
+                    <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_hifi_vente) }}</td>
+                {% elif ratio_hifi_vente > 1 %} 
+                    <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_hifi_vente) }}</td>
+                {% else %} 
+                    <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_hifi_vente) }}</td>
+                {% endif %}
             </tr>
 
             <tr>
                 <td bgcolor="#87CEFA">Marges</td>
                 <td>{{ '{0:0.2f}'.format(perf_mag_hifi[4]) }}</td> 
                 <td>{{ '{0:0.2f}'.format(perf_mag_hifi[5]) }}</td>
-                <td>{{ '{0:0.2f}'.format(perf_mag_hifi[5] / perf_mag_hifi[4]) }}</td>
+                {% set ratio_hifi_marge = perf_mag_hifi[5] / perf_mag_hifi[4] %}
+                {% if ratio_hifi_marge < 1 %} 
+                    <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_hifi_marge) }}</td>
+                {% elif ratio_hifi_marge > 1 %} 
+                    <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_hifi_marge) }}</td>
+                {% else %} 
+                    <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_hifi_marge) }}</td>
+                {% endif %}
             </tr>
             </table>
         </div>
@@ -195,21 +237,42 @@
                         <td bgcolor="#87CEFA">CA</td>
                         <td>{{ '{0:0.2f}'.format(perf_mag_magneto[0]) }}</td> 
                         <td>{{ '{0:0.2f}'.format(perf_mag_magneto[1]) }}</td>
-                        <td>{{ '{0:0.2f}'.format(perf_mag_magneto[1] / perf_mag_magneto[0]) }}</td>
+                        {% set ratio_magneto_ca = perf_mag_magneto[1] / perf_mag_magneto[0] %}
+                        {% if ratio_magneto_ca < 1 %} 
+                            <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_magneto_ca) }}</td>
+                        {% elif ratio_magneto_ca > 1 %} 
+                            <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_magneto_ca) }}</td>
+                        {% else %} 
+                            <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_magneto_ca) }}</td>
+                        {% endif %}
                     </tr>
                     
                     <tr>
                         <td bgcolor="#87CEFA">Ventes</td>
                         <td>{{ '{0:0.2f}'.format(perf_mag_magneto[2]) }}</td> 
                         <td>{{ '{0:0.2f}'.format(perf_mag_magneto[3]) }}</td>
-                        <td>{{ '{0:0.2f}'.format(perf_mag_magneto[3] / perf_mag_magneto[2]) }}</td>
+                        {% set ratio_magneto_vente = perf_mag_magneto[3] / perf_mag_magneto[2] %}
+                        {% if ratio_magneto_vente < 1 %} 
+                            <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_magneto_vente) }}</td>
+                        {% elif ratio_magneto_vente > 1 %} 
+                            <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_magneto_vente) }}</td>
+                        {% else %} 
+                            <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_magneto_vente) }}</td>
+                        {% endif %}
                     </tr>
         
                     <tr>
                         <td bgcolor="#87CEFA">Marges</td>
                         <td>{{ '{0:0.2f}'.format(perf_mag_magneto[4]) }}</td> 
                         <td>{{ '{0:0.2f}'.format(perf_mag_magneto[5]) }}</td>
-                        <td>{{ '{0:0.2f}'.format(perf_mag_magneto[5] / perf_mag_magneto[4]) }}</td>
+                        {% set ratio_magneto_marge = perf_mag_magneto[5] / perf_mag_magneto[4] %}
+                        {% if ratio_magneto_marge < 1 %} 
+                            <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_magneto_marge) }}</td>
+                        {% elif ratio_magneto_marge > 1 %} 
+                            <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_magneto_marge) }}</td>
+                        {% else %} 
+                            <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_magneto_marge) }}</td>
+                        {% endif %}
                     </tr>
             </table>
         </div>
@@ -224,21 +287,42 @@
                     <td bgcolor="#87CEFA">CA</td>
                     <td>{{ '{0:0.2f}'.format(perf_mag_fours[0]) }}</td> 
                     <td>{{ '{0:0.2f}'.format(perf_mag_fours[1]) }}</td>
-                    <td>{{ '{0:0.2f}'.format(perf_mag_fours[1] / perf_mag_fours[0]) }}</td>
+                    {% set ratio_fours_ca = perf_mag_fours[1] / perf_mag_fours[0] %}
+                    {% if ratio_fours_ca < 1 %} 
+                        <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_fours_ca) }}</td>
+                    {% elif ratio_fours_ca > 1 %} 
+                        <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_fours_ca) }}</td>
+                    {% else %} 
+                        <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_fours_ca) }}</td>
+                    {% endif %}
                 </tr>
                 
                 <tr>
                     <td bgcolor="#87CEFA">Ventes</td>
                     <td>{{ '{0:0.2f}'.format(perf_mag_fours[2]) }}</td> 
                     <td>{{ '{0:0.2f}'.format(perf_mag_fours[3]) }}</td>
-                    <td>{{ '{0:0.2f}'.format(perf_mag_fours[3] / perf_mag_fours[2]) }}</td>
+                    {% set ratio_fours_vente = perf_mag_fours[3] / perf_mag_fours[2] %}
+                    {% if ratio_fours_vente < 1 %} 
+                        <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_fours_vente) }}</td>
+                    {% elif ratio_fours_vente > 1 %} 
+                        <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_fours_vente) }}</td>
+                    {% else %} 
+                        <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_fours_vente) }}</td>
+                    {% endif %}
                 </tr>
     
                 <tr>
                     <td bgcolor="#87CEFA">Marges</td>
                     <td>{{ '{0:0.2f}'.format(perf_mag_fours[4]) }}</td> 
                     <td>{{ '{0:0.2f}'.format(perf_mag_fours[5]) }}</td>
-                    <td>{{ '{0:0.2f}'.format(perf_mag_fours[5] / perf_mag_fours[4]) }}</td>
+                    {% set ratio_fours_marge = perf_mag_fours[5] / perf_mag_fours[4] %}
+                    {% if ratio_fours_marge < 1 %} 
+                        <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_fours_marge) }}</td>
+                    {% elif ratio_fours_marge > 1 %} 
+                        <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_fours_marge) }}</td>
+                    {% else %} 
+                        <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_fours_marge) }}</td>
+                    {% endif %}
                 </tr>
                     
     

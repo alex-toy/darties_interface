@@ -288,7 +288,14 @@
                     <td bgcolor="#87CEFA">Marges</td>
                     <td>{{perf_reg4["marge_objectif"]|round|int}}</td>
                     <td>{{perf_reg4["marge_reel"]|round|int}}</td>
-                    <td> {{ '{0:0.2f}'.format(perf_reg4["marge_reel"] / perf_reg4["marge_objectif"]) }}</td>
+                    {% set ratio_reg4_marge = perf_reg4["marge_reel"] / perf_reg4["marge_objectif"] %}
+                    {% if ratio_reg4_marge < 1 %} 
+                        <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_reg4_marge) }}</td>
+                    {% elif ratio_reg4_marge > 1 %} 
+                        <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_reg4_marge) }}</td>
+                    {% else %} 
+                        <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_reg4_marge) }}</td>
+                    {% endif %}
                 </tr>
     
             </table>
@@ -304,21 +311,42 @@
                     <td bgcolor="#87CEFA">CA</td>
                     <td>{{perf_reg5["ca_obj"]|round|int}}</td>
                     <td>{{perf_reg5["ca_reel"]|round|int}}</td>
-                    <td> {{ '{0:0.2f}'.format(perf_reg5["ca_reel"] / perf_reg5["ca_obj"]) }}</td>
+                    {% set ratio_reg5_ca = perf_reg5["ca_reel"] / perf_reg5["ca_obj"] %}
+                    {% if ratio_reg5_ca < 1 %} 
+                        <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_reg5_ca) }}</td>
+                    {% elif ratio_reg5_ca > 1 %} 
+                        <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_reg5_ca) }}</td>
+                    {% else %} 
+                        <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_reg5_ca) }}</td>
+                    {% endif %}
                 </tr>
                 
                 <tr>
                     <td bgcolor="#87CEFA">Ventes</td>
                     <td>{{perf_reg5["ventes_objectif"]|round|int}}</td>
                     <td>{{perf_reg5["vente_reel"]|round|int}}</td>
-                    <td> {{ '{0:0.2f}'.format(perf_reg5["vente_reel"] / perf_reg5["ventes_objectif"]) }}</td>
+                    {% set ratio_reg5_vente = perf_reg5["vente_reel"] / perf_reg5["ventes_objectif"] %}
+                    {% if ratio_reg5_vente < 1 %} 
+                        <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_reg5_vente) }}</td>
+                    {% elif ratio_reg5_vente > 1 %} 
+                        <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_reg5_vente) }}</td>
+                    {% else %} 
+                        <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_reg5_vente) }}</td>
+                    {% endif %}
                 </tr>
 
                 <tr>
                     <td bgcolor="#87CEFA">Marges</td>
                     <td>{{perf_reg5["marge_objectif"]|round|int}}</td>
                     <td>{{perf_reg5["marge_reel"]|round|int}}</td>
-                    <td> {{ '{0:0.2f}'.format(perf_reg5["marge_reel"] / perf_reg5["marge_objectif"]) }}</td>
+                    {% set ratio_reg5_marge = perf_reg5["marge_reel"] / perf_reg5["marge_objectif"] %}
+                    {% if ratio_reg5_marge < 1 %} 
+                        <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_reg5_marge) }}</td>
+                    {% elif ratio_reg5_marge > 1 %} 
+                        <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_reg5_marge) }}</td>
+                    {% else %} 
+                        <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_reg5_marge) }}</td>
+                    {% endif %}
                 </tr>
     
             </table>
