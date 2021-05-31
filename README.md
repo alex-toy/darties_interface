@@ -29,6 +29,9 @@ The purpose of the project is to build the interface for the darties project.
 - Region :
     <img src="static/images/region.png" alt="Markdown Monster icon" style="float: left; margin-right: 10px;" />
 
+- Departement info with popup window  :
+    <img src="static/images/region_popup.png" alt="Markdown Monster icon" style="float: left; margin-right: 10px;" />
+
 - Store :
     <img src="static/images/magasin.png" alt="Markdown Monster icon" style="float: left; margin-right: 10px;" />
 
