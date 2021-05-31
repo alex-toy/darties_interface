@@ -34,8 +34,10 @@ def accueil():
         if 'mois' in result.keys():
             mois_int = int(result['mois'].split('|')[0])
             mois_string = result['mois'].split('|')[1]
-        annee = int(result['annee'])
-        id_devise = result['devise']
+        if 'annee' in result.keys():
+            annee = int(result['annee'])
+        if 'devise' in result.keys():
+            id_devise = result['devise']
         if int(id_devise) > 0 :
             curr_rate_list = currency_rate(id_devise, annee, mois_int)
             if len(curr_rate_list) > 0 :
@@ -80,7 +82,8 @@ def accueil():
 
         today=today,
         years=years,
-        months=months
+        months=months,
+        location='accueil'
     )
 
 
@@ -101,8 +104,9 @@ def historique():
     mois_int = 2
     mois_string = 'fevrier'
     if result :
-        mois_int = int(result['mois'].split('|')[0])
-        mois_string = result['mois'].split('|')[1]
+        if 'mois' in result.keys():
+            mois_int = int(result['mois'].split('|')[0])
+            mois_string = result['mois'].split('|')[1]
 
     hist_indicators_prev = hist(current_year-1, mois_int)
     hist_indicators_cumul_prev = hist_cumul(current_year-1, mois_int)
@@ -153,7 +157,8 @@ def historique():
 
         magasins=all_magasin(),
 
-        today=today
+        today=today,
+        location='historique'
     )
 
 
@@ -173,9 +178,11 @@ def details():
     mois_string = 'janvier'
     annee = 2020
     if result :
-        mois_int = int(result['mois'].split('|')[0])
-        mois_string = result['mois'].split('|')[1]
-        annee = int(result['annee'])
+        if 'mois' in result.keys():
+            mois_int = int(result['mois'].split('|')[0])
+            mois_string = result['mois'].split('|')[1]
+        if 'annee' in result.keys():
+            annee = int(result['annee'])
 
     di = details_indicators(annee, mois_int)
 
@@ -202,7 +209,8 @@ def details():
         magasins=all_magasin(),
 
         today=today,
-        years=years
+        years=years,
+        location='details'
     )
 
 
@@ -224,10 +232,13 @@ def palmares():
     annee = 2020
     classement = 'ca_reel'
     if result :
-        mois_int = int(result['mois'].split('|')[0])
-        mois_string = result['mois'].split('|')[1]
-        annee = int(result['annee'])
-        classement = result['classement']
+        if 'mois' in result.keys():
+            mois_int = int(result['mois'].split('|')[0])
+            mois_string = result['mois'].split('|')[1]
+        if 'annee' in result.keys():
+            annee = int(result['annee'])
+        if 'classement' in result.keys():
+            classement = result['classement']
 
 
     classement_dict = { 
@@ -299,7 +310,8 @@ def palmares():
         magasins=all_magasin(),
 
         today=today,
-        years=years
+        years=years,
+        location='palmares'
     )
 
 
