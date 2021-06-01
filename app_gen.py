@@ -25,8 +25,8 @@ def accueil():
     result = request.form.to_dict()
     currencies = all_devise()
     
-    mois_int = 5
-    mois_string = 'mai'
+    mois_int = 0
+    mois_string = ''
     annee = 2021
     devise = "Euro"
     curr_rate = [1, "Euro"]
@@ -43,13 +43,21 @@ def accueil():
             if len(curr_rate_list) > 0 :
                 curr_rate = curr_rate_list[0]
 
+    if mois_int > 0 :
+        perf_nat = performances_nationales(annee, mois_int)
+        perf_reg1 = performances_region(annee, mois_int, list_departement_reg_1)
+        perf_reg2 = performances_region(annee, mois_int, list_departement_reg_2)
+        perf_reg3 = performances_region(annee, mois_int, list_departement_reg_3)
+        perf_reg4 = performances_region(annee, mois_int, list_departement_reg_4)
+        perf_reg5 = performances_region(annee, mois_int, list_departement_reg_5)
+    else :
+        perf_nat = performances_nationales_year(annee)
+        perf_reg1 = performances_region_year(annee, list_departement_reg_1)
+        perf_reg2 = performances_region_year(annee, list_departement_reg_2)
+        perf_reg3 = performances_region_year(annee, list_departement_reg_3)
+        perf_reg4 = performances_region_year(annee, list_departement_reg_4)
+        perf_reg5 = performances_region_year(annee, list_departement_reg_5)
 
-    perf_nat = performances_nationales(annee, mois_int)
-    perf_reg1 = performances_region(annee, mois_int, list_departement_reg_1)
-    perf_reg2 = performances_region(annee, mois_int, list_departement_reg_2)
-    perf_reg3 = performances_region(annee, mois_int, list_departement_reg_3)
-    perf_reg4 = performances_region(annee, mois_int, list_departement_reg_4)
-    perf_reg5 = performances_region(annee, mois_int, list_departement_reg_5)
 
     now = datetime.now()
     today = now.strftime("%d/%m/%Y %H:%M:%S")

@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <script src="{{ url_for('static', filename='js/script_time.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/export.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/table2excel.js') }}"></script>
     {% block head %}{% endblock %}
 </head>
 <body>
@@ -76,21 +78,28 @@
                 </div>
 
 
-                <form style="text-align:center;">
-                    <select 
-                        {% if location == 'accueil_region' %} style="border: 2px solid blue;height: 30px" {% endif %}
-                        style="width:150px;height:30px" name="region" id="mois-select" onchange="location.href='/accueil/'+form.region.value;">
+                <form>
+                    <select
+                        class="myforms" 
+                        {% if location == 'accueil_region' %} style="border: 2px solid blue;" {% endif %}
+                        name="region" 
+                        id="accueil-region-select" 
+                        onchange="location.href='/accueil/'+form.region.value;">
                         <option value={{id_reg}}>--choix de la région--</option>
                         {% for id_reg in range(1, 6) %}
-                        <option value={{id_reg}}>région {{id_reg}}</option>
+                            <option value={{id_reg}}>région {{id_reg}}</option>
                         {% endfor %}
                     </select>
                 </form>
 
-                <form style="text-align:center;">
+                <form>
                     <select 
-                    {% if location == 'magasin' %} style="border: 2px solid blue;height: 30px" {% endif %}
-                        style="width:150px;height:30px" name="magasin" id="mois-select" onchange="location.href='/magasin/'+form.magasin.value;">
+                        class="myforms" 
+                        {% if location == 'magasin' %} style="border: 2px solid blue;" {% endif %}
+                        style="width:150px;height:30px" 
+                        name="magasin" 
+                        id="magasin-select" 
+                        onchange="location.href='/magasin/'+form.magasin.value;">
                         <option value={{id_reg}}>--choix du magasin--</option>
                         {% for mag in magasins %}
                         <option value={{mag[0]}}>{{mag[1]}}</option>
@@ -105,12 +114,16 @@
                     <button 
                         {% if location == 'accueil_region' %} style="border: 2px solid blue;" {% endif %}
                         class="button" 
-                        onclick="location.href='/accueil/{{id_reg}}';">Accueil région {{id_reg}}</button>
+                        onclick="location.href='/accueil/{{id_reg}}';">Accueil région {{id_reg}}
+                    </button>
 
                     <form style="text-align:center;">
                         <select 
                             {% if location == 'magasin' %} style="border: 2px solid blue;height: 30px" {% endif %}
-                            style="width:150px;height:30px" name="magasin" id="mois-select" onchange="location.href='/magasin/'+form.magasin.value;">
+                            style="width:150px;height:30px" 
+                            name="magasin" 
+                            id="magasin-select" 
+                            onchange="location.href='/magasin/'+form.magasin.value;">
                             <option value={{id_reg}}>--choix du magasin--</option>
                             {% for mag in magasins %}
                             <option value={{mag[0]}}>{{mag[1]}}</option>

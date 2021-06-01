@@ -18,10 +18,11 @@ function get_delta() {
 
 
 function get_html_months() {
+    
     delta = get_delta();
     const current_month = today.getMonth() + 1;
 
-    var html = '<select style="width:150px;height:30px" name="mois" id="mois-select">'
+    var html = '<select class="myforms" name="mois" id="mois-select">'
     const month_list = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre'];
 
     var option_prev = '<option value="'

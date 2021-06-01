@@ -9,13 +9,25 @@
 
     <div class="description">
         <h4>Résultats en france en {{curr_rate[1]}} (taux de change : {{curr_rate[0]}}), pour les zones commerciales, 
-            pour toutes les familles de produits, pour toutes les enseignes, pour le mois de {{mois_string}} {{annee}}</h4>
+            pour toutes les familles de produits, pour toutes les enseignes, 
+            
+            {% if mois_string|length > 0 %}
+            pour le mois de {{ mois_string }} {{annee}}
+            {% else %}
+            pour l'année  {{annee}}
+            {% endif %}
+            </h4>
     </div>
     
     <div class="filtre">
+        <h5>Résultats mensuels :</h5>
         <form action="/accueil" method="POST" style="text-align:center;">
 
-            <select style="width:150px;height:30px" name="annee" id="year-select"  onchange="get_delta()">
+            <select 
+                style="width:150px;height:30px;margin:5px" 
+                name="annee" 
+                id="year-select"  
+                onchange="get_delta();">
                 <option value="{{years[0]}}">--Choix de l'année--</option>
                 {% for year in years %}
                     <option value="{{year}}">{{year}}</option>
@@ -28,7 +40,38 @@
                 document.getElementById("year-select").addEventListener("change", get_html_months);
             </script>
             
-            <select style="width:150px;height:30px" name="devise" id="mois-select">
+            <select
+                style="width:150px;height:30px" 
+                name="devise" 
+                id="currency-select">
+                <option value=0>--Choix de la devise--</option>
+                {% for currency in currencies %}
+                <option value={{currency[0]}}>{{currency[1]}}</option>
+                {% endfor %}
+            </select>
+    
+            <button class="button" type="submit">Rechercher</button>
+        </form>
+
+        <h5>Résultats annuels :</h5>
+        <form action="/accueil" method="POST" style="text-align:center;">
+
+            <select 
+                style="width:150px;height:30px" 
+                name="annee" 
+                id="year-select"  
+                onchange="get_delta();">
+                <option value="{{years[0]}}">--Choix de l'année--</option>
+                {% for year in years[1:] %}
+                    <option value="{{year}}">{{year}}</option>
+                {% endfor %}
+            </select></br>
+
+            
+            <select
+                class="myforms" 
+                name="devise" 
+                id="currency-select">
                 <option value=0>--Choix de la devise--</option>
                 {% for currency in currencies %}
                 <option value={{currency[0]}}>{{currency[1]}}</option>
