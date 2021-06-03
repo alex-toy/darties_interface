@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="{{ url_for('static', filename='js/script_time.js') }}"></script>
     <script src="{{ url_for('static', filename='js/export.js') }}"></script>
     <script src="{{ url_for('static', filename='js/table2excel.js') }}"></script>
@@ -150,17 +151,67 @@
 
     <div class="logout" style="text-align:center;">
 
+        <button 
+        onclick="location.href='{{ url_for('main_init.index') }}';"
+            class="btn" 
+            style="background-image:url('../static/images/home.png');">
+        <i class="fa"></i></button>
+
+        <button 
+            class="btn" 
+            style="background-image:url('../static/images/mail.png');">
+        <i class="fa"></i></button>
+
+        <button 
+            onclick="myFunction_aide(event)"
+            class="btn" 
+            style="background-image:url('../static/images/aide.png');">
+        <i class="fa"></i></button>
+
+        <button 
+            onclick="location.href='{{ url_for('auth.logout') }}';"
+            class="btn" 
+            style="background-image:url('../static/images/logout.png');">
+        <i class="fa"></i></button><br>
+
+        <button 
+            class="btn" 
+            style="background-image:url('../static/images/export_pdf.png');">
+        <i class="fa"></i></button>
+
         {% if location == 'historique' %} 
-            <button class="button" id="export_button" onclick="exportTableToExcel('historique_table')">Export historique To Excel File</button>
+            <button 
+                onclick="exportTableToExcel('historique_table')"
+                class="btn" 
+                style="background-image:url('../static/images/export_xls.png');">
+            <i class="fa"></i></button>
         {% elif location == 'palmares' %}
-            <button class="button" id="export_button" onclick="exportTableToExcel('palmares_table')">Export palmares To Excel File</button>
+            <button 
+                onclick="exportTableToExcel('palmares_table')"
+                class="btn" 
+                style="background-image:url('../static/images/export_xls.png');">
+            <i class="fa"></i></button>
         {% elif location == 'details' %}
-            <button class="button" id="export_button" onclick="exportTableToExcel('details_table')">Export details To Excel File</button>
+            <button 
+                onclick="exportTableToExcel('details_table')"
+                class="btn" 
+                style="background-image:url('../static/images/export_xls.png');">
+            <i class="fa"></i></button>
         {% endif %} 
 
-        <button class="button"  onclick="myFunction_aide(event)">Aide</button>
+        <button 
+            class="btn" 
+            style="background-image:url('../static/images/impression.png');">
+        <i class="fa"></i></button>
 
-        <button class="button" onclick="location.href='{{ url_for('auth.logout') }}';">Logout</button>
+        <button 
+            class="btn" 
+            style="background-image:url('../static/images/recherche.png');">
+        <i class="fa"></i></button>
+
+        
+
+
     </div>
 
 
@@ -175,6 +226,10 @@
                 <p>palmares</p>
             {% elif location == 'details' %}
                 <p>details</p>
+            {% elif location == 'magasin' %}
+                <p>magasin</p>
+            {% elif location == 'accueil_region' %}
+                <p>region</p>
             {% endif %} 
         </span>
     </div>
