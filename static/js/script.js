@@ -1,4 +1,5 @@
 document.onclick = function(){
+    document.getElementById('myPopup_aide').classList.remove('show');
     document.getElementById('myPopup-haute-savoie').classList.remove('show');
     document.getElementById('myPopup-savoie').classList.remove('show');
     document.getElementById('myPopup-ain').classList.remove('show');
@@ -52,7 +53,6 @@ function myFunction_isere(e) {
 
 
 function myFunction_aide(e) {
-
     var popup = document.getElementById("myPopup_aide");
     popup.classList.toggle("show");
     e.stopPropagation();

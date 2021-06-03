@@ -665,7 +665,18 @@ input[type=submit] {
 
 
 
-
+.popup-aide .popuptext-aide::after {
+    position: absolute;
+    left: 390px;
+    top: 95px;
+    width: 15px;
+    height: 10px;
+    content: "";
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
 .popup-aide .popuptext-aide {
     visibility: hidden;
     background-color: #FFEBCD;
