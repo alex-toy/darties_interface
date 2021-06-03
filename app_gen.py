@@ -24,39 +24,57 @@ def accueil():
 
     result = request.form.to_dict()
     currencies = all_devise()
+
+    now = datetime.now()
+    today = now.strftime("%d/%m/%Y %H:%M:%S")
+    month = int(now.month)
+    year = int(now.year)
+    years = [y for y in range(year-2, year+1)]
+    months = {m:int_to_name[m] for m in range(month+1, 13)}
     
-    mois_int = 5
-    mois_string = 'mai'
-    annee = 2021
+    mois_int = 1
+    mois_int_cumul = 0
+    mois_string = 'janvier'
+    mois_string_cumul = 'janvier'
+    annee = int(now.year)
     devise = "Euro"
     curr_rate = [1, "Euro"]
     if result :
         if 'mois' in result.keys():
             mois_int = int(result['mois'].split('|')[0])
             mois_string = result['mois'].split('|')[1]
+        elif 'mois_cumul' in result.keys():
+            mois_int_cumul = int(result['mois_cumul'].split('|')[0])
+            mois_string_cumul = result['mois_cumul'].split('|')[1]
         if 'annee' in result.keys():
             annee = int(result['annee'])
         if 'devise' in result.keys():
             id_devise = result['devise']
+        else :
+            id_devise = 0
         if int(id_devise) > 0 :
             curr_rate_list = currency_rate(id_devise, annee, mois_int)
             if len(curr_rate_list) > 0 :
                 curr_rate = curr_rate_list[0]
 
-
-    perf_nat = performances_nationales(annee, mois_int)
-    perf_reg1 = performances_region(annee, mois_int, list_departement_reg_1)
-    perf_reg2 = performances_region(annee, mois_int, list_departement_reg_2)
-    perf_reg3 = performances_region(annee, mois_int, list_departement_reg_3)
-    perf_reg4 = performances_region(annee, mois_int, list_departement_reg_4)
-    perf_reg5 = performances_region(annee, mois_int, list_departement_reg_5)
-
-    now = datetime.now()
-    today = now.strftime("%d/%m/%Y %H:%M:%S")
-    year = int(now.year)
-    month = int(now.month)
-    years = [y for y in range(year-2, year+1)]
-    months = {m:int_to_name[m] for m in range(month+1, 13)}
+    cumul = False
+    if mois_int_cumul > 0 :
+        print(f"mois_int_cumul : {mois_int_cumul}")
+        perf_nat = performances_nationales_cumul(annee, mois_int_cumul)
+        perf_reg1 = performances_region_cumul(annee, mois_int_cumul, list_departement_reg_1)
+        perf_reg2 = performances_region_cumul(annee, mois_int_cumul, list_departement_reg_2)
+        perf_reg3 = performances_region_cumul(annee, mois_int_cumul, list_departement_reg_3)
+        perf_reg4 = performances_region_cumul(annee, mois_int_cumul, list_departement_reg_4)
+        perf_reg5 = performances_region_cumul(annee, mois_int_cumul, list_departement_reg_5)
+        cumul = True
+    else :
+        print(f"mois_int : {mois_int}")
+        perf_nat = performances_nationales(annee, mois_int)
+        perf_reg1 = performances_region(annee, mois_int, list_departement_reg_1)
+        perf_reg2 = performances_region(annee, mois_int, list_departement_reg_2)
+        perf_reg3 = performances_region(annee, mois_int, list_departement_reg_3)
+        perf_reg4 = performances_region(annee, mois_int, list_departement_reg_4)
+        perf_reg5 = performances_region(annee, mois_int, list_departement_reg_5)
 
 
     return render_template(
@@ -66,6 +84,7 @@ def accueil():
         prenom=current_user.prenom,
 
         mois_string=mois_string,
+        mois_string_cumul=mois_string_cumul,
         annee=annee,
 
         currencies=currencies,
@@ -83,7 +102,9 @@ def accueil():
         today=today,
         years=years,
         months=months,
-        location='accueil'
+        location='accueil',
+
+        cumul=cumul
     )
 
 

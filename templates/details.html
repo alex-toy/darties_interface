@@ -19,7 +19,7 @@
     <div class="filtre">
         <form action="/details" method="POST" style="text-align:center;">
 
-            <select style="width:150px;height:30px" name="annee" id="year-select"  onchange="get_delta()">
+            <select style="width:150px;height:30px" name="annee" id="year_select"  onchange="get_delta()">
                 <option value="{{years[0]}}">--Choix de l'année--</option>
                 {% for year in years %}
                     <option value="{{year}}">{{year}}</option>
@@ -29,7 +29,7 @@
             <div id="month_select"></div>
             
             <script>
-                document.getElementById("year-select").addEventListener("change", get_html_months);
+                document.getElementById("year_select").addEventListener("change", get_html_months);
             </script>
     
             <button class="button" type="submit">Recherche</button>
@@ -39,7 +39,7 @@
 
     <div class="details">
             
-    <table>
+    <table id="details_table">
         <tr>
             <th style="border-top-width:0px;border-left-width:0px;border-bottom-width:0px"></th>
             <th colspan="3" bgcolor="#87CEFA"> CA </th>
@@ -234,6 +234,14 @@
             </tr>
 
     </table>
+
+    <script>
+        document.getElementById('export_button').addEventListener('click', function(){
+            var table2excel = new Table2Excel();
+            table2excel.export(document.querySelectorAll("#details_table"));
+        })
+
+    </script>
 
 
     </div>

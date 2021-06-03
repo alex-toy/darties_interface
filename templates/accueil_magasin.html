@@ -17,7 +17,7 @@
     <div class="filtre">
         <form action={{"/magasin/"~id_mag}} method="POST"style="text-align:center;">
 
-            <select style="width:150px;height:30px" name="annee" id="year-select"  onchange="get_delta()">
+            <select style="width:150px;height:30px" name="annee" id="year_select"  onchange="get_delta()">
                 <option value="{{years[0]}}">--Choix de l'année--</option>
                 {% for year in years %}
                     <option value="{{year}}">{{year}}</option>
@@ -27,7 +27,7 @@
             <div id="month_select"></div>
             
             <script>
-                document.getElementById("year-select").addEventListener("change", get_html_months);
+                document.getElementById("year_select").addEventListener("change", get_html_months);
             </script>
     
             <button class="button" type="submit">Rechercher</button>

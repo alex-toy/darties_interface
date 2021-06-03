@@ -40,7 +40,7 @@
 
     <div class="historique">
 
-        <table>
+        <table id="historique_table">
             <tr>
                 <th style="border-top-width:0px;border-left-width:0px;border-bottom-width:0px"></th>
                 <th colspan="4" bgcolor="#87CEFA"> {{annee}} </th>
@@ -129,13 +129,14 @@
         </table>
 
         <br>
-        <form action="/export/historique" method="POST">
-            
-            <label for="fname">Output file </label>
-            <input type="text" id="fname" name="output_file" value="/Users/alexei/Downloads/converted_file.xlsx"><br><br>
-            
-            <input type="submit" value="Export" />
-        </form>
+
+        <script>
+            document.getElementById('export_button').addEventListener('click', function(){
+                var table2excel = new Table2Excel();
+                table2excel.export(document.querySelectorAll("#historique_table"));
+            })
+
+        </script>
 
     </div>
     

@@ -9,13 +9,25 @@
 
     <div class="description">
         <h4>Résultats en france en {{curr_rate[1]}} (taux de change : {{curr_rate[0]}}), pour les zones commerciales, 
-            pour toutes les familles de produits, pour toutes les enseignes, pour le mois de {{mois_string}} {{annee}}</h4>
+            pour toutes les familles de produits, pour toutes les enseignes, 
+            
+            {% if cumul == false %}
+            pour le mois de {{ mois_string }} {{annee}}
+            {% else %}
+            pour le cumul de janvier à {{ mois_string_cumul }} {{annee}}
+            {% endif %}
+        </h4>
     </div>
     
     <div class="filtre">
+        <h5>Résultats mensuels :</h5>
         <form action="/accueil" method="POST" style="text-align:center;">
 
-            <select style="width:150px;height:30px" name="annee" id="year-select"  onchange="get_delta()">
+            <select 
+                style="width:150px;height:30px;margin:5px" 
+                name="annee" 
+                id="year_select"  
+                onchange="get_delta();">
                 <option value="{{years[0]}}">--Choix de l'année--</option>
                 {% for year in years %}
                     <option value="{{year}}">{{year}}</option>
@@ -25,15 +37,40 @@
             <div id="month_select"></div>
             
             <script>
-                document.getElementById("year-select").addEventListener("change", get_html_months);
+                document.getElementById("year_select").addEventListener("change", get_html_months);
             </script>
             
-            <select style="width:150px;height:30px" name="devise" id="mois-select">
+            <select
+                style="width:150px;height:30px" 
+                name="devise" 
+                id="currency-select">
                 <option value=0>--Choix de la devise--</option>
                 {% for currency in currencies %}
                 <option value={{currency[0]}}>{{currency[1]}}</option>
                 {% endfor %}
             </select>
+    
+            <button class="button" type="submit">Rechercher</button>
+        </form>
+
+        <h5>Résultats cumulés :</h5>
+        <form action="/accueil" method="POST" style="text-align:center;">
+
+            <select 
+                style="width:150px;height:30px" 
+                name="annee" 
+                id="year_select_cumul"
+                <option value="{{years[0]}}">--Choix de l'année--</option>
+                {% for year in years[1:] %}
+                    <option value="{{year}}">{{year}}</option>
+                {% endfor %}
+            </select></br>
+
+            <div style="padding:0px;" id="month_select_cumul"></div>
+
+            <script>
+                document.getElementById("year_select_cumul").addEventListener("change", get_html_all_months);
+            </script>
     
             <button class="button" type="submit">Rechercher</button>
         </form>
