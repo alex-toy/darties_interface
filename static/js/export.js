@@ -6,6 +6,7 @@ function exportTableToExcel(tableID, filename = ''){
     
     // Specify file name
     filename = filename?filename+'.xls':'excel_data.xls';
+    //filename = filename?filename+'.xlsx':'excel_data.xlsx';
     
     // Create download link element
     downloadLink = document.createElement("a");

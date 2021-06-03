@@ -36,6 +36,38 @@ def performances_nationales(annee, mois_int):
     }
 
 
+def performances_nationales_cumul(annee, mois_int):
+    conn = sqlite3.connect('data.db')
+
+    query = """
+        SELECT sum({}) 
+        
+        FROM sales
+        JOIN temps ON sales.id_temps = temps.id_temps
+        
+        WHERE 
+        temps.annee = {} AND
+        temps.mois <= {};
+    """
+    ca_obj = pd.read_sql(query.format('ca_objectif', annee, mois_int), conn).values[0][0]
+    ca_reel = pd.read_sql(query.format('ca_reel', annee, mois_int), conn).values[0][0]
+    ventes_objectif = pd.read_sql(query.format('ventes_objectif', annee,mois_int), conn).values[0][0]
+    vente_reel = pd.read_sql(query.format('vente_reel', annee, mois_int), conn).values[0][0]
+    marge_objectif = pd.read_sql(query.format('marge_objectif', annee, mois_int), conn).values[0][0]
+    marge_reel = pd.read_sql(query.format('marge_reel', annee, mois_int), conn).values[0][0]
+
+    conn.close()
+
+    return {
+        "ca_obj" : ca_obj,
+        "ca_reel" : ca_reel,
+        "ventes_objectif" : ventes_objectif,
+        "vente_reel" : vente_reel,
+        "marge_objectif" : marge_objectif,
+        "marge_reel" : marge_reel
+    }
+
+
 
 
 def performances_nationales_year(annee):
@@ -84,6 +116,42 @@ def performances_region(annee, mois_int, list_departement):
         WHERE 
             temps.annee = {} AND
             temps.mois = {} AND
+            villes.lib_departement IN {};
+    """
+    ca_obj = pd.read_sql(query.format('ca_objectif', annee, mois_int, list_departement), conn).values[0][0]
+    ca_reel = pd.read_sql(query.format('ca_reel', annee, mois_int, list_departement), conn).values[0][0]
+    ventes_objectif = pd.read_sql(query.format('ventes_objectif', annee, mois_int, list_departement), conn).values[0][0]
+    vente_reel = pd.read_sql(query.format('vente_reel', annee, mois_int, list_departement), conn).values[0][0]
+    marge_objectif = pd.read_sql(query.format('marge_objectif', annee, mois_int, list_departement), conn).values[0][0]
+    marge_reel = pd.read_sql(query.format('marge_reel', annee, mois_int, list_departement), conn).values[0][0]
+
+    conn.close()
+
+    return {
+        "ca_obj" : ca_obj,
+        "ca_reel" : ca_reel,
+        "ventes_objectif" : ventes_objectif,
+        "vente_reel" : vente_reel,
+        "marge_objectif" : marge_objectif,
+        "marge_reel" : marge_reel
+    }
+
+
+
+
+def performances_region_cumul(annee, mois_int, list_departement):
+    conn = sqlite3.connect('data.db')
+
+    query = """
+        SELECT sum({}) 
+        
+        FROM sales
+        JOIN temps ON sales.id_temps = temps.id_temps
+        JOIN villes ON sales.id_ville = villes.id_ville
+        
+        WHERE 
+            temps.annee = {} AND
+            temps.mois <= {} AND
             villes.lib_departement IN {};
     """
     ca_obj = pd.read_sql(query.format('ca_objectif', annee, mois_int, list_departement), conn).values[0][0]

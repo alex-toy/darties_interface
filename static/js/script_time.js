@@ -6,7 +6,7 @@ function get_load_date(year, monthIndex) {
 
 
 function get_delta() {
-    var year = document.getElementById("year-select").value;
+    var year = document.getElementById("year_select").value;
     const today = new Date()
     const current_year = today.getFullYear();
 
@@ -18,11 +18,17 @@ function get_delta() {
 
 
 function get_html_months() {
+
+    maybeObject = document.getElementById("month_select_cumul");
+
+    if (typeof maybeObject != null) {
+        maybeObject.innerHTML = "";
+     }
     
     delta = get_delta();
     const current_month = today.getMonth() + 1;
 
-    var html = '<select class="myforms" name="mois" id="mois-select">'
+    var html = '<select class="myforms" name="mois" id="mois_select">'
     const month_list = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre'];
 
     var option_prev = '<option value="'
@@ -67,6 +73,28 @@ function get_html_years() {
     document.getElementById("month_select").innerHTML = html;
 }
 
+
+
+function get_html_all_months() {
+
+    document.getElementById("month_select").innerHTML = "";
+    
+    var html = '<select class="myforms" name="mois_cumul" id="mois-select" style="padding:0px;" >'
+    const month_list = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre'];
+
+    var option_prev = '<option value="'
+    var option_next = '</option>'
+
+    var i;
+    for (i = 0; i < month_list.length; i++) { 
+        month_int = i + 1
+        html += option_prev + month_int + '|' + month_list[i] + '">' +  month_list[i] + option_next;
+    }
+    
+    html += '</select>'
+
+    document.getElementById("month_select_cumul").innerHTML = html;
+}
 
 
 
