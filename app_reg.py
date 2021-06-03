@@ -27,22 +27,54 @@ def accueil_region(region_id):
         return redirect(url_for('auth.login'))
 
     result = request.form.to_dict()
-    
+
+    now = datetime.now()
+    today = now.strftime("%d/%m/%Y %H:%M:%S")
+    month = int(now.month)
+    year = int(now.year)
+    years = [y for y in range(year-2, year+1)]
+    months = {m:int_to_name[m] for m in range(month+1, 13)}
+
     mois_int = 1
+    mois_int_cumul = 0
     mois_string = 'janvier'
-    annee = 2020
-    classement = 'ca_reel'
+    mois_string_cumul = 'janvier'
+    annee = int(now.year)
     if result :
         if 'mois' in result.keys() :
             mois_int = int(result['mois'].split('|')[0])
             mois_string = result['mois'].split('|')[1]
+        elif 'mois_cumul' in result.keys():
+            mois_int_cumul = int(result['mois_cumul'].split('|')[0])
+            print(mois_int_cumul)
+            mois_string_cumul = result['mois_cumul'].split('|')[1]
         if 'annee' in result.keys() :
             annee = int(result['annee'])
 
-    perf_reg = performances_region(annee, mois_int, reg_id_to_name[region_id])
-    perf_reg_hifi = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
-    perf_reg_magneto = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 2)
-    perf_reg_fours = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 3)
+    cumul = False
+    if mois_int_cumul > 0 :
+        perf_reg = performances_region_cumul(annee, mois_int_cumul, reg_id_to_name[region_id])
+        perf_reg_hifi = performances_region_produit_cumul(annee, mois_int_cumul, reg_id_to_name[region_id], 1)
+        perf_reg_magneto = performances_region_produit_cumul(annee, mois_int_cumul, reg_id_to_name[region_id], 2)
+        perf_reg_fours = performances_region_produit_cumul(annee, mois_int_cumul, reg_id_to_name[region_id], 3)
+        
+        region_rank_total = region_classify_cumul(annee, mois_int_cumul, region_id)
+        region_rank_hifi = region_classify_fam_prod_cumul(annee, mois_int_cumul, region_id, 1)
+        region_rank_magneto = region_classify_fam_prod_cumul(annee, mois_int_cumul, region_id, 2)
+        region_rank_fours = region_classify_fam_prod_cumul(annee, mois_int_cumul, region_id, 3)
+        cumul = True
+    else :
+        perf_reg = performances_region(annee, mois_int, reg_id_to_name[region_id])
+        perf_reg_hifi = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 1)
+        perf_reg_magneto = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 2)
+        perf_reg_fours = performances_region_produit(annee, mois_int, reg_id_to_name[region_id], 3)
+
+        region_rank_total = region_classify(annee, mois_int, region_id)
+        region_rank_hifi = region_classify_fam_prod(annee, mois_int, region_id, 1)
+        region_rank_magneto = region_classify_fam_prod(annee, mois_int, region_id, 2)
+        region_rank_fours = region_classify_fam_prod(annee, mois_int, region_id, 3)
+
+
 
     magasins = None
     if current_user.id_profil == 1 :
@@ -51,18 +83,6 @@ def accueil_region(region_id):
         if current_user.id_region > 0 :
             magasins = all_magasin_in_region(current_user.id_region)
 
-
-    region_rank_total = region_classify(annee, mois_int, region_id)
-    region_rank_hifi = region_classify_fam_prod(annee, mois_int, region_id, 1)
-    region_rank_magneto = region_classify_fam_prod(annee, mois_int, region_id, 2)
-    region_rank_fours = region_classify_fam_prod(annee, mois_int, region_id, 3)
-
-    now = datetime.now()
-    today = now.strftime("%d/%m/%Y %H:%M:%S")
-    year = int(now.year)
-    month = int(now.month)
-    years = [y for y in range(year-2, year+1)]
-    months = {m:int_to_name[m] for m in range(month+1, 13)}
 
     perf_dep_haute_savoie = performances_dep(annee, mois_int, 'haute-savoie')
     perf_dep_savoie = performances_dep(annee, mois_int, 'savoie')
@@ -100,7 +120,9 @@ def accueil_region(region_id):
         today=today,
         years=years,
         months=months,
-        location='accueil_region'
+        location='accueil_region',
+
+        cumul=cumul
     )
 
 

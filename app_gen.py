@@ -59,7 +59,6 @@ def accueil():
 
     cumul = False
     if mois_int_cumul > 0 :
-        print(f"mois_int_cumul : {mois_int_cumul}")
         perf_nat = performances_nationales_cumul(annee, mois_int_cumul)
         perf_reg1 = performances_region_cumul(annee, mois_int_cumul, list_departement_reg_1)
         perf_reg2 = performances_region_cumul(annee, mois_int_cumul, list_departement_reg_2)
@@ -68,7 +67,6 @@ def accueil():
         perf_reg5 = performances_region_cumul(annee, mois_int_cumul, list_departement_reg_5)
         cumul = True
     else :
-        print(f"mois_int : {mois_int}")
         perf_nat = performances_nationales(annee, mois_int)
         perf_reg1 = performances_region(annee, mois_int, list_departement_reg_1)
         perf_reg2 = performances_region(annee, mois_int, list_departement_reg_2)

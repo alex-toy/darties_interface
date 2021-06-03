@@ -14,6 +14,7 @@
     </div>
 
     <div class="filtre">
+        <h5>Résultats mensuels :</h5>
         <form action={{"/accueil/"~region_id}} method="POST" style="text-align:center;">
 
             <select 
@@ -35,6 +36,29 @@
     
             <button class="button" type="submit">Rechercher</button>
         </form>
+
+        <h5>Résultats cumulés :</h5>
+        <form action={{"/accueil/"~region_id}} method="POST" style="text-align:center;">
+
+            <select 
+                style="width:150px;height:30px" 
+                name="annee" 
+                id="year_select_cumul">
+                <option value="{{years[0]}}">--Choix de l'année--</option>
+                {% for year in years[1:] %}
+                    <option value="{{year}}">{{year}}</option>
+                {% endfor %}
+            </select></br>
+
+            <div style="padding:0px;" id="month_select_cumul"></div>
+
+            <script>
+                document.getElementById("year_select_cumul").addEventListener("change", get_html_all_months);
+            </script>
+    
+            <button class="button" type="submit">Rechercher</button>
+        </form>
+
     </div>
 
 
