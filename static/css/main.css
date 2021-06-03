@@ -666,6 +666,29 @@ input[type=submit] {
 
 
 
+.popup-aide .popuptext-aide {
+    visibility: hidden;
+    background-color: #FFEBCD;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    left: 700px;
+    top: 300px;
+    width: 400px;
+    height: 400px;
+    z-index: 1;
+}
+.popup-aide .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+
+
+
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
     from {opacity: 0;} 

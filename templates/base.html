@@ -149,12 +149,41 @@
     </div>
 
     <div class="logout" style="text-align:center;">
+
+        {% if location == 'historique' %} 
+            <button class="button" id="export_button" onclick="exportTableToExcel('historique_table')">Export historique To Excel File</button>
+        {% elif location == 'palmares' %}
+            <button class="button" id="export_button" onclick="exportTableToExcel('palmares_table')">Export palmares To Excel File</button>
+        {% elif location == 'details' %}
+            <button class="button" id="export_button" onclick="exportTableToExcel('details_table')">Export details To Excel File</button>
+        {% endif %} 
+
+        <button class="button"  onclick="myFunction_aide(event)">Aide</button>
+
         <button class="button" onclick="location.href='{{ url_for('auth.logout') }}';">Logout</button>
+    </div>
+
+
+    <div class="popup-aide">
+        <span class="popuptext-aide" id="myPopup_aide">
+            <h4>aide {{location}}</h4>
+            {% if location == 'accueil' %} 
+                <p>accueil</p>
+            {% elif location == 'historique' %} 
+                <p>historique</p>
+            {% elif location == 'palmares' %}
+                <p>palmares</p>
+            {% elif location == 'details' %}
+                <p>details</p>
+            {% endif %} 
+        </span>
     </div>
 
 
     
     {% block body %}{% endblock %}
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>
 </html>

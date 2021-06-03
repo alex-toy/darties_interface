@@ -52,7 +52,7 @@
 
     <div class="palmares">
 
-    <table>
+    <table id="palmares_table">
         <tr>
             <th style="border-top-width:0px;border-left-width:0px;border-bottom-width:0px"></th>
             <th colspan="3" bgcolor="#87CEFA"> CA </th>
@@ -246,12 +246,12 @@
     </table>
 
 
-    <button id="export_button" onclick="exportTableToExcel('details_table')">Export Data To Excel File</button>
+    <button id="export_button" onclick="exportTableToExcel('palmares_table')">Export palmares To Excel File</button>
 
     <script>
         document.getElementById('export_button').addEventListener('click', function(){
             var table2excel = new Table2Excel();
-            table2excel.export(document.querySelectorAll("#details_table"));
+            table2excel.export(document.querySelectorAll("#palmares_table"));
         })
 
     </script>
