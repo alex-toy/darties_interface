@@ -63,6 +63,7 @@ function myFunction_isere(e) {
     document.getElementById('myPopup-haute-savoie').classList.remove('show');
     document.getElementById('myPopup-savoie').classList.remove('show');
     document.getElementById('myPopup-ain').classList.remove('show');
+    document.getElementById("myPopup_aide").innerHTML = "";
 
     var popup = document.getElementById("myPopup-isere");
     popup.classList.toggle("show");
