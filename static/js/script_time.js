@@ -19,8 +19,6 @@ function get_delta() {
 
 function get_html_months() {
 
-    document.getElementById("month_select_cumul").innerHTML = "";
-
     maybeObject = document.getElementById("month_select_cumul");
 
     if (typeof maybeObject != 'object') {
@@ -79,7 +77,11 @@ function get_html_years() {
 
 function get_html_all_months() {
 
-    document.getElementById("month_select").innerHTML = "";
+    maybeObject = document.getElementById("month_select");
+
+    if (typeof maybeObject != 'object') {
+        maybeObject.innerHTML = "";
+     }
     
     var html = '<select class="myforms" name="mois_cumul" id="mois-select" style="padding:0px;" >'
     const month_list = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre'];
