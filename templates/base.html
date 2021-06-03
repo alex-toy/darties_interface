@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="{{ url_for('static', filename='js/script_time.js') }}"></script>
     <script src="{{ url_for('static', filename='js/export.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/table2excel.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/html2pdf.js') }}"></script>
     {% block head %}{% endblock %}
 </head>
-<body>
+<body id="myCanvas">
 
     <div class="logo">
         <img src="/static/images/logo.png" width="90" height="90">
@@ -175,8 +175,9 @@
         <i class="fa"></i></button><br>
 
         <button 
+            onclick="var element = document.getElementById('myCanvas');html2pdf(element);"
             class="btn" 
-            style="background-image:url('../static/images/export_pdf.png');">
+            style="background-image:url('../static/images/export_pdf.png');">  
         <i class="fa"></i></button>
 
         {% if location == 'historique' %} 

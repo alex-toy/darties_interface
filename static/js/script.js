@@ -57,3 +57,13 @@ function myFunction_aide(e) {
     popup.classList.toggle("show");
     e.stopPropagation();
 }
+
+
+function generatePDF() {
+    // Choose the element that our invoice is rendered in.
+    const element = document.getElementById("invoice");
+    // Choose the element and save the PDF for our user.
+    html2pdf()
+      .from(element)
+      .save();
+  }
