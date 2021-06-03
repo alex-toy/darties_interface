@@ -19,6 +19,8 @@ function get_delta() {
 
 function get_html_months() {
 
+    document.getElementById("month_select_cumul").innerHTML = "";
+
     maybeObject = document.getElementById("month_select_cumul");
 
     if (typeof maybeObject != 'object') {
