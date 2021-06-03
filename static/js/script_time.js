@@ -20,8 +20,7 @@ function get_delta() {
 function get_html_months() {
 
     maybeObject = document.getElementById("month_select_cumul");
-
-    if (typeof maybeObject != 'object') {
+    if (typeof maybeObject == 'object') {
         maybeObject.innerHTML = "";
      }
     
@@ -78,8 +77,7 @@ function get_html_years() {
 function get_html_all_months() {
 
     maybeObject = document.getElementById("month_select");
-
-    if (typeof maybeObject != 'object') {
+    if (typeof maybeObject == 'object') {
         maybeObject.innerHTML = "";
      }
     

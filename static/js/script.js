@@ -1,9 +1,28 @@
 document.onclick = function(){
-    document.getElementById('myPopup_aide').classList.remove('show');
-    document.getElementById('myPopup-haute-savoie').classList.remove('show');
-    document.getElementById('myPopup-savoie').classList.remove('show');
-    document.getElementById('myPopup-ain').classList.remove('show');
-    document.getElementById('myPopup-isere').classList.remove('show');
+    maybeObject = document.getElementById('myPopup_aide')
+    if ( maybeObject != null) {
+        maybeObject.classList.remove('show');
+    }
+
+    maybeObject = document.getElementById('myPopup-haute-savoie')
+    if ( maybeObject != null) {
+        maybeObject.classList.remove('show');
+    }
+
+    maybeObject = document.getElementById('myPopup-savoie')
+    if ( maybeObject != null) {
+        maybeObject.classList.remove('show');
+    }
+
+    maybeObject = document.getElementById('myPopup-ain')
+    if ( maybeObject != null) {
+        maybeObject.classList.remove('show');
+    }
+
+    maybeObject = document.getElementById('myPopup-isere')
+    if ( maybeObject != null) {
+        maybeObject.classList.remove('show');
+    }
 };
 
 
