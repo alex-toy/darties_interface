@@ -95,8 +95,9 @@ def accueil_region(region_id):
         nom=current_user.nom,
         prenom=current_user.prenom,
 
-        current_year=annee,
+        annee=annee,
         mois=mois_string,
+        mois_string_cumul=mois_string_cumul,
 
         region_id=region_id,
 
