@@ -170,7 +170,7 @@ ul {
     border-radius: 50%;
     background-position: center;
     background-size: cover;
-    z-index: 10;
+    z-index: auto;
 }
 
 
@@ -197,7 +197,7 @@ ul {
     border-radius: 50%;
     background-position: center;
     background-size: cover;
-    z-index: 10;
+    z-index: auto;
 }
 
 
@@ -224,7 +224,7 @@ ul {
     border-radius: 50%;
     background-position: center;
     background-size: cover;
-    z-index: 10;
+    z-index: auto;
 }
 
 .perf_reg4{
@@ -250,7 +250,7 @@ ul {
     border-radius: 50%;
     background-position: center;
     background-size: cover;
-    z-index: 10;
+    z-index: auto;
 }
 
 .perf_reg5{
@@ -276,7 +276,7 @@ ul {
     border-radius: 50%;
     background-position: center;
     background-size: cover;
-    z-index: 10;
+    z-index: auto;
 }
 
 .historique{
