@@ -10,11 +10,18 @@
 
     <div class="description">
         <h4 style="text-align:left">Magasin {{mag_name}} : Résultats en région en Euros, de tous les indicateurs, 
-            pour toutes les familles de produit, pour toutes les enseignes, pour le mois de {{mois}} {{current_year}}.</h4>
+            pour toutes les familles de produit, pour toutes les enseignes,  
+
+            {% if cumul == false %}
+            pour le mois de {{ mois_string }} {{annee}}
+            {% else %}
+            pour le cumul de janvier à {{ mois_string_cumul }} {{annee}}
+            {% endif %}.</h4>
     </div>
 
 
     <div class="filtre">
+        <h5>Résultats mensuels :</h5>
         <form action={{"/magasin/"~id_mag}} method="POST"style="text-align:center;">
 
             <select style="width:150px;height:30px" name="annee" id="year_select"  onchange="get_delta()">
@@ -32,6 +39,30 @@
     
             <button class="button" type="submit">Rechercher</button>
         </form>
+
+        <h5>Résultats cumulés :</h5>
+        <form action={{"/magasin/"~id_mag}} method="POST" style="text-align:center;">
+
+            <select 
+                style="width:150px;height:30px" 
+                name="annee" 
+                id="year_select_cumul">
+                <option value="{{years[0]}}">--Choix de l'année--</option>
+                {% for year in years[1:] %}
+                    <option value="{{year}}">{{year}}</option>
+                {% endfor %}
+            </select></br>
+
+            <div style="padding:0px;" id="month_select_cumul"></div>
+
+            <script>
+                document.getElementById("year_select_cumul").addEventListener("change", get_html_all_months);
+            </script>
+    
+            <button class="button" type="submit">Rechercher</button>
+        </form>
+
+
     </div>
 
 
