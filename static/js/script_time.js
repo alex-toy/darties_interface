@@ -21,7 +21,7 @@ function get_html_months() {
 
     maybeObject = document.getElementById("month_select_cumul");
 
-    if (typeof maybeObject != null) {
+    if (typeof maybeObject != 'object') {
         maybeObject.innerHTML = "";
      }
     

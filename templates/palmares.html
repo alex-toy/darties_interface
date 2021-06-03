@@ -18,7 +18,11 @@
     <div class="filtre">
         <form action="/palmares" method="POST" style="text-align:center;">
 
-            <select style="width:150px;height:30px" name="annee" id="year-select"  onchange="get_delta()">
+            <select 
+                style="width:150px;height:30px;margin:5px"
+                name="annee" 
+                id="year_select"  
+                onchange="get_delta()">
                 <option value="{{years[0]}}">--Choix de l'année--</option>
                 {% for year in years %}
                     <option value="{{year}}">{{year}}</option>
@@ -28,7 +32,7 @@
             <div id="month_select"></div>
             
             <script>
-                document.getElementById("year-select").addEventListener("change", get_html_months);
+                document.getElementById("year_select").addEventListener("change", get_html_months);
             </script>
     
             <select style="width:150px;height:30px" name="classement" id="mois-select">
@@ -241,7 +245,21 @@
 
     </table>
 
+
+    <button id="export_button" onclick="exportTableToExcel('details_table')">Export Data To Excel File</button>
+
+    <script>
+        document.getElementById('export_button').addEventListener('click', function(){
+            var table2excel = new Table2Excel();
+            table2excel.export(document.querySelectorAll("#details_table"));
+        })
+
+    </script>
+
     </div>
+
+
+
     
 
 
