@@ -2,7 +2,8 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy 
 from flask_login import LoginManager 
 
-db = SQLAlchemy()
+#db = SQLAlchemy()
+from models import db
 
 def create_app():
     app = Flask(__name__)
@@ -45,6 +46,11 @@ def create_app():
 
 
 
-## For deployment on Heroku
-my_app = create_app()
+
+## For local testing
+if __name__ == "__main__":
+
+    app = create_app()
+    
+    app.run(debug=True)
 

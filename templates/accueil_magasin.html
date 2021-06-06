@@ -71,81 +71,81 @@
 
         <div>
             <table>
-                <tr bgcolor="#87CEFA">
+                <tr bgcolor="#99B4D1">
                     <th>Classements</th><th>Rang</th> <th>National</th> <th>Régional</th>
                 </tr>
-                    <th rowspan="4" bgcolor="#87CEFA">CA</th>
-                    <th bgcolor="#87CEFA">tous</th>
+                    <th rowspan="4" bgcolor="#99B4D1">CA</th>
+                    <th bgcolor="#99B4D1">tous</th>
                     <td>{{nat_rank_ca}}</td> 
                     <td>{{reg_rank_ca}}</td>
                 </tr>
                 
                 <tr>
-                    <th bgcolor="#87CEFA">hifi</th>
+                    <th bgcolor="#99B4D1">hifi</th>
                     <td>{{nat_rank_ca_hifi}}</td> 
                     <td>{{reg_rank_ca_hifi}}</td>
                 </tr>
 
                 <tr>
-                    <th bgcolor="#87CEFA">magnéto</th>
+                    <th bgcolor="#99B4D1">magnéto</th>
                     <td>{{nat_rank_ca_magneto}}</td> 
                     <td>{{reg_rank_ca_magneto}}</td>
                 </tr>
 
                 <tr>
-                    <th bgcolor="#87CEFA">fours</th>
+                    <th bgcolor="#99B4D1">fours</th>
                     <td>{{nat_rank_ca_fours}}</td> 
                     <td>{{reg_rank_ca_fours}}</td>
                 </tr>
 
 
                 </tr>
-                    <th rowspan="4" bgcolor="#87CEFA">Ventes</th>
-                    <th bgcolor="#87CEFA">tous</th>
+                    <th rowspan="4" bgcolor="#99B4D1">Ventes</th>
+                    <th bgcolor="#99B4D1">tous</th>
                     <td>{{nat_rank_vente}}</td> 
                     <td>{{reg_rank_vente}}</td>
                 </tr>
                 
                 <tr>
-                    <th bgcolor="#87CEFA">hifi</th>
+                    <th bgcolor="#99B4D1">hifi</th>
                     <td>{{nat_rank_vente_hifi}}</td> 
                     <td>{{reg_rank_vente_hifi}}</td>
                 </tr>
 
                 <tr>
-                    <th bgcolor="#87CEFA">magnéto</th>
+                    <th bgcolor="#99B4D1">magnéto</th>
                     <td>{{nat_rank_vente_magneto}}</td> 
                     <td>{{reg_rank_vente_magneto}}</td>
                 </tr>
 
                 <tr>
-                    <th bgcolor="#87CEFA">fours</th>
+                    <th bgcolor="#99B4D1">fours</th>
                     <td>{{nat_rank_vente_fours}}</td> 
                     <td>{{reg_rank_vente_fours}}</td>
                 </tr>
 
 
                 </tr>
-                    <th rowspan="4" bgcolor="#87CEFA">Marge brute</td>
-                    <th bgcolor="#87CEFA">tous</th>
+                    <th rowspan="4" bgcolor="#99B4D1">Marge brute</td>
+                    <th bgcolor="#99B4D1">tous</th>
                     <td>{{nat_rank_marge}}</td> 
                     <td>{{reg_rank_marge}}</td>
                 </tr>
                 
                 <tr>
-                    <th bgcolor="#87CEFA">hifi</th>
+                    <th bgcolor="#99B4D1">hifi</th>
                     <td>{{nat_rank_marge_hifi}}</td> 
                     <td>{{reg_rank_marge_hifi}}</td>
                 </tr>
 
                 <tr>
-                    <th bgcolor="#87CEFA">magnéto</th>
+                    <th bgcolor="#99B4D1">magnéto</th>
                     <td>{{nat_rank_marge_magneto}}</td> 
                     <td>{{reg_rank_marge_magneto}}</td>
                 </tr>
 
                 <tr>
-                    <th bgcolor="#87CEFA">fours</th>
+                    <th bgcolor="#99B4D1">fours</th>
                     <td>{{nat_rank_marge_fours}}</td> 
                     <td>{{reg_rank_marge_fours}}</td>
                 </tr>
@@ -156,9 +156,9 @@
         <div class={{"total_magasin"}}>
             <table>
                 <tr>
-                    <th>Total magasin</th> <th bgcolor="#87CEFA">Budget</th> <th bgcolor="#87CEFA">Reel</th> <th bgcolor="#87CEFA">Ratio</th>
+                    <th>Total magasin</th> <th bgcolor="#99B4D1">Budget</th> <th bgcolor="#99B4D1">Reel</th> <th bgcolor="#99B4D1">Ratio</th>
                 </tr>
-                        <td bgcolor="#87CEFA">CA</td>
+                        <td bgcolor="#99B4D1">CA</td>
                         <td>{{ '{0:0.2f}'.format(perf_mag[0]) }}</td> 
                         <td>{{ '{0:0.2f}'.format(perf_mag[1]) }}</td>
                         {% set ratio_ca = perf_mag[1] / perf_mag[0] %}
@@ -172,7 +172,7 @@
                     </tr>
                     
                     <tr>
-                        <td bgcolor="#87CEFA">Ventes</td>
+                        <td bgcolor="#99B4D1">Ventes</td>
                         <td>{{ '{0:0.2f}'.format(perf_mag[2]) }}</td> 
                         <td>{{ '{0:0.2f}'.format(perf_mag[3]) }}</td>
                         {% set ratio_vente = perf_mag[3] / perf_mag[2] %}
@@ -186,7 +186,7 @@
                     </tr>
     
                     <tr>
-                        <td bgcolor="#87CEFA">Marges</td>
+                        <td bgcolor="#99B4D1">Marges</td>
                         <td>{{ '{0:0.2f}'.format(perf_mag[4]) }}</td> 
                         <td>{{ '{0:0.2f}'.format(perf_mag[5]) }}</td>
                         {% set ratio_marge = perf_mag[5] / perf_mag[4] %}
@@ -204,9 +204,9 @@
         <div class={{"region_hifi"}}>
             <table>
                 <tr>
-                    <th>Hifi</th> <th bgcolor="#87CEFA">Budget</th> <th bgcolor="#87CEFA">Reel</th> <th bgcolor="#87CEFA">Ratio</th>
+                    <th>Hifi</th> <th bgcolor="#99B4D1">Budget</th> <th bgcolor="#99B4D1">Reel</th> <th bgcolor="#99B4D1">Ratio</th>
                 </tr>
-                <td bgcolor="#87CEFA">CA</td>
+                <td bgcolor="#99B4D1">CA</td>
                 <td>{{ '{0:0.2f}'.format(perf_mag_hifi[0]) }}</td> 
                 <td>{{ '{0:0.2f}'.format(perf_mag_hifi[1]) }}</td>
                 {% set ratio_hifi_ca = perf_mag_hifi[1] / perf_mag_hifi[0] %}
@@ -220,7 +220,7 @@
             </tr>
             
             <tr>
-                <td bgcolor="#87CEFA">Ventes</td>
+                <td bgcolor="#99B4D1">Ventes</td>
                 <td>{{ '{0:0.2f}'.format(perf_mag_hifi[2]) }}</td> 
                 <td>{{ '{0:0.2f}'.format(perf_mag_hifi[3]) }}</td>
                 {% set ratio_hifi_vente = perf_mag_hifi[3] / perf_mag_hifi[2] %}
@@ -234,7 +234,7 @@
             </tr>
 
             <tr>
-                <td bgcolor="#87CEFA">Marges</td>
+                <td bgcolor="#99B4D1">Marges</td>
                 <td>{{ '{0:0.2f}'.format(perf_mag_hifi[4]) }}</td> 
                 <td>{{ '{0:0.2f}'.format(perf_mag_hifi[5]) }}</td>
                 {% set ratio_hifi_marge = perf_mag_hifi[5] / perf_mag_hifi[4] %}
@@ -252,10 +252,10 @@
         <div class={{"region_magneto"}}>
             <table>
                 <tr>
-                    <th>Magnétoscope</th> <th bgcolor="#87CEFA">Budget</th> <th bgcolor="#87CEFA">Reel</th> <th bgcolor="#87CEFA">Ratio</th>
+                    <th>Magnétoscope</th> <th bgcolor="#99B4D1">Budget</th> <th bgcolor="#99B4D1">Reel</th> <th bgcolor="#99B4D1">Ratio</th>
                 </tr>
                     <tr>
-                        <td bgcolor="#87CEFA">CA</td>
+                        <td bgcolor="#99B4D1">CA</td>
                         <td>{{ '{0:0.2f}'.format(perf_mag_magneto[0]) }}</td> 
                         <td>{{ '{0:0.2f}'.format(perf_mag_magneto[1]) }}</td>
                         {% set ratio_magneto_ca = perf_mag_magneto[1] / perf_mag_magneto[0] %}
@@ -269,7 +269,7 @@
                     </tr>
                     
                     <tr>
-                        <td bgcolor="#87CEFA">Ventes</td>
+                        <td bgcolor="#99B4D1">Ventes</td>
                         <td>{{ '{0:0.2f}'.format(perf_mag_magneto[2]) }}</td> 
                         <td>{{ '{0:0.2f}'.format(perf_mag_magneto[3]) }}</td>
                         {% set ratio_magneto_vente = perf_mag_magneto[3] / perf_mag_magneto[2] %}
@@ -283,7 +283,7 @@
                     </tr>
         
                     <tr>
-                        <td bgcolor="#87CEFA">Marges</td>
+                        <td bgcolor="#99B4D1">Marges</td>
                         <td>{{ '{0:0.2f}'.format(perf_mag_magneto[4]) }}</td> 
                         <td>{{ '{0:0.2f}'.format(perf_mag_magneto[5]) }}</td>
                         {% set ratio_magneto_marge = perf_mag_magneto[5] / perf_mag_magneto[4] %}
@@ -302,10 +302,10 @@
         <div class={{"region_four"}}>
             <table>
                 <tr>
-                    <th>Fours</th> <th bgcolor="#87CEFA">Budget</th> <th bgcolor="#87CEFA">Reel</th> <th bgcolor="#87CEFA">Ratio</th>
+                    <th>Fours</th> <th bgcolor="#99B4D1">Budget</th> <th bgcolor="#99B4D1">Reel</th> <th bgcolor="#99B4D1">Ratio</th>
                 </tr>
                 <tr>
-                    <td bgcolor="#87CEFA">CA</td>
+                    <td bgcolor="#99B4D1">CA</td>
                     <td>{{ '{0:0.2f}'.format(perf_mag_fours[0]) }}</td> 
                     <td>{{ '{0:0.2f}'.format(perf_mag_fours[1]) }}</td>
                     {% set ratio_fours_ca = perf_mag_fours[1] / perf_mag_fours[0] %}
@@ -319,7 +319,7 @@
                 </tr>
                 
                 <tr>
-                    <td bgcolor="#87CEFA">Ventes</td>
+                    <td bgcolor="#99B4D1">Ventes</td>
                     <td>{{ '{0:0.2f}'.format(perf_mag_fours[2]) }}</td> 
                     <td>{{ '{0:0.2f}'.format(perf_mag_fours[3]) }}</td>
                     {% set ratio_fours_vente = perf_mag_fours[3] / perf_mag_fours[2] %}
@@ -333,7 +333,7 @@
                 </tr>
     
                 <tr>
-                    <td bgcolor="#87CEFA">Marges</td>
+                    <td bgcolor="#99B4D1">Marges</td>
                     <td>{{ '{0:0.2f}'.format(perf_mag_fours[4]) }}</td> 
                     <td>{{ '{0:0.2f}'.format(perf_mag_fours[5]) }}</td>
                     {% set ratio_fours_marge = perf_mag_fours[5] / perf_mag_fours[4] %}

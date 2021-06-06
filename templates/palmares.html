@@ -55,29 +55,29 @@
     <table id="palmares_table">
         <tr>
             <th style="border-top-width:0px;border-left-width:0px;border-bottom-width:0px"></th>
-            <th colspan="3" bgcolor="#87CEFA"> CA </th>
-            <th colspan="3" bgcolor="#87CEFA"> Ventes </th>
-            <th colspan="3" bgcolor="#87CEFA"> Marge </th>
-            <th rowspan="2" bgcolor="#87CEFA"> Rang National </th>
-            <th rowspan="2" bgcolor="#87CEFA"> Rang année précédente National </th>
-            <th rowspan="2" bgcolor="#87CEFA"> Evolution National </th>
-            <th rowspan="2" bgcolor="#87CEFA"> Rang Régional </th>
-            <th rowspan="2" bgcolor="#87CEFA"> Rang année précédente Régional </th>
-            <th rowspan="2" bgcolor="#87CEFA"> Evolution Régional </th>
+            <th colspan="3" bgcolor="#99B4D1"> CA </th>
+            <th colspan="3" bgcolor="#99B4D1"> Ventes </th>
+            <th colspan="3" bgcolor="#99B4D1"> Marge </th>
+            <th rowspan="2" bgcolor="#99B4D1"> Rang National </th>
+            <th rowspan="2" bgcolor="#99B4D1"> Rang année précédente National </th>
+            <th rowspan="2" bgcolor="#99B4D1"> Evolution National </th>
+            <th rowspan="2" bgcolor="#99B4D1"> Rang Régional </th>
+            <th rowspan="2" bgcolor="#99B4D1"> Rang année précédente Régional </th>
+            <th rowspan="2" bgcolor="#99B4D1"> Evolution Régional </th>
         </tr>
 
         <tr>
-            <th bgcolor="#87CEFA">Ville</th>
-            <th bgcolor="#87CEFA">Budget</th><th bgcolor="#87CEFA">Reel</th><th bgcolor="#87CEFA">Ratio</th>
-            <th bgcolor="#87CEFA">Budget</th><th bgcolor="#87CEFA">Reel</th><th bgcolor="#87CEFA">Ratio</th>
-            <th bgcolor="#87CEFA">Budget</th><th bgcolor="#87CEFA">Reel</th><th bgcolor="#87CEFA">Ratio</th>
+            <th bgcolor="#99B4D1">Ville</th>
+            <th bgcolor="#99B4D1">Budget</th><th bgcolor="#99B4D1">Reel</th><th bgcolor="#99B4D1">Ratio</th>
+            <th bgcolor="#99B4D1">Budget</th><th bgcolor="#99B4D1">Reel</th><th bgcolor="#99B4D1">Ratio</th>
+            <th bgcolor="#99B4D1">Budget</th><th bgcolor="#99B4D1">Reel</th><th bgcolor="#99B4D1">Ratio</th>
         </tr>
 
         {% for i in pi %}
             {% set city_pi = pi[loop.index-1] %}
             {% set city_pi_prev = pi_prev[loop.index-1] %}
             <tr>
-                <th bgcolor="#87CEFA">{{ city_pi[0] }}</th>
+                <th bgcolor="#99B4D1">{{ city_pi[0] }}</th>
                 <td> {{ '{0:0.2f}'.format(city_pi[1]) }}</td>
                 <td> {{ '{0:0.2f}'.format(city_pi[2]) }}</td>
                 <td> {{ '{0:0.2f}'.format(city_pi[2]/city_pi[1]) }}</td>
