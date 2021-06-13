@@ -81,9 +81,9 @@
                 <td> {{ '{0:0.2f}'.format(mag[2]) }}</td>
 
                 {% set ratio_CA = mag[2] / mag[1] %}
-                {% if ratio_CA < 0 %} 
+                {% if ratio_CA < 1 %} 
                     <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_CA) }}</td>
-                {% elif ratio_CA > 0 %} 
+                {% elif ratio_CA > 1 %} 
                     <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_CA) }}</td>
                 {% else %} 
                     <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_CA) }}</td>
@@ -93,9 +93,9 @@
                 <td> {{ '{0:0.2f}'.format(mag[4]) }}</td>
 
                 {% set ratio_ventes = mag[4] / mag[3] %}
-                {% if ratio_ventes < 0 %} 
+                {% if ratio_ventes < 1 %} 
                     <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_ventes) }}</td>
-                {% elif ratio_ventes > 0 %} 
+                {% elif ratio_ventes > 1 %} 
                     <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_ventes) }}</td>
                 {% else %} 
                     <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_ventes) }}</td>
@@ -105,9 +105,9 @@
                 <td> {{ '{0:0.2f}'.format(mag[6]) }}</td>
 
                 {% set ratio_marges = mag[6] / mag[5] %}
-                {% if ratio_marges < 0 %} 
+                {% if ratio_marges < 1 %} 
                     <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_marges) }}</td>
-                {% elif ratio_marges > 0 %} 
+                {% elif ratio_marges > 1 %} 
                     <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_marges) }}</td>
                 {% else %} 
                     <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_marges) }}</td>
@@ -122,7 +122,7 @@
                 {% elif ecart_nat > 0 %} 
                     <td bgcolor="green"> {{ ecart_nat }}</td>
                 {% else %} 
-                    <td bgcolor="yellow"> {{ ecart_nat }}</td>
+                    <td bgcolor="yellow"> = </td>
                 {% endif %}
 
                 <td> {{ rank_reg[mag[0]] }}</td>
@@ -134,7 +134,7 @@
                 {% elif ecart_reg > 0 %} 
                     <td bgcolor="green"> {{ ecart_reg }}</td>
                 {% else %} 
-                    <td bgcolor="yellow"> {{ ecart_reg }}</td>
+                    <td bgcolor="yellow"> = </td>
                 {% endif %}
 
             </tr>
