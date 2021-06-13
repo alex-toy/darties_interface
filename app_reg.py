@@ -127,6 +127,272 @@ def accueil_region(region_id):
     )
 
 
+
+
+
+@main_reg.route('/historique/<int:region_id>', methods=['GET', 'POST'])
+@login_required
+def historique(region_id):
+
+    if not (current_user.id_profil == 1) and (not current_user.id_region == region_id) :
+        flash("Vous n'êtes pas autorisé à acceder à cette partie de l'application.")
+        return redirect(url_for('auth.login'))
+
+    current_year = date.today().year
+
+    result = request.form.to_dict()
+    
+    mois_int = 2
+    mois_string = 'fevrier'
+    if result :
+        if 'mois' in result.keys():
+            mois_int = int(result['mois'].split('|')[0])
+            mois_string = result['mois'].split('|')[1]
+
+    hist_indicators_prev = hist_reg(current_year-1, mois_int, region_id)
+    hist_indicators_cumul_prev = hist_cumul_reg(current_year-1, mois_int, region_id)
+    
+    hist_indicators_cur = hist_reg(current_year, mois_int, region_id)
+    hist_indicators_cumul_cur = hist_cumul_reg(current_year, mois_int, region_id)
+
+    now = datetime.now()
+    today = now.strftime("%d/%m/%Y %H:%M:%S")
+
+    magasins = None
+    if current_user.id_profil == 1 :
+        magasins = all_magasin()
+    elif current_user.id_region :
+        if current_user.id_region > 0 :
+            magasins = all_magasin_in_region(current_user.id_region)
+    
+    return render_template(
+        'historique_reg.html',
+
+        nom=current_user.nom,
+        prenom=current_user.prenom,
+
+        annee=current_year,
+        mois_string=mois_string,
+
+        region_id=region_id,
+
+        hifi_obj_prev=hist_indicators_prev['hifi_obj'],
+        hifi_reel_prev=hist_indicators_prev['hifi_reel'],
+        magneto_obj_prev=hist_indicators_prev['magneto_obj'],
+        magneto_reel_prev=hist_indicators_prev['magneto_reel'],
+        fours_obj_prev=hist_indicators_prev['fours_obj'],
+        fours_reel_prev=hist_indicators_prev['fours_reel'],
+
+        hifi_obj_cumul_prev=hist_indicators_cumul_prev['hifi_obj_cumul'],
+        hifi_reel_cumul_prev=hist_indicators_cumul_prev['hifi_reel_cumul'],
+        magneto_obj_cumul_prev=hist_indicators_cumul_prev['magneto_obj_cumul'],
+        magneto_reel_cumul_prev=hist_indicators_cumul_prev['magneto_reel_cumul'],
+        fours_obj_cumul_prev=hist_indicators_cumul_prev['fours_obj_cumul'],
+        fours_reel_cumul_prev=hist_indicators_cumul_prev['fours_reel_cumul'],
+
+
+        hifi_obj_cur=hist_indicators_cur['hifi_obj'],
+        hifi_reel_cur=hist_indicators_cur['hifi_reel'],
+        magneto_obj_cur=hist_indicators_cur['magneto_obj'],
+        magneto_reel_cur=hist_indicators_cur['magneto_reel'],
+        fours_obj_cur=hist_indicators_cur['fours_obj'],
+        fours_reel_cur=hist_indicators_cur['fours_reel'],
+
+        hifi_obj_cumul_cur=hist_indicators_cumul_cur['hifi_obj_cumul'],
+        hifi_reel_cumul_cur=hist_indicators_cumul_cur['hifi_reel_cumul'],
+        magneto_obj_cumul_cur=hist_indicators_cumul_cur['magneto_obj_cumul'],
+        magneto_reel_cumul_cur=hist_indicators_cumul_cur['magneto_reel_cumul'],
+        fours_obj_cumul_cur=hist_indicators_cumul_cur['fours_obj_cumul'],
+        fours_reel_cumul_cur=hist_indicators_cumul_cur['fours_reel_cumul'],
+
+        magasins=magasins,
+
+        today=today,
+        location='historique_reg'
+    )
+
+
+
+
+
+@main_reg.route('/details/<int:region_id>', methods=['GET', 'POST'])
+@login_required
+def details(region_id):
+
+    if not (current_user.id_profil == 1) and (not current_user.id_region == region_id) :
+        flash("Vous n'êtes pas autorisé à acceder à cette partie de l'application.")
+        return redirect(url_for('auth.login'))
+    
+    result = request.form.to_dict()
+    
+    mois_int = 1
+    mois_string = 'janvier'
+    annee = 2020
+    if result :
+        if 'mois' in result.keys():
+            mois_int = int(result['mois'].split('|')[0])
+            mois_string = result['mois'].split('|')[1]
+        if 'annee' in result.keys():
+            annee = int(result['annee'])
+
+    di = details_indicators_reg(annee, mois_int, region_id)
+
+    now = datetime.now()
+    today = now.strftime("%d/%m/%Y %H:%M:%S")
+    year = int(now.year)
+    month = int(now.month)
+    years = [y for y in range(year-2, year+1)]
+    months = {m:int_to_name[m] for m in range(month+1, 13)}
+
+    magasins = None
+    if current_user.id_profil == 1 :
+        magasins = all_magasin()
+    elif current_user.id_region :
+        if current_user.id_region > 0 :
+            magasins = all_magasin_in_region(current_user.id_region)
+
+    return render_template(
+        'details_reg.html',
+
+        nom=current_user.nom,
+        prenom=current_user.prenom,
+
+        current_year=annee,
+        mois=mois_string,
+
+        region_id=region_id,
+
+        hifi_kpi=di["hifi_kpi"],
+        fours_kpi=di["fours_kpi"],
+        magneto_kpi=di["magneto_kpi"],
+
+        magasins=magasins,
+
+        today=today,
+        years=years,
+        location='details_reg'
+    )
+
+
+
+
+
+@main_reg.route('/palmares/<int:region_id>', methods=['GET', 'POST'])
+@login_required
+def palmares(region_id):
+
+    if not (current_user.id_profil == 1) and (not current_user.id_region == region_id) :
+        flash("Vous n'êtes pas autorisé à acceder à cette partie de l'application.")
+        return redirect(url_for('auth.login'))
+    
+    result = request.form.to_dict()
+    
+    mois_int = 1
+    mois_string = 'janvier'
+    annee = 2020
+    classement = 'ca_reel'
+    if result :
+        if 'mois' in result.keys():
+            mois_int = int(result['mois'].split('|')[0])
+            mois_string = result['mois'].split('|')[1]
+        if 'annee' in result.keys():
+            annee = int(result['annee'])
+        if 'classement' in result.keys():
+            classement = result['classement']
+
+
+    classement_dict = { 
+        'ca_objectif' : 'CA objectif', 
+        'ca_reel' : 'CA réel',
+        'ventes_objectif' : 'Ventes objectif',
+        'vente_reel' : 'Ventes réelles',
+        'marge_objectif' : 'Marge objectif',
+        'marge_reel' : 'Marge réelle',
+    }
+
+
+    pi = palmares_indicators_reg(annee, mois_int, classement, region_id)["indicators"]
+    pi_prev = palmares_indicators_reg(annee-1, mois_int, classement, region_id)["indicators"]
+
+    pi_reg1 = palmares_indicators_region(annee, mois_int, classement, list_departement_reg_1)[:,0]
+    pi_reg1_prev = palmares_indicators_region(annee-1, mois_int, classement, list_departement_reg_1)[:,0]
+
+    pi_reg2 = palmares_indicators_region(annee, mois_int, classement, list_departement_reg_2)[:,0]
+    pi_reg2_prev = palmares_indicators_region(annee-1, mois_int, classement, list_departement_reg_2)[:,0]
+
+    pi_reg3 = palmares_indicators_region(annee, mois_int, classement, list_departement_reg_3)[:,0]
+    pi_reg3_prev = palmares_indicators_region(annee-1, mois_int, classement, list_departement_reg_3)[:,0]
+
+    pi_reg4 = palmares_indicators_region(annee, mois_int, classement, list_departement_reg_4)[:,0]
+    pi_reg4_prev = palmares_indicators_region(annee-1, mois_int, classement, list_departement_reg_4)[:,0]
+
+    pi_reg5 = palmares_indicators_region(annee, mois_int, classement, list_departement_reg_5)[:,0]
+    pi_reg5_prev = palmares_indicators_region(annee-1, mois_int, classement, list_departement_reg_5)[:,0]
+
+    ranks = { city_record[0] : index+1 for index, city_record in  enumerate(pi_prev)}
+
+    now = datetime.now()
+    today = now.strftime("%d/%m/%Y %H:%M:%S")
+    year = int(now.year)
+    month = int(now.month)
+    years = [y for y in range(year-2, year+1)]
+    months = {m:int_to_name[m] for m in range(month+1, 13)}
+
+    magasins = None
+    if current_user.id_profil == 1 :
+        magasins = all_magasin()
+    elif current_user.id_region :
+        if current_user.id_region > 0 :
+            magasins = all_magasin_in_region(current_user.id_region)
+
+    return render_template(
+        'palmares_reg.html',
+
+        nom=current_user.nom,
+        prenom=current_user.prenom,
+        
+        current_year=annee,
+        mois=mois_string,
+
+        region_id=region_id,
+
+        classement_indicator=classement_dict[classement],
+
+        pi=pi,
+        pi_prev=pi_prev,
+        ranks=ranks,
+
+        pi_reg1=pi_reg1,
+        pi_reg1_prev=pi_reg1_prev,
+
+        pi_reg2=pi_reg2,
+        pi_reg2_prev=pi_reg2_prev,
+
+        pi_reg3=pi_reg3,
+        pi_reg3_prev=pi_reg3_prev,
+
+        pi_reg4=pi_reg4,
+        pi_reg4_prev=pi_reg4_prev,
+
+        pi_reg5=pi_reg5,
+        pi_reg5_prev=pi_reg5_prev,
+
+        magasins=magasins,
+
+        today=today,
+        years=years,
+        location='palmares_reg'
+    )
+
+
+
+
+
+
+
+
+
+
 if __name__ == "__main__":
     
     app.run(debug=True)

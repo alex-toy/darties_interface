@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Palmarès</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+
+
+    <div class="description">
+        <h4 style="text-align:left;word-wrap:break-word;">Palmares des magasins en France en Euros, de tous les indicateurs, 
+            pour toutes les familles de produit, pour toutes les enseignes, pour le mois de {{mois}} {{current_year}}, 
+            classés par {{ classement_indicator }}, pour le magasin {{ mag_name }}.</h4>
+    </div>
+
+
+    <div class="filtre">
+        <form action={{ "/palmares_mag/" ~ id_mag }} method="POST" style="text-align:center;">
+
+            <select 
+                style="width:200px;height:30px;margin:5px"
+                name="annee" 
+                id="year_select"  
+                onchange="get_delta()">
+                <option value="{{years[0]}}">--Choix de l'année--</option>
+                {% for year in years %}
+                    <option value="{{year}}">{{year}}</option>
+                {% endfor %}
+            </select></br>
+
+            <div id="month_select"></div>
+            
+            <script>
+                document.getElementById("year_select").addEventListener("change", get_html_months);
+            </script>
+    
+            <select style="width:200px;height:30px" name="classement" id="mois-select">
+                <option value="ca_reel">--Choix de l'indicateur de classement--</option>
+                <option value="ca_reel">CA réel</option>
+                <option value="ca_objectif">CA objectif</option>
+                <option value="vente_reel">Vente réel</option>
+                <option value="ventes_objectif">Vente objectif</option>
+                <option value="marge_reel">Marge réelle</option>
+                <option value="marge_objectif">Marge objectif</option>
+            </select></br>
+    
+            <button class="button" type="submit">Recherche</button>
+        </form>
+    </div>
+
+
+    <div class="palmares">
+
+    <table id="palmares_table">
+        <tr>
+            <th style="border-top-width:0px;border-left-width:0px;border-bottom-width:0px"></th>
+            <th colspan="3" bgcolor="#99B4D1"> CA </th>
+            <th colspan="3" bgcolor="#99B4D1"> Ventes </th>
+            <th colspan="3" bgcolor="#99B4D1"> Marge </th>
+            <th rowspan="2" bgcolor="#99B4D1"> Rang National </th>
+            <th rowspan="2" bgcolor="#99B4D1"> Rang année précédente National </th>
+            <th rowspan="2" bgcolor="#99B4D1"> Evolution National </th>
+            <th rowspan="2" bgcolor="#99B4D1"> Rang Régional </th>
+            <th rowspan="2" bgcolor="#99B4D1"> Rang année précédente Régional </th>
+            <th rowspan="2" bgcolor="#99B4D1"> Evolution Régional </th>
+        </tr>
+
+        <tr>
+            <th bgcolor="#99B4D1">Ville</th>
+            <th bgcolor="#99B4D1">Budget</th><th bgcolor="#99B4D1">Reel</th><th bgcolor="#99B4D1">Ratio</th>
+            <th bgcolor="#99B4D1">Budget</th><th bgcolor="#99B4D1">Reel</th><th bgcolor="#99B4D1">Ratio</th>
+            <th bgcolor="#99B4D1">Budget</th><th bgcolor="#99B4D1">Reel</th><th bgcolor="#99B4D1">Ratio</th>
+        </tr>
+
+        {% for i in pi %}
+            {% set city_pi = pi[loop.index-1] %}
+            {% set city_pi_prev = pi_prev[loop.index-1] %}
+            {% if city_pi[0] == mag_name %}
+                <tr>
+                    <th bgcolor="#99B4D1">{{ city_pi[0] }}</th>
+                    <td> {{ '{0:0.2f}'.format(city_pi[1]) }}</td>
+                    <td> {{ '{0:0.2f}'.format(city_pi[2]) }}</td>
+                    <td> {{ '{0:0.2f}'.format(city_pi[2]/city_pi[1]) }}</td>
+                    
+                    <td> {{ '{0:0.2f}'.format(city_pi[3]) }}</td>
+                    <td> {{ '{0:0.2f}'.format(city_pi[4]) }}</td>
+                    <td> {{ '{0:0.2f}'.format(city_pi[4]/city_pi[3]) }}</td>
+                    
+                    <td> {{ '{0:0.2f}'.format(city_pi[5]) }}</td>
+                    <td> {{ '{0:0.2f}'.format(city_pi[6]) }}</td>
+                    <td> {{ '{0:0.2f}'.format(city_pi[6]/city_pi[5]) }}</td>
+
+                    <td>{{rank}} </td>
+                    <td>{{rank_prev}} </td>
+                    {% if rank - rank_prev == 0 %}
+                        <td> = </td>
+                    {% elif rank - rank_prev > 0 %}
+                        <td>+{{ rank - rank_prev}}</td>
+                    {% else %}
+                        <td>{{ rank - rank_prev}}</td>
+                    {% endif %}
+                    
+                    <td>{{rank_reg}} </td>
+                    <td>{{rank_reg_prev}} </td>
+                    {% if rank_reg - rank_reg_prev == 0 %}
+                        <td> = </td>
+                    {% elif rank_reg - rank_reg_prev > 0 %}
+                        <td>+{{ rank_reg - rank_reg_prev}}</td>
+                    {% else %}
+                        <td>{{ rank_reg - rank_reg_prev}}</td>
+                    {% endif %}
+                </tr>
+            {% endif %}
+        {% endfor %}
+
+    </table>
+
+
+    <script>
+        document.getElementById('export_button').addEventListener('click', function(){
+            var table2excel = new Table2Excel();
+            table2excel.export(document.querySelectorAll("#palmares_table"));
+        })
+
+    </script>
+
+    </div>
+
+
+
+    
+
+
+
+</div>
+{% endblock %}
+
+

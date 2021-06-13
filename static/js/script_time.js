@@ -58,7 +58,7 @@ function get_html_months() {
 function get_html_years() {
     const current_year = today.getFullYear();
 
-    var html = '<select style="width:150px;height:30px" name="mois" id="mois-select">'
+    var html = '<select style="width:200px;height:30px" name="mois" id="mois-select">'
     var option_prev = '<option value="'
     var option_next = '</option>'
 

@@ -24,7 +24,7 @@
         <h5>Résultats mensuels :</h5>
         <form action={{"/magasin/"~id_mag}} method="POST"style="text-align:center;">
 
-            <select style="width:150px;height:30px" name="annee" id="year_select"  onchange="get_delta()">
+            <select style="width:200px;height:30px" name="annee" id="year_select"  onchange="get_delta()">
                 <option value="{{years[0]}}">--Choix de l'année--</option>
                 {% for year in years %}
                     <option value="{{year}}">{{year}}</option>
@@ -44,7 +44,7 @@
         <form action={{"/magasin/"~id_mag}} method="POST" style="text-align:center;">
 
             <select 
-                style="width:150px;height:30px" 
+                style="width:200px;height:30px" 
                 name="annee" 
                 id="year_select_cumul">
                 <option value="{{years[0]}}">--Choix de l'année--</option>

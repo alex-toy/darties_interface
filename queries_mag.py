@@ -376,7 +376,7 @@ def reg_rank_mag_item(id_mag, classifier, annee, mois, id_famille_produit) :
 
 
 
-def performances_magasin_cumul(annee, mois_int, id_mag):
+def performances_magasin_cumul_mag(annee, mois_int, id_mag):
     conn = sqlite3.connect('data.db')
 
     query = """
@@ -408,7 +408,7 @@ def performances_magasin_cumul(annee, mois_int, id_mag):
 
 
 
-def performances_magasin_item_cumul(annee, mois_int, id_mag, id_famille_produit) :
+def performances_magasin_item_cumul_mag(annee, mois_int, id_mag, id_famille_produit) :
     conn = sqlite3.connect('data.db')
 
     query = """
@@ -441,7 +441,7 @@ def performances_magasin_item_cumul(annee, mois_int, id_mag, id_famille_produit)
 
 
 
-def nat_rank_mag_cumul(id_mag, classifier, annee, mois) :
+def nat_rank_mag_cumul_mag(id_mag, classifier, annee, mois) :
     conn = sqlite3.connect('data.db')
 
     query = """
@@ -488,7 +488,7 @@ def nat_rank_mag_cumul(id_mag, classifier, annee, mois) :
 
 
 
-def nat_rank_mag_item_cumul(id_mag, classifier, annee, mois, id_famille_produit) :
+def nat_rank_mag_item_cumul_mag(id_mag, classifier, annee, mois, id_famille_produit) :
     conn = sqlite3.connect('data.db')
 
     query = """
@@ -535,7 +535,7 @@ def nat_rank_mag_item_cumul(id_mag, classifier, annee, mois, id_famille_produit)
 
 
 
-def reg_rank_mag_cumul(id_mag, classifier, annee, mois) :
+def reg_rank_mag_cumul_mag(id_mag, classifier, annee, mois) :
     conn = sqlite3.connect('data.db')
 
     query = """
@@ -585,7 +585,7 @@ def reg_rank_mag_cumul(id_mag, classifier, annee, mois) :
 
 
 
-def reg_rank_mag_item_cumul(id_mag, classifier, annee, mois, id_famille_produit) :
+def reg_rank_mag_item_cumul_mag(id_mag, classifier, annee, mois, id_famille_produit) :
     conn = sqlite3.connect('data.db')
 
     query = """
@@ -631,3 +631,242 @@ def reg_rank_mag_item_cumul(id_mag, classifier, annee, mois, id_famille_produit)
         return result[0][2]
 
     return result
+
+
+
+
+
+def hist_mag(annee, mois, id_mag):
+    hifi_obj = hist_indicator_mag('ca_objectif', annee, mois, 'hifi', id_mag)
+    hifi_reel = hist_indicator_mag('ca_reel', annee, mois, 'hifi', id_mag)
+
+    magneto_obj = hist_indicator_mag('ca_objectif', annee, mois, 'magneto', id_mag)
+    magneto_reel = hist_indicator_mag('ca_reel', annee, mois, 'magneto', id_mag)
+
+    fours_obj = hist_indicator_mag('ca_objectif', annee, mois, 'fours', id_mag)
+    fours_reel = hist_indicator_mag('ca_reel', annee, mois, 'fours', id_mag)
+
+    return {
+        "hifi_obj" : hifi_obj,
+        "hifi_reel" : hifi_reel,
+        "magneto_obj" : magneto_obj,
+        "magneto_reel" : magneto_reel,
+        "fours_obj" : fours_obj,
+        "fours_reel" : fours_reel
+    }
+
+
+
+def hist_indicator_mag(indicator, annee, mois, lib_famille_produit, id_mag):
+    conn = sqlite3.connect('data.db')
+
+    query = """
+        SELECT sum({}) 
+        
+        FROM sales
+        JOIN famille_produit ON sales.id_famille_produit = famille_produit.id_famille_produit
+        JOIN temps ON sales.id_temps = temps.id_temps
+        JOIN magasin ON magasin.id_magasin = sales.id_magasin
+        
+        WHERE 
+            temps.annee = {} AND
+            temps.mois = '{}' AND
+            famille_produit.lib_famille_produit = '{}' AND
+            magasin.id_magasin = {};
+    """
+    indic = pd.read_sql(query.format(indicator, annee, mois, lib_famille_produit, id_mag), conn).values[0][0]
+    conn.close()
+
+    return indic
+
+
+
+
+def hist_indicator_cumul_mag(indicator, annee, mois, lib_famille_produit, id_mag):
+    conn = sqlite3.connect('data.db')
+
+    query = """
+        SELECT sum({}) 
+        
+        FROM sales
+        JOIN famille_produit ON sales.id_famille_produit = famille_produit.id_famille_produit
+        JOIN temps ON sales.id_temps = temps.id_temps
+        JOIN magasin ON magasin.id_magasin = sales.id_magasin
+        
+        WHERE 
+            temps.annee = {} AND
+            temps.mois <= '{}' AND
+            famille_produit.lib_famille_produit = '{}' AND
+            magasin.id_magasin = {};
+    """
+    indic = pd.read_sql(query.format(indicator, annee, mois, lib_famille_produit, id_mag), conn).values[0][0]
+    conn.close()
+
+    return indic
+
+
+
+
+
+def hist_cumul_mag(annee, mois, id_mag):
+    hifi_obj = hist_indicator_cumul_mag('ca_objectif', annee, mois, 'hifi', id_mag)
+    hifi_reel = hist_indicator_cumul_mag('ca_reel', annee, mois, 'hifi', id_mag)
+
+    magneto_obj = hist_indicator_cumul_mag('ca_objectif', annee, mois, 'magneto', id_mag)
+    magneto_reel = hist_indicator_cumul_mag('ca_reel', annee, mois, 'magneto', id_mag)
+
+    fours_obj = hist_indicator_cumul_mag('ca_objectif', annee, mois, 'fours', id_mag)
+    fours_reel = hist_indicator_cumul_mag('ca_reel', annee, mois, 'fours', id_mag)
+
+    return {
+        "hifi_obj_cumul" : hifi_obj,
+        "hifi_reel_cumul" : hifi_reel,
+        "magneto_obj_cumul" : magneto_obj,
+        "magneto_reel_cumul" : magneto_reel,
+        "fours_obj_cumul" : fours_obj,
+        "fours_reel_cumul" : fours_reel
+    }
+
+
+
+
+
+def details_indicators_mag(annee, mois, id_mag):
+    conn = sqlite3.connect('data.db')
+
+    kpis = ["ca_objectif", "ca_reel", "ventes_objectif", "vente_reel", "marge_objectif", "marge_reel"]
+
+    query = """
+        SELECT sum({}), sum({}) , sum({}), sum({}), sum({}) , sum({})
+        
+        FROM sales
+        JOIN temps ON sales.id_temps = temps.id_temps
+        JOIN famille_produit ON sales.id_famille_produit = famille_produit.id_famille_produit
+        JOIN magasin ON magasin.id_magasin = sales.id_magasin
+        
+        WHERE 
+            temps.annee = {} AND
+            temps.mois = {} AND
+            famille_produit.lib_famille_produit = '{}' AND
+            magasin.id_magasin = {};
+    """
+
+    hifi_kpi_result = pd.read_sql(query.format(
+        'ca_objectif', 
+        'ca_reel',
+        'ventes_objectif',
+        'vente_reel', 
+        'marge_objectif',
+        'marge_reel',
+        annee, 
+        mois, 
+        'hifi', 
+        id_mag
+    ), conn).values[0]
+    hifi_kpi = dict(zip(kpis, hifi_kpi_result))
+
+    fours_kpi_result = pd.read_sql(query.format(
+        'ca_objectif', 
+        'ca_reel',
+        'ventes_objectif',
+        'vente_reel', 
+        'marge_objectif',
+        'marge_reel',
+        annee, 
+        mois, 
+        'fours', 
+        id_mag
+    ), conn).values[0]
+    fours_kpi = dict(zip(kpis, fours_kpi_result))
+    
+    magneto_kpi_result = pd.read_sql(query.format(
+        'ca_objectif', 
+        'ca_reel',
+        'ventes_objectif',
+        'vente_reel', 
+        'marge_objectif',
+        'marge_reel',
+        annee, 
+        mois, 
+        'magneto', 
+        id_mag
+    ), conn).values[0]
+    magneto_kpi = dict(zip(kpis, magneto_kpi_result))
+
+    conn.close()
+
+    return {
+        "hifi_kpi" : hifi_kpi,
+        "fours_kpi" : fours_kpi,
+        "magneto_kpi" : magneto_kpi
+    }
+
+
+
+
+def palmares_indicators_mag(annee, mois, classement, id_mag):
+    conn = sqlite3.connect('data.db')
+
+    query = """
+        SELECT 
+            magasin.lib_magasin, 
+            sum(ca_objectif) AS ca_objectif, 
+            sum(ca_reel) AS ca_reel, 
+            sum(ventes_objectif) AS ventes_objectif, 
+            sum(vente_reel) AS vente_reel, 
+            sum(marge_objectif) AS marge_objectif, 
+            sum(marge_reel) AS marge_reel
+        
+        FROM sales
+        JOIN temps ON sales.id_temps = temps.id_temps
+        JOIN magasin ON sales.id_magasin = magasin.id_magasin
+
+        WHERE 
+            temps.annee = {0} AND
+            temps.mois = {1}  AND
+            magasin.id_magasin = {3}
+        
+        ORDER BY {2} DESC;
+    """
+
+    indicators = pd.read_sql(query.format(annee, mois, classement, id_mag), conn).values
+
+    conn.close()
+
+    return {
+        "indicators" : indicators
+    }
+
+
+
+
+def palmares_indicators_region_mag(annee, mois, classement, list_departement_reg, id_mag):
+    conn = sqlite3.connect('data.db')
+
+    query = """
+        SELECT 
+            magasin.lib_magasin, 
+            sum(ca_objectif) AS ca_objectif, 
+            sum(ca_reel) AS ca_reel, 
+            sum(ventes_objectif) AS ventes_objectif, 
+            sum(vente_reel) AS vente_reel, 
+            sum(marge_objectif) AS marge_objectif, 
+            sum(marge_reel) AS marge_reel
+        
+        FROM sales
+        JOIN temps ON sales.id_temps = temps.id_temps
+        JOIN magasin ON sales.id_magasin = magasin.id_magasin
+
+        WHERE 
+            temps.annee = {0} AND
+            temps.mois = {1} AND
+            magasin.id_magasin = {3}
+        
+        ORDER BY {2} DESC;
+    """
+
+    indicators = pd.read_sql(query.format(annee, mois, classement, id_mag), conn).values
+
+    conn.close()
+
+    return indicators

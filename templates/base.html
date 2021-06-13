@@ -97,7 +97,7 @@
                     <select 
                         class="myforms" 
                         {% if location == 'magasin' %} style="border: 2px solid blue;" {% endif %}
-                        style="width:150px;height:30px" 
+                        style="width:200px;height:30px" 
                         name="magasin" 
                         id="magasin-select" 
                         onchange="location.href='/magasin/'+form.magasin.value;">
@@ -118,10 +118,28 @@
                         onclick="location.href='/accueil/{{id_reg}}';">Accueil région {{id_reg}}
                     </button>
 
+                    <button 
+                        {% if location == 'historique_reg' %} style="border: 2px solid blue;" {% endif %}
+                        class="button" 
+                        onclick="location.href='/historique/{{id_reg}}';">Historique région {{id_reg}}
+                    </button>
+
+                    <button 
+                        {% if location == 'details_reg' %} style="border: 2px solid blue;" {% endif %}
+                        class="button" 
+                        onclick="location.href='/details/{{id_reg}}';">Détails région {{id_reg}}
+                    </button>
+
+                    <button 
+                        {% if location == 'palmares_reg' %} style="border: 2px solid blue;" {% endif %}
+                        class="button" 
+                        onclick="location.href='/palmares/{{id_reg}}';">Palmares région {{id_reg}}
+                    </button>
+
                     <form style="text-align:center;">
                         <select 
-                            {% if location == 'magasin' %} style="border: 2px solid blue;height: 30px" {% endif %}
-                            style="width:150px;height:30px" 
+                            {% if location == 'magasin' %} style="border: 2px solid blue;height: 30px;width:200px" {% endif %}
+                            style="width:200px;height:30px" 
                             name="magasin" 
                             id="magasin-select" 
                             onchange="location.href='/magasin/'+form.magasin.value;">
@@ -137,7 +155,31 @@
 
             {% for id_mag in range(1, 200) %}
                 {% if current_user.id_magasin == id_mag %}
-                    <button class="button" onclick="location.href='/magasin/{{id_mag}}';">Accueil magasin {{id_mag}}</button>
+                    <button 
+                        {% if location == 'magasin' %} style="border: 2px solid blue;" {% endif %}
+                        class="button" 
+                        onclick="location.href='/magasin/{{id_mag}}';">Accueil magasin {{id_mag}}
+                    </button>
+
+                    <button 
+                        {% if location == 'historique_mag' %} style="border: 2px solid blue;" {% endif %}
+                        class="button" 
+                        onclick="location.href='/historique_mag/{{id_mag}}';">Historique magasin {{id_mag}}
+                    </button>
+
+                    <button 
+                        {% if location == 'details_mag' %} style="border: 2px solid blue;" {% endif %}
+                        class="button" 
+                        onclick="location.href='/details_mag/{{id_mag}}';">Détails magasin {{id_mag}}
+                    </button>
+
+                    <button 
+                        {% if location == 'palmares_mag' %} style="border: 2px solid blue;" {% endif %}
+                        class="button" 
+                        onclick="location.href='/palmares_mag/{{id_mag}}';">Palmares magasin {{id_mag}}
+                    </button>
+
+                    
                 {% endif %}
             {% endfor %}
 

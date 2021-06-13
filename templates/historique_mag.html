@@ -10,12 +10,12 @@
 
     <div class="description">
         <h4>Résultats en france en Euros, pour les zones commerciales, pour toutes les familles de produits, 
-            pour toutes les enseignes, pour le mois de {{mois_string}} {{annee}}</h4>
+            pour toutes les enseignes, pour le mois de {{mois_string}} {{annee}}, pour la magasin {{ mag_name }}</h4>
     </div>
 
 
     <div class="filtre">
-        <form action="/historique" method="POST" style="text-align:center;">
+        <form action={{ "/historique_mag/" ~ id_mag }} method="POST" style="text-align:center;">
             
             <select style="width:200px;height:30px" name="mois" id="mois-select">
                 <option value="2|fevrier">--Choix du mois--</option>
