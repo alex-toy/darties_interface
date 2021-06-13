@@ -333,7 +333,8 @@ def palmares(region_id):
     years = [y for y in range(year-2, year+1)]
     months = {m:int_to_name[m] for m in range(month+1, 13)}
 
-    magasins = all_magasin_in_region(region_id)[:,1]
+    magasins = all_magasin_in_region(region_id)
+    stores = magasins[:,1]
 
     return render_template(
         'palmares_reg.html',
@@ -358,6 +359,7 @@ def palmares(region_id):
         rank_reg_prev=rank_reg_prev,
 
         magasins=magasins,
+        stores=stores,
 
         today=today,
         years=years,
