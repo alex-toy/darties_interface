@@ -14,7 +14,7 @@ from config import *
 main_app = Blueprint('main_app', __name__)
 
 
-@main_app.route('/accueil', methods=['GET', 'POST'])
+@main_app.route('/accueil/0', methods=['GET', 'POST'])
 @login_required
 def accueil():
 
@@ -108,7 +108,7 @@ def accueil():
 
 
 
-@main_app.route('/historique', methods=['GET', 'POST'])
+@main_app.route('/historique/0', methods=['GET', 'POST'])
 @login_required
 def historique():
 
@@ -183,7 +183,7 @@ def historique():
 
 
 
-@main_app.route('/details', methods=['GET', 'POST'])
+@main_app.route('/details/0', methods=['GET', 'POST'])
 @login_required
 def details():
 
@@ -236,7 +236,7 @@ def details():
 
 
 
-@main_app.route('/palmares', methods=['GET', 'POST'])
+@main_app.route('/palmares/0', methods=['GET', 'POST'])
 @login_required
 def palmares():
 
