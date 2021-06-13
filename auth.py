@@ -24,7 +24,7 @@ def login_post():
     user = User.query.filter_by(mail=mail).first()
 
     if not user or not check_password_hash(user.pwd, password):
-        flash('Please check your login details and try again.')
+        flash('Merci de revérifier vos identifiants et de réessayer.')
         return redirect(url_for('auth.login'))
 
     login_user(user, remember=remember)
