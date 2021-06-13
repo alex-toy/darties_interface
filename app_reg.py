@@ -284,6 +284,8 @@ def palmares(region_id):
     if not (current_user.id_profil == 1) and (not current_user.id_region == region_id) :
         flash("Vous n'êtes pas autorisé à acceder à cette partie de l'application.")
         return redirect(url_for('auth.login'))
+
+    list_departement_reg = reg_id_to_name[region_id]
     
     result = request.form.to_dict()
     
@@ -311,23 +313,16 @@ def palmares(region_id):
     }
 
 
-    pi = palmares_indicators_reg(annee, mois_int, classement, region_id)["indicators"]
-    pi_prev = palmares_indicators_reg(annee-1, mois_int, classement, region_id)["indicators"]
+    pi = palmares_indicators(annee, mois_int, classement)["indicators"]
+    pi_prev = palmares_indicators(annee-1, mois_int, classement)["indicators"]
 
-    pi_reg1 = palmares_indicators_region(annee, mois_int, classement, list_departement_reg_1)[:,0]
-    pi_reg1_prev = palmares_indicators_region(annee-1, mois_int, classement, list_departement_reg_1)[:,0]
+    pi_reg = palmares_indicators_region(annee, mois_int, classement, list_departement_reg)
+    pi_reg_prev = palmares_indicators_region(annee-1, mois_int, classement, list_departement_reg)
 
-    pi_reg2 = palmares_indicators_region(annee, mois_int, classement, list_departement_reg_2)[:,0]
-    pi_reg2_prev = palmares_indicators_region(annee-1, mois_int, classement, list_departement_reg_2)[:,0]
-
-    pi_reg3 = palmares_indicators_region(annee, mois_int, classement, list_departement_reg_3)[:,0]
-    pi_reg3_prev = palmares_indicators_region(annee-1, mois_int, classement, list_departement_reg_3)[:,0]
-
-    pi_reg4 = palmares_indicators_region(annee, mois_int, classement, list_departement_reg_4)[:,0]
-    pi_reg4_prev = palmares_indicators_region(annee-1, mois_int, classement, list_departement_reg_4)[:,0]
-
-    pi_reg5 = palmares_indicators_region(annee, mois_int, classement, list_departement_reg_5)[:,0]
-    pi_reg5_prev = palmares_indicators_region(annee-1, mois_int, classement, list_departement_reg_5)[:,0]
+    rank = { city_record[0] : index+1 for index, city_record in  enumerate(pi)}
+    rank_prev = { city_record[0] : index+1 for index, city_record in  enumerate(pi_prev)}
+    rank_reg = { city_record[0] : index+1 for index, city_record in  enumerate(pi_reg)}
+    rank_reg_prev = { city_record[0] : index+1 for index, city_record in  enumerate(pi_reg_prev)}
 
     ranks = { city_record[0] : index+1 for index, city_record in  enumerate(pi_prev)}
 
@@ -338,12 +333,7 @@ def palmares(region_id):
     years = [y for y in range(year-2, year+1)]
     months = {m:int_to_name[m] for m in range(month+1, 13)}
 
-    magasins = None
-    if current_user.id_profil == 1 :
-        magasins = all_magasin()
-    elif current_user.id_region :
-        if current_user.id_region > 0 :
-            magasins = all_magasin_in_region(current_user.id_region)
+    magasins = all_magasin_in_region(region_id)[:,1]
 
     return render_template(
         'palmares_reg.html',
@@ -362,20 +352,10 @@ def palmares(region_id):
         pi_prev=pi_prev,
         ranks=ranks,
 
-        pi_reg1=pi_reg1,
-        pi_reg1_prev=pi_reg1_prev,
-
-        pi_reg2=pi_reg2,
-        pi_reg2_prev=pi_reg2_prev,
-
-        pi_reg3=pi_reg3,
-        pi_reg3_prev=pi_reg3_prev,
-
-        pi_reg4=pi_reg4,
-        pi_reg4_prev=pi_reg4_prev,
-
-        pi_reg5=pi_reg5,
-        pi_reg5_prev=pi_reg5_prev,
+        rank=rank,
+        rank_prev=rank_prev,
+        rank_reg=rank_reg,
+        rank_reg_prev=rank_reg_prev,
 
         magasins=magasins,
 

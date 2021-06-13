@@ -1,0 +1,61 @@
+ 
+
+        {% for i in magasins %}
+        {% set city_pi = pi[loop.index-1] %}
+        {% set city_pi_prev = pi_prev[loop.index-1] %}
+        <tr>
+            <th bgcolor="#99B4D1">{{ city_pi[0] }}</th>
+            <td> {{ '{0:0.2f}'.format(city_pi[1]) }}</td>
+            <td> {{ '{0:0.2f}'.format(city_pi[2]) }}</td>
+            <td> {{ '{0:0.2f}'.format(city_pi[2]/city_pi[1]) }}</td>
+            <td> {{ '{0:0.2f}'.format(city_pi[3]) }}</td>
+            <td> {{ '{0:0.2f}'.format(city_pi[4]) }}</td>
+            <td> {{ '{0:0.2f}'.format(city_pi[4]/city_pi[3]) }}</td>
+            <td> {{ '{0:0.2f}'.format(city_pi[5]) }}</td>
+            <td> {{ '{0:0.2f}'.format(city_pi[6]) }}</td>
+            <td> {{ '{0:0.2f}'.format(city_pi[6]/city_pi[5]) }}</td>
+
+            <td>{{rank}} </td>
+            <td>{{rank_prev}} </td>
+
+           
+
+
+            
+
+
+        </tr>
+    {% endfor %}
+               
+               
+               
+               
+               {% if rank - rank_prev == 0 %}
+                <td> = </td>
+            {% elif rank - rank_prev > 0 %}
+                <td>+{{ rank - rank_prev}}</td>
+            {% else %}
+                <td>{{ rank - rank_prev}}</td>
+            {% endif %}
+            
+            <td>{{rank_reg}} </td>
+            <td>{{rank_reg_prev}} </td>
+            {% if rank_reg - rank_reg_prev == 0 %}
+                <td> = </td>
+            {% elif rank_reg - rank_reg_prev > 0 %}
+                <td>+{{ rank_reg - rank_reg_prev}}</td>
+            {% else %}
+                <td>{{ rank_reg - rank_reg_prev}}</td>
+            {% endif %}
+
+            <td>{{ loop.index }}</td>
+            <td>{{ ranks[city_pi[0]] }}</td>
+            {% if ranks[city_pi[0]] is defined %}
+                {% if ranks[city_pi[0]]-loop.index == 0 %}
+                    <td> = </td>
+                {% elif ranks[city_pi[0]]-loop.index > 0 %}
+                    <td>+{{ ranks[city_pi[0]]-loop.index}}</td>
+                {% else %}
+                    <td>{{ ranks[city_pi[0]]-loop.index}}</td>
+                {% endif %}
+            {% endif %}
