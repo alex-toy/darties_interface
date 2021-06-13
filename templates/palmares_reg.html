@@ -116,7 +116,7 @@
                 <td> {{ loop.index }}</td>
                 <td> {{ rank_prev[mag[0]] }}</td>
 
-                {% set ecart_nat = loop.index - rank_prev[mag[0]] if mag[0] in rank_prev.keys() else loop.index %}
+                {% set ecart_nat = loop.index - rank_prev[mag[0]] if mag[0] in rank_prev.keys() else 0 %}
                 {% if ecart_nat < 0 %} 
                     <td bgcolor="red"> {{ ecart_nat }}</td>
                 {% elif ecart_nat > 0 %} 
@@ -128,7 +128,7 @@
                 <td> {{ rank_reg[mag[0]] }}</td>
                 <td> {{ rank_reg_prev[mag[0]] }}</td>
 
-                {% set ecart_reg = rank_reg[mag[0]] - rank_reg_prev[mag[0]] if mag[0] in rank_reg_prev.keys() else rank_reg[mag[0]] %}
+                {% set ecart_reg = rank_reg[mag[0]] - rank_reg_prev[mag[0]] if mag[0] in rank_reg_prev.keys() else 0 %}
                 {% if ecart_reg < 0 %} 
                     <td bgcolor="red"> {{ ecart_reg }}</td>
                 {% elif ecart_reg > 0 %} 
