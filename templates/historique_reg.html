@@ -15,11 +15,11 @@
 
 
     <div class="filtre">
-        <form action={{ "/historique/" ~ region_id }} method="POST" style="text-align:center;">
+        <form action={{ "/historique/" ~ region_id if region_id else 0 }} method="POST" style="text-align:center;">
             
             <select style="width:200px;height:30px" name="mois" id="mois-select">
                 <option value="2|fevrier">--Choix du mois--</option>
-                <option value="2|fevrier">février</option>
+                <option value="2|fevrier">février{{region_id}}</option>
                 <option value="3|mars">mars</option>
                 <option value="4|avril">avril</option>
                 <option value="5|mai">mai</option>
