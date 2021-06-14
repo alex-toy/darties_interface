@@ -257,21 +257,21 @@
             style="background-image:url('../static/images/export_pdf.png');">  
         <i class="fa"></i></button>
 
-        {% if location == 'historique' %} 
+        {% if location == 'historique' or location == 'historique_reg' %} 
             <button 
-                onclick="exportTableToExcel('historique_table')"
+                onclick="exportTableToExcel('historique_table', 'historique')"
                 class="btn" 
                 style="background-image:url('../static/images/export_xls.png');">
             <i class="fa"></i></button>
         {% elif location == 'palmares' %}
             <button 
-                onclick="exportTableToExcel('palmares_table')"
+                onclick="exportTableToExcel('palmares_table', 'palmares')"
                 class="btn" 
                 style="background-image:url('../static/images/export_xls.png');">
             <i class="fa"></i></button>
         {% elif location == 'details' %}
             <button 
-                onclick="exportTableToExcel('details_table')"
+                onclick="exportTableToExcel('details_table', 'details')"
                 class="btn" 
                 style="background-image:url('../static/images/export_xls.png');">
             <i class="fa"></i></button>
