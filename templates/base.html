@@ -263,13 +263,13 @@
                 class="btn" 
                 style="background-image:url('../static/images/export_xls.png');">
             <i class="fa"></i></button>
-        {% elif location == 'palmares' %}
+        {% elif location == 'palmares' or location == 'palmares_reg' %}
             <button 
                 onclick="exportTableToExcel('palmares_table', 'palmares')"
                 class="btn" 
                 style="background-image:url('../static/images/export_xls.png');">
             <i class="fa"></i></button>
-        {% elif location == 'details' %}
+        {% elif location == 'details' or location == 'details_reg' %}
             <button 
                 onclick="exportTableToExcel('details_table', 'details')"
                 class="btn" 
