@@ -64,15 +64,15 @@
             </tr>
             <tr>
                 <th bgcolor="#99B4D1">Hi-fi</th>
-                <td>{{ hifi_obj_cur|round|int }}</td>
-                <td>{{ hifi_reel_cur|round|int }}</td>
-                <td>{{ hifi_obj_cumul_cur|round|int }}</td>
-                <td>{{ hifi_reel_cumul_cur|round|int }}</td>
+                <td>{{ '{0:0.2f}'.format(hifi_obj_cur) }}</td>
+                <td>{{ '{0:0.2f}'.format(hifi_reel_cur) }}</td>
+                <td>{{ '{0:0.2f}'.format(hifi_obj_cumul_cur) }}</td>
+                <td>{{ '{0:0.2f}'.format(hifi_reel_cumul_cur) }}</td>
 
-                <td>{{ hifi_obj_prev|round|int }}</td>
-                <td>{{ hifi_reel_prev|round|int }}</td>
-                <td>{{ hifi_obj_cumul_prev|round|int }}</td>
-                <td>{{ hifi_reel_cumul_prev|round|int }}</td>
+                <td>{{ '{0:0.2f}'.format(hifi_obj_prev) }}</td>
+                <td>{{ '{0:0.2f}'.format(hifi_reel_prev) }}</td>
+                <td>{{ '{0:0.2f}'.format(hifi_obj_cumul_prev) }}</td>
+                <td>{{ '{0:0.2f}'.format(hifi_reel_cumul_prev) }}</td>
 
                 <td> {{ '{0:0.2f}'.format((hifi_obj_cur - hifi_obj_prev) / hifi_obj_cur * 100) }} %</td>
                 <td> {{ '{0:0.2f}'.format((hifi_reel_cur - hifi_reel_prev) / hifi_obj_cur * 100) }} %</td>
@@ -81,15 +81,15 @@
             </tr>
             <tr>
                 <th bgcolor="#99B4D1">Magnéto</th>
-                <td>{{ magneto_obj_cur|round|int }}</td>
-                <td>{{ magneto_reel_cur|round|int }}</td>
-                <td>{{ magneto_obj_cumul_cur|round|int }}</td>
-                <td>{{ magneto_reel_cumul_cur|round|int }}</td>
+                <td>{{ '{0:0.2f}'.format(magneto_obj_cur) }}</td>
+                <td>{{ '{0:0.2f}'.format(magneto_reel_cur) }}</td>
+                <td>{{ '{0:0.2f}'.format(magneto_obj_cumul_cur) }}</td>
+                <td>{{ '{0:0.2f}'.format(magneto_reel_cumul_cur) }}</td>
 
-                <td>{{ magneto_obj_prev|round|int }}</td>
-                <td>{{ magneto_reel_prev|round|int }}</td>
-                <td>{{ magneto_obj_cumul_prev|round|int }}</td>
-                <td>{{ magneto_reel_cumul_prev|round|int }}</td>
+                <td>{{ '{0:0.2f}'.format(magneto_obj_prev) }}</td>
+                <td>{{ '{0:0.2f}'.format(magneto_reel_prev) }}</td>
+                <td>{{ '{0:0.2f}'.format(magneto_obj_cumul_prev) }}</td>
+                <td>{{ '{0:0.2f}'.format(magneto_reel_cumul_prev) }}</td>
 
                 <td> {{ '{0:0.2f}'.format((magneto_obj_cur - magneto_obj_prev) / magneto_obj_cur * 100) }} %</td>
                 <td> {{ '{0:0.2f}'.format((magneto_reel_cur - magneto_reel_prev) / magneto_obj_cur * 100) }} %</td>
@@ -98,15 +98,15 @@
             </tr>
             <tr>
                 <th bgcolor="#99B4D1">Fours</th>
-                <td>{{ fours_obj_cur|round|int }}</td>
-                <td>{{ fours_reel_cur|round|int }}</td>
-                <td>{{ fours_obj_cumul_cur|round|int }}</td>
-                <td>{{ fours_reel_cumul_cur|round|int }}</td>
+                <td>{{ '{0:0.2f}'.format(fours_obj_cur) }}</td>
+                <td>{{ '{0:0.2f}'.format(fours_reel_cur) }}</td>
+                <td>{{ '{0:0.2f}'.format(fours_obj_cumul_cur) }}</td>
+                <td>{{ '{0:0.2f}'.format(fours_reel_cumul_cur) }}</td>
 
-                <td>{{ fours_obj_prev|round|int }}</td>
-                <td>{{ fours_reel_prev|round|int }}</td>
-                <td>{{ fours_obj_cumul_prev|round|int }}</td>
-                <td>{{ fours_reel_cumul_prev|round|int }}</td>
+                <td>{{ '{0:0.2f}'.format(fours_obj_prev) }}</td>
+                <td>{{ '{0:0.2f}'.format(fours_reel_prev) }}</td>
+                <td>{{ '{0:0.2f}'.format(fours_obj_cumul_prev) }}</td>
+                <td>{{ '{0:0.2f}'.format(fours_reel_cumul_prev) }}</td>
 
                 <td> {{ '{0:0.2f}'.format((fours_obj_cur - fours_obj_prev) / fours_obj_cur * 100) }} %</td>
                 <td> {{ '{0:0.2f}'.format((fours_reel_cur - fours_reel_prev) / fours_obj_cur * 100) }} %</td>
@@ -115,15 +115,15 @@
             </tr>
             <tr>
                 <th bgcolor="#99B4D1">Total</th>
-                <td>{{ (hifi_obj_cur+magneto_obj_cur+fours_obj_cur)|round|int }}</td>
-                <td>{{ (hifi_reel_cur+magneto_reel_cur+fours_reel_cur)|round|int }}</td>
-                <td>{{ (hifi_obj_cumul_cur+magneto_obj_cumul_cur+fours_obj_cumul_cur)|round|int }}</td>
-                <td>{{ (hifi_reel_cumul_cur+magneto_reel_cumul_cur+fours_reel_cumul_cur)|round|int }}</td>
+                <td>{{ '{0:0.2f}'.format(hifi_obj_cur+magneto_obj_cur+fours_obj_cur) }}</td>
+                <td>{{ '{0:0.2f}'.format(hifi_reel_cur+magneto_reel_cur+fours_reel_cur) }}</td>
+                <td>{{ '{0:0.2f}'.format(hifi_obj_cumul_cur+magneto_obj_cumul_cur+fours_obj_cumul_cur) }}</td>
+                <td>{{ '{0:0.2f}'.format(hifi_reel_cumul_cur+magneto_reel_cumul_cur+fours_reel_cumul_cur) }}</td>
 
-                <td>{{ (hifi_obj_prev+magneto_obj_prev+fours_obj_prev)|round|int }}</td>
-                <td>{{ (hifi_reel_prev+magneto_reel_prev+fours_reel_prev)|round|int }}</td>
-                <td>{{ (hifi_obj_cumul_prev+magneto_obj_cumul_prev+fours_obj_cumul_prev)|round|int }}</td>
-                <td>{{ (hifi_reel_cumul_prev+magneto_reel_cumul_prev+fours_reel_cumul_prev)|round|int }}</td>
+                <td>{{ '{0:0.2f}'.format(hifi_obj_prev+magneto_obj_prev+fours_obj_prev) }}</td>
+                <td>{{ '{0:0.2f}'.format(hifi_reel_prev+magneto_reel_prev+fours_reel_prev) }}</td>
+                <td>{{ '{0:0.2f}'.format(hifi_obj_cumul_prev+magneto_obj_cumul_prev+fours_obj_cumul_prev) }}</td>
+                <td>{{ '{0:0.2f}'.format(hifi_reel_cumul_prev+magneto_reel_cumul_prev+fours_reel_cumul_prev) }}</td>
             </tr>
         </table>
 

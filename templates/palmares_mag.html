@@ -81,34 +81,58 @@
                     <th bgcolor="#99B4D1">{{ city_pi[0] }}</th>
                     <td> {{ '{0:0.2f}'.format(city_pi[1]) }}</td>
                     <td> {{ '{0:0.2f}'.format(city_pi[2]) }}</td>
-                    <td> {{ '{0:0.2f}'.format(city_pi[2]/city_pi[1]) }}</td>
+
+                    {% set ratio_CA = city_pi[2]/city_pi[1] %}
+                    {% if ratio_CA < 1 %} 
+                        <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_CA) }}</td>
+                    {% elif ratio_CA > 1 %} 
+                        <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_CA) }}</td>
+                    {% else %} 
+                        <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_CA) }}</td>
+                    {% endif %}
                     
                     <td> {{ '{0:0.2f}'.format(city_pi[3]) }}</td>
                     <td> {{ '{0:0.2f}'.format(city_pi[4]) }}</td>
-                    <td> {{ '{0:0.2f}'.format(city_pi[4]/city_pi[3]) }}</td>
+
+                    {% set ratio_ventes = city_pi[4]/city_pi[3] %}
+                    {% if ratio_ventes < 1 %} 
+                        <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_ventes) }}</td>
+                    {% elif ratio_ventes > 1 %} 
+                        <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_ventes) }}</td>
+                    {% else %} 
+                        <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_ventes) }}</td>
+                    {% endif %}
                     
                     <td> {{ '{0:0.2f}'.format(city_pi[5]) }}</td>
                     <td> {{ '{0:0.2f}'.format(city_pi[6]) }}</td>
-                    <td> {{ '{0:0.2f}'.format(city_pi[6]/city_pi[5]) }}</td>
+
+                    {% set ratio_marges = city_pi[6]/city_pi[5] %}
+                    {% if ratio_marges < 1 %} 
+                        <td bgcolor="red"> {{ '{0:0.2f}'.format(ratio_marges) }}</td>
+                    {% elif ratio_marges > 1 %} 
+                        <td bgcolor="green"> {{ '{0:0.2f}'.format(ratio_marges) }}</td>
+                    {% else %} 
+                        <td bgcolor="yellow"> {{ '{0:0.2f}'.format(ratio_marges) }}</td>
+                    {% endif %}
 
                     <td>{{rank}} </td>
                     <td>{{rank_prev}} </td>
                     {% if rank - rank_prev == 0 %}
-                        <td> = </td>
+                        <td bgcolor="yellow"> = </td>
                     {% elif rank - rank_prev > 0 %}
-                        <td>+{{ rank - rank_prev}}</td>
+                        <td bgcolor="green">+{{ rank - rank_prev}}</td>
                     {% else %}
-                        <td>{{ rank - rank_prev}}</td>
+                        <td bgcolor="red">{{ rank - rank_prev}}</td>
                     {% endif %}
                     
                     <td>{{rank_reg}} </td>
                     <td>{{rank_reg_prev}} </td>
                     {% if rank_reg - rank_reg_prev == 0 %}
-                        <td> = </td>
+                        <td bgcolor="yellow"> = </td>
                     {% elif rank_reg - rank_reg_prev > 0 %}
-                        <td>+{{ rank_reg - rank_reg_prev}}</td>
+                        <td bgcolor="green">+{{ rank_reg - rank_reg_prev}}</td>
                     {% else %}
-                        <td>{{ rank_reg - rank_reg_prev}}</td>
+                        <td bgcolor="red">{{ rank_reg - rank_reg_prev}}</td>
                     {% endif %}
                 </tr>
             {% endif %}
