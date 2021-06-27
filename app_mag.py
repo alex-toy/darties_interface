@@ -23,7 +23,7 @@ def accueil_magasin(id_mag):
 
     id_reg = region_containing(id_mag)
 
-    if not (current_user.id_profil == 1) and (not current_user.id_magasin == id_mag) and (not current_user.id_region == id_reg) :
+    if (not (current_user.id_profil == 1) and (not current_user.id_magasin == id_mag) and (not current_user.id_region == id_reg)) or id_reg == None :
         flash("Vous n'êtes pas autorisé à acceder à cette partie de l'application.")
         return redirect(url_for('auth.login'))
 
